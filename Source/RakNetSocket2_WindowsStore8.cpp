@@ -8,7 +8,7 @@
  *
  */
 
-#include "EmptyHeader.h"
+//#include "EmptyHeader.h"
 
 #ifdef RAKNET_SOCKET_2_INLINE_FUNCTIONS
 
