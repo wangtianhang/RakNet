@@ -268,15 +268,7 @@
     <ClCompile Include="..\..\Source\Rackspace.cpp" />
     <ClCompile Include="..\..\Source\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_360_720.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_NativeClient.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_WindowsStore8.cpp" />
     <ClCompile Include="..\..\Source\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\RakNetTransport2.cpp" />
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
