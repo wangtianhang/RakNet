@@ -250,11 +250,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp" />
-    <ClCompile Include="..\..\Source\NatPunchthroughClient.cpp" />
-    <ClCompile Include="..\..\Source\NatPunchthroughServer.cpp" />
-    <ClCompile Include="..\..\Source\NatTypeDetectionClient.cpp" />
-    <ClCompile Include="..\..\Source\NatTypeDetectionCommon.cpp" />
-    <ClCompile Include="..\..\Source\NatTypeDetectionServer.cpp" />
     <ClCompile Include="..\..\Source\NetworkIDManager.cpp" />
     <ClCompile Include="..\..\Source\NetworkIDObject.cpp" />
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp" />
@@ -344,11 +339,6 @@
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
-    <ClInclude Include="..\..\Source\NatPunchthroughClient.h" />
-    <ClInclude Include="..\..\Source\NatPunchthroughServer.h" />
-    <ClInclude Include="..\..\Source\NatTypeDetectionClient.h" />
-    <ClInclude Include="..\..\Source\NatTypeDetectionCommon.h" />
-    <ClInclude Include="..\..\Source\NatTypeDetectionServer.h" />
     <ClInclude Include="..\..\Source\NetworkIDManager.h" />
     <ClInclude Include="..\..\Source\NetworkIDObject.h" />
     <ClInclude Include="..\..\Source\PacketizedTCP.h" />
@@ -356,7 +346,6 @@
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
     <ClInclude Include="..\..\Source\RakNetCommandParser.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
-    <ClInclude Include="..\..\Source\RakNetSmartPtr.h" />
     <ClInclude Include="..\..\Source\RakNetSocket2.h" />
     <ClInclude Include="..\..\Source\RakNetTransport2.h" />
     <ClInclude Include="..\..\Source\RakNetTypes.h" />
