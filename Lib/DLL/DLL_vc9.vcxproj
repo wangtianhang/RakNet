@@ -213,7 +213,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
-    <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
@@ -252,7 +251,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
-    <ClInclude Include="..\..\Source\CommandParserInterface.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BPlusTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BytePool.h" />
@@ -320,7 +318,6 @@
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
-    <ClInclude Include="..\..\Source\TransportInterface.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>

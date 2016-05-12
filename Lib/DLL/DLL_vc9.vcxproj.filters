@@ -32,9 +32,6 @@
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\CommandParserInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\PluginInterface2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -205,9 +202,6 @@
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\CommandParserInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\InternalPacket.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -260,9 +254,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TCPInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TransportInterface.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
