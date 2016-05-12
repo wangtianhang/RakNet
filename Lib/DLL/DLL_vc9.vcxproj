@@ -255,7 +255,6 @@
     <ClCompile Include="..\..\Source\PacketLogger.cpp" />
     <ClCompile Include="..\..\Source\PacketOutputWindowLogger.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
-    <ClCompile Include="..\..\Source\Rackspace.cpp" />
     <ClCompile Include="..\..\Source\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
@@ -368,7 +367,6 @@
     <ClInclude Include="..\..\Source\PacketOutputWindowLogger.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
-    <ClInclude Include="..\..\Source\Rackspace.h" />
     <ClInclude Include="..\..\Source\RakAlloca.h" />
     <ClInclude Include="..\..\Source\RakAssert.h" />
     <ClInclude Include="..\..\Source\RakMemoryOverride.h" />
