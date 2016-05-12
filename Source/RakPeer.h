@@ -33,7 +33,7 @@
 #include "DS_ThreadsafeAllocatingQueue.h"
 #include "SignaledEvent.h"
 #include "NativeFeatureIncludes.h"
-#include "SecureHandshake.h"
+//#include "SecureHandshake.h"
 #include "LocklessTypes.h"
 #include "DS_Queue.h"
 

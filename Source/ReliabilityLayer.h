@@ -35,7 +35,7 @@
 #include "DS_Heap.h"
 #include "BitStream.h"
 #include "NativeFeatureIncludes.h"
-#include "SecureHandshake.h"
+//#include "SecureHandshake.h"
 #include "PluginInterface2.h"
 #include "Rand.h"
 #include "RakNetSocket2.h"

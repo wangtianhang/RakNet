@@ -277,8 +277,6 @@
     <ClCompile Include="..\..\Source\ReadyEvent.cpp" />
     <ClCompile Include="..\..\Source\RelayPlugin.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
-    <ClCompile Include="..\..\Source\ReplicaManager3.cpp" />
-    <ClCompile Include="..\..\Source\SecureHandshake.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
@@ -382,9 +380,6 @@
     <ClInclude Include="..\..\Source\ReadyEvent.h" />
     <ClInclude Include="..\..\Source\RelayPlugin.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
-    <ClInclude Include="..\..\Source\ReplicaEnums.h" />
-    <ClInclude Include="..\..\Source\ReplicaManager3.h" />
-    <ClInclude Include="..\..\Source\SecureHandshake.h" />
     <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />

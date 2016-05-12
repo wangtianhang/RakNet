@@ -125,12 +125,6 @@
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\ReplicaManager3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\SecureHandshake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\SocketLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -416,15 +410,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ReliabilityLayer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ReplicaEnums.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ReplicaManager3.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SecureHandshake.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SocketDefines.h">
