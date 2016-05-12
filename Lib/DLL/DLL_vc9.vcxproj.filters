@@ -65,12 +65,6 @@
     <ClCompile Include="..\..\Source\SocketLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TCPInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -78,9 +72,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakWString.cpp">
@@ -123,6 +114,15 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TCPInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
@@ -196,9 +196,6 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h">
       <Filter>Source Files\DataStruct</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -253,9 +250,6 @@
     <ClInclude Include="..\..\Source\SocketLayer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TCPInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -278,9 +272,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakString.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h">
@@ -329,6 +320,15 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\LocklessTypes.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TCPInterface.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
