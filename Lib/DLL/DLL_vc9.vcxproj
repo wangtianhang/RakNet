@@ -291,8 +291,6 @@
     <ClCompile Include="..\..\Source\UDPProxyClient.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyCoordinator.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyServer.cpp" />
-    <ClCompile Include="..\..\Source\VariableDeltaSerializer.cpp" />
-    <ClCompile Include="..\..\Source\VariableListDeltaTracker.cpp" />
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -413,8 +411,6 @@
     <ClInclude Include="..\..\Source\UDPProxyCommon.h" />
     <ClInclude Include="..\..\Source\UDPProxyCoordinator.h" />
     <ClInclude Include="..\..\Source\UDPProxyServer.h" />
-    <ClInclude Include="..\..\Source\VariableDeltaSerializer.h" />
-    <ClInclude Include="..\..\Source\VariableListDeltaTracker.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>
