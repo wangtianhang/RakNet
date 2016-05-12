@@ -131,9 +131,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -143,16 +140,10 @@
     <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\FormatString.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp">
@@ -164,11 +155,11 @@
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\LogCommandParser.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -331,9 +322,6 @@
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -385,9 +373,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -400,9 +385,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -410,9 +392,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Export.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\FormatString.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h">
@@ -426,6 +405,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\LogCommandParser.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
