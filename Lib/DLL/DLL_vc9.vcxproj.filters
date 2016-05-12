@@ -41,9 +41,6 @@
     <ClCompile Include="..\..\Source\LocklessTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MessageFilter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\NatPunchthroughClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -290,9 +287,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\LocklessTypes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MessageFilter.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MessageIdentifiers.h">

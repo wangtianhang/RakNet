@@ -220,7 +220,6 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
-    <ClCompile Include="..\..\Source\MessageFilter.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp" />
@@ -304,7 +303,6 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\LocklessTypes.h" />
-    <ClInclude Include="..\..\Source\MessageFilter.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h" />
