@@ -38,13 +38,7 @@
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PacketizedTCP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\PluginInterface2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetCommandParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp">
@@ -60,9 +54,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetTransport2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetTypes.cpp">
@@ -102,9 +93,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\SendToThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\SignaledEvent.cpp">
@@ -250,25 +238,16 @@
     <ClInclude Include="..\..\Source\NativeTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PacketizedTCP.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PacketPriority.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginInterface2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetCommandParser.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakNetDefines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetSocket2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetTransport2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetTypes.h">
@@ -335,9 +314,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RefCountedObj.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\SendToThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h">
