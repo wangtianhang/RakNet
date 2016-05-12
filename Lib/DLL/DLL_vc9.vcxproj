@@ -302,14 +302,12 @@
     <ClCompile Include="..\..\Source\TeamManager.cpp" />
     <ClCompile Include="..\..\Source\TelnetTransport.cpp" />
     <ClCompile Include="..\..\Source\ThreadsafePacketLogger.cpp" />
-    <ClCompile Include="..\..\Source\TwoWayAuthentication.cpp" />
     <ClCompile Include="..\..\Source\UDPForwarder.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyClient.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyCoordinator.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyServer.cpp" />
     <ClCompile Include="..\..\Source\VariableDeltaSerializer.cpp" />
     <ClCompile Include="..\..\Source\VariableListDeltaTracker.cpp" />
-    <ClCompile Include="..\..\Source\VariadicSQLParser.cpp" />
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -443,7 +441,6 @@
     <ClInclude Include="..\..\Source\ThreadPool.h" />
     <ClInclude Include="..\..\Source\ThreadsafePacketLogger.h" />
     <ClInclude Include="..\..\Source\TransportInterface.h" />
-    <ClInclude Include="..\..\Source\TwoWayAuthentication.h" />
     <ClInclude Include="..\..\Source\UDPForwarder.h" />
     <ClInclude Include="..\..\Source\UDPProxyClient.h" />
     <ClInclude Include="..\..\Source\UDPProxyCommon.h" />
@@ -451,7 +448,6 @@
     <ClInclude Include="..\..\Source\UDPProxyServer.h" />
     <ClInclude Include="..\..\Source\VariableDeltaSerializer.h" />
     <ClInclude Include="..\..\Source\VariableListDeltaTracker.h" />
-    <ClInclude Include="..\..\Source\VariadicSQLParser.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>

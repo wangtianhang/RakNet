@@ -272,9 +272,6 @@
     <ClCompile Include="..\..\Source\ThreadsafePacketLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TwoWayAuthentication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\UDPForwarder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -291,9 +288,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\VariableListDeltaTracker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\VariadicSQLParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
@@ -703,9 +697,6 @@
     <ClInclude Include="..\..\Source\TransportInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TwoWayAuthentication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\UDPForwarder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -725,9 +716,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\VariableListDeltaTracker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\VariadicSQLParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
