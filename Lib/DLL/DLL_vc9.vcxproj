@@ -273,9 +273,6 @@
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
     <ClCompile Include="..\..\Source\RakSleep.cpp" />
-    <ClCompile Include="..\..\Source\RandSync.cpp" />
-    <ClCompile Include="..\..\Source\ReadyEvent.cpp" />
-    <ClCompile Include="..\..\Source\RelayPlugin.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
@@ -376,9 +373,6 @@
     <ClInclude Include="..\..\Source\RakPeer.h" />
     <ClInclude Include="..\..\Source\RakPeerInterface.h" />
     <ClInclude Include="..\..\Source\RakSleep.h" />
-    <ClInclude Include="..\..\Source\RandSync.h" />
-    <ClInclude Include="..\..\Source\ReadyEvent.h" />
-    <ClInclude Include="..\..\Source\RelayPlugin.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
     <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
