@@ -29,78 +29,6 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
       <Filter>Source Files\DataStruct</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\FormatString.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakWString.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\SendToThread.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\TableSerializer.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\SignaledEvent.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -120,9 +48,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Gets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GridSectorizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\LocklessTypes.cpp">
@@ -152,19 +77,7 @@
     <ClCompile Include="..\..\Source\NetworkIDObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PacketConsoleLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PacketFileLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PacketLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PacketOutputWindowLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginInterface2.cpp">
@@ -186,9 +99,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetStatistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetTransport2.cpp">
@@ -233,7 +143,91 @@
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\PacketConsoleLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\PacketFileLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\PacketLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\PacketOutputWindowLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakWString.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SendToThread.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SignaledEvent.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\FormatString.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
@@ -307,90 +301,6 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h">
       <Filter>Source Files\DataStruct</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\Export.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\FormatString.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakString.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\Rand.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\SendToThread.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\TableSerializer.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -413,9 +323,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Gets.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GridSectorizer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\InternalPacket.h">
@@ -463,19 +370,7 @@
     <ClInclude Include="..\..\Source\NetworkIDObject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PacketConsoleLogger.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PacketFileLogger.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PacketizedTCP.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PacketLogger.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PacketOutputWindowLogger.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PacketPriority.h">
@@ -496,19 +391,10 @@
     <ClInclude Include="..\..\Source\RakNetSocket2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetStatistics.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetTime.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakNetTransport2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetTypes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetVersion.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakPeer.h">
@@ -524,9 +410,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ReadyEvent.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RefCountedObj.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RelayPlugin.h">
@@ -564,6 +447,111 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\PacketConsoleLogger.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\PacketFileLogger.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\PacketLogger.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\PacketOutputWindowLogger.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakNetTime.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakNetVersion.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakString.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\Rand.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RefCountedObj.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SendToThread.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\Export.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\FormatString.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Itoa.h">
       <Filter>Source Files\Miscellaneous</Filter>
