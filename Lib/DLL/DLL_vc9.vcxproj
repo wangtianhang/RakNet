@@ -211,6 +211,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
     <ClCompile Include="..\..\Source\_FindFirst.cpp" />
     <ClCompile Include="..\..\Source\Base64Encoder.cpp" />
     <ClCompile Include="..\..\Source\BitStream.cpp" />
@@ -264,7 +268,6 @@
     <ClCompile Include="..\..\Source\PacketLogger.cpp" />
     <ClCompile Include="..\..\Source\PacketOutputWindowLogger.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
-    <ClCompile Include="..\..\Source\PS4Includes.cpp" />
     <ClCompile Include="..\..\Source\Rackspace.cpp" />
     <ClCompile Include="..\..\Source\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />

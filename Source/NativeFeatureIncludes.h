@@ -10,7 +10,7 @@
 
 // If you want to change these defines, put them in NativeFeatureIncludesOverrides so your changes are not lost when updating RakNet
 // The user should not edit this file
-#include "NativeFeatureIncludesOverrides.h"
+//#include "NativeFeatureIncludesOverrides.h"
 
 #ifndef __NATIVE_FEATURE_INCLDUES_H
 #define __NATIVE_FEATURE_INCLDUES_H
