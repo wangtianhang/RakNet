@@ -221,9 +221,6 @@
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
     <ClCompile Include="..\..\Source\CCRakNetUDT.cpp" />
     <ClCompile Include="..\..\Source\CheckSum.cpp" />
-    <ClCompile Include="..\..\Source\CloudClient.cpp" />
-    <ClCompile Include="..\..\Source\CloudCommon.cpp" />
-    <ClCompile Include="..\..\Source\CloudServer.cpp" />
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
     <ClCompile Include="..\..\Source\ConnectionGraph2.cpp" />
     <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
@@ -319,9 +316,6 @@
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
     <ClInclude Include="..\..\Source\CCRakNetUDT.h" />
     <ClInclude Include="..\..\Source\CheckSum.h" />
-    <ClInclude Include="..\..\Source\CloudClient.h" />
-    <ClInclude Include="..\..\Source\CloudCommon.h" />
-    <ClInclude Include="..\..\Source\CloudServer.h" />
     <ClInclude Include="..\..\Source\CommandParserInterface.h" />
     <ClInclude Include="..\..\Source\ConnectionGraph2.h" />
     <ClInclude Include="..\..\Source\ConsoleServer.h" />
