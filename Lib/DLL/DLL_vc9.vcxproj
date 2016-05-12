@@ -85,7 +85,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\DataStruct;..\..\Source\DataStruct;..\..\Source\Miscellaneous;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Source\DataStruct;..\..\Source\Miscellaneous;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -293,7 +293,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Rand.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\RefCountedObj.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h" />

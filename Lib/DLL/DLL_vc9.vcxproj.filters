@@ -280,9 +280,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\Rand.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RefCountedObj.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
