@@ -285,8 +285,6 @@
     <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\TableSerializer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
-    <ClCompile Include="..\..\Source\TeamBalancer.cpp" />
-    <ClCompile Include="..\..\Source\TeamManager.cpp" />
     <ClCompile Include="..\..\Source\TelnetTransport.cpp" />
     <ClCompile Include="..\..\Source\ThreadsafePacketLogger.cpp" />
     <ClCompile Include="..\..\Source\UDPForwarder.cpp" />
@@ -406,8 +404,6 @@
     <ClInclude Include="..\..\Source\SuperFastHash.h" />
     <ClInclude Include="..\..\Source\TableSerializer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
-    <ClInclude Include="..\..\Source\TeamBalancer.h" />
-    <ClInclude Include="..\..\Source\TeamManager.h" />
     <ClInclude Include="..\..\Source\TelnetTransport.h" />
     <ClInclude Include="..\..\Source\ThreadPool.h" />
     <ClInclude Include="..\..\Source\ThreadsafePacketLogger.h" />

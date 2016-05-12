@@ -203,15 +203,6 @@
     <ClCompile Include="..\..\Source\TableSerializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TCPInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TeamBalancer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TeamManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\TelnetTransport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -265,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
       <Filter>Source Files\DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TCPInterface.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -523,15 +517,6 @@
     <ClInclude Include="..\..\Source\TableSerializer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TCPInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TeamBalancer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TeamManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\TelnetTransport.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -636,6 +621,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h">
       <Filter>Source Files\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TCPInterface.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
