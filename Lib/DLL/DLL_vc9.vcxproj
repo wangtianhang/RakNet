@@ -215,7 +215,6 @@
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
-    <ClCompile Include="..\..\Source\_FindFirst.cpp" />
     <ClCompile Include="..\..\Source\Base64Encoder.cpp" />
     <ClCompile Include="..\..\Source\BitStream.cpp" />
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
@@ -306,7 +305,6 @@
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\_FindFirst.h" />
     <ClInclude Include="..\..\Source\AutopatcherPatchContext.h" />
     <ClInclude Include="..\..\Source\AutopatcherRepositoryInterface.h" />
     <ClInclude Include="..\..\Source\Base64Encoder.h" />

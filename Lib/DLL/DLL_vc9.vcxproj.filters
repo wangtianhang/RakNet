@@ -11,9 +11,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\_FindFirst.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Base64Encoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -292,9 +289,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\_FindFirst.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\AutopatcherPatchContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
