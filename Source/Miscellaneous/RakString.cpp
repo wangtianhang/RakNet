@@ -449,7 +449,7 @@ void RakString::SetChar( unsigned index, RakNet::RakString s )
 	*this += secondHalf;
 }
 
-#ifdef _WIN32
+#if defined(_WIN32)
 WCHAR * RakString::ToWideChar(void)
 {
 	//
@@ -1171,7 +1171,7 @@ RakNet::RakString& RakString::MakeFilePath(void)
 	fixedString.Clone();
 	for (int i=0; fixedString.sharedString->c_str[i]; i++)
 	{
-#ifdef _WIN32
+#if defined(_WIN32)
 		if (fixedString.sharedString->c_str[i]=='/')
 			fixedString.sharedString->c_str[i]='\\';
 #else
@@ -1180,7 +1180,7 @@ RakNet::RakString& RakString::MakeFilePath(void)
 #endif
 	}
 
-#ifdef _WIN32
+#if defined(_WIN32)
 	if (fixedString.sharedString->c_str[strlen(fixedString.sharedString->c_str)-1]!='\\')
 	{
 		fixedString+='\\';
@@ -1375,7 +1375,7 @@ void RakString::Assign(const char *str, va_list ap)
 
 	char stackBuff[512];
 	if (_vsnprintf(stackBuff, 512, str, ap)!=-1
-#ifndef _WIN32
+#if !defined(_WIN32)
 		// Here Windows will return -1 if the string is too long; Linux just truncates the string.
 		&& strlen(str) <511
 #endif

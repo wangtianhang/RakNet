@@ -18,7 +18,7 @@
 #include "stdarg.h"
 
 
-#ifdef _WIN32
+#if defined(_WIN32)
 
 
 
@@ -77,7 +77,7 @@ public:
 	/// Character index. Do not use to change the string however.
 	unsigned char operator[] ( const unsigned int position ) const;
 
-#ifdef _WIN32
+#if defined(_WIN32)
 	// Return as Wide char
 	// Deallocate with DeallocWideChar
 	WCHAR * ToWideChar(void);

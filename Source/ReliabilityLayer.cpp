@@ -230,7 +230,7 @@ struct DatagramHeaderFormat
 #pragma warning(disable:4702)   // unreachable code
 #endif
 
-#ifdef _WIN32
+#if defined(_WIN32)
 //#define _DEBUG_LOGGER
 #ifdef _DEBUG_LOGGER
 #include "WindowsIncludes.h"

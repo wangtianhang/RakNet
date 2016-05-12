@@ -15,7 +15,7 @@
 #include "RakNetTypes.h" // int64_t
 #include "RakString.h"
 
-#ifdef _WIN32
+#if defined(_WIN32)
 
 
 

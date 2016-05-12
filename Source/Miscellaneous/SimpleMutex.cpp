@@ -91,7 +91,7 @@ SimpleMutex::~SimpleMutex()
 
 }
 
-#ifdef _WIN32
+#if defined(_WIN32)
 #ifdef _DEBUG
 #include <stdio.h>
 #endif
@@ -102,7 +102,7 @@ void SimpleMutex::Lock(void)
 // 	if (isInitialized==false)
 // 		Init();
 
-#ifdef _WIN32
+#if defined(_WIN32)
 	/*
 	DWORD d = WaitForSingleObject(hMutex, INFINITE);
 	#ifdef _DEBUG

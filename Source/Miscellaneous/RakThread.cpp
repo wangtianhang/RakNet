@@ -44,7 +44,7 @@ int RakThread::Create( unsigned __stdcall start_address( void* ), void *arglist,
 int RakThread::Create( void* start_address( void* ), void *arglist, int priority)
 #endif
 {
-#ifdef _WIN32
+#if defined(_WIN32)
 	HANDLE threadHandle;
 	unsigned threadID = 0;
 

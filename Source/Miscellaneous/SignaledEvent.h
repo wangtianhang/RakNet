@@ -45,7 +45,7 @@ public:
 	void WaitOnEvent(int timeoutMs);
 
 protected:
-#ifdef _WIN32
+#if defined(_WIN32)
 	HANDLE eventList;
 
 
