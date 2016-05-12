@@ -61,7 +61,7 @@ public:
 
 private:
 	void Init(void);
-#if defined(_WIN32)
+#if 1
 	CRITICAL_SECTION criticalSection; /// Docs say this is faster than a mutex for single process access
 
 

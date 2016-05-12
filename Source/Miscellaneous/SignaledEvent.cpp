@@ -25,7 +25,7 @@ using namespace RakNet;
 
 SignaledEvent::SignaledEvent()
 {
-#ifdef _WIN32
+#if 1
 	eventList=INVALID_HANDLE_VALUE;
 
 
@@ -68,7 +68,7 @@ void SignaledEvent::InitEvent(void)
 
 void SignaledEvent::CloseEvent(void)
 {
-#ifdef _WIN32
+#if 1
 	if (eventList!=INVALID_HANDLE_VALUE)
 	{
 		CloseHandle(eventList);
@@ -95,7 +95,7 @@ void SignaledEvent::CloseEvent(void)
 
 void SignaledEvent::SetEvent(void)
 {
-#ifdef _WIN32
+#if 1
 	::SetEvent(eventList);
 
 
@@ -121,7 +121,7 @@ void SignaledEvent::SetEvent(void)
 
 void SignaledEvent::WaitOnEvent(int timeoutMs)
 {
-#ifdef _WIN32
+#if 1
 //	WaitForMultipleObjects(
 //		2,
 //		eventList,

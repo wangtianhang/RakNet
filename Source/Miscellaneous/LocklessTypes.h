@@ -34,7 +34,7 @@ public:
 	uint32_t GetValue(void) const {return value;}
 
 protected:
-#ifdef _WIN32
+#if 1
 	volatile LONG value;
 #elif defined(ANDROID) || defined(__S3E__) || defined(__APPLE__)
 	// __sync_fetch_and_add not supported apparently

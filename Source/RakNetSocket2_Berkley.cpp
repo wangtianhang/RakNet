@@ -47,7 +47,7 @@ void RNS2_Berkley::SetSocketOptions(void)
 
 void RNS2_Berkley::SetNonBlockingSocket(unsigned long nonblocking)
 {
-#ifdef _WIN32
+#if 1
 		int res = ioctlsocket__( rns2Socket, FIONBIO, &nonblocking );
 		RakAssert(res==0);
 

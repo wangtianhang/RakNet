@@ -48,7 +48,7 @@
 #endif
 
 // MSWin uses _copysign, others use copysign...
-#if defined(_WIN32)
+#if 1
 #define _copysign copysign
 #endif
 

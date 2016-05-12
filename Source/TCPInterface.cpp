@@ -18,7 +18,7 @@
 
 
 #include "TCPInterface.h"
-#ifdef _WIN32
+#if 1
 	#if !defined (WINDOWS_STORE_RT)
 		typedef int socklen_t;
 	#endif
@@ -46,7 +46,7 @@
 #ifdef _DO_PRINTF
 #endif
 
-#ifdef _WIN32
+#if 1
 #include "WSAStartupSingleton.h"
 #endif
 namespace RakNet
@@ -78,14 +78,14 @@ TCPInterface::TCPInterface()
 	meth=0;
 #endif
 
-#ifdef _WIN32
+#if 1
 	WSAStartupSingleton::AddRef();
 #endif
 }
 TCPInterface::~TCPInterface()
 {
 	Stop();
-#ifdef _WIN32
+#if 1
 	WSAStartupSingleton::Deref();
 #endif
 
@@ -267,7 +267,7 @@ void TCPInterface::Stop(void)
 	if (listenSocket!=0)
 #endif
 	{
-#ifdef _WIN32
+#if 1
 		shutdown__(listenSocket, SD_BOTH);
 
 #else		

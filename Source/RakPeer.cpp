@@ -19,7 +19,7 @@
 #include "RakPeer.h"
 #include "RakNetTypes.h"
 
-#ifdef _WIN32
+#if 1
 
 #else
 #include <unistd.h>

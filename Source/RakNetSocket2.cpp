@@ -19,7 +19,7 @@
 
 using namespace RakNet;
 
-#ifdef _WIN32
+#if 1
 #else
 #include <unistd.h>
 #include <fcntl.h>

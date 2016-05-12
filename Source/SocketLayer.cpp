@@ -40,7 +40,7 @@ using namespace pp;
 
 //SocketLayerOverride *SocketLayer::slo=0;
 
-#if defined(_WIN32)
+#if 1
 #else
 #include <string.h> // memcpy
 #include <unistd.h>
@@ -138,7 +138,7 @@ void SocketLayer::SetSocketOptions( __UDPSOCKET__ listenSocket, bool blockingSoc
 
 	if (blockingSocket==false)
 	{
-#if defined(_WIN32)
+#if 1
 		unsigned long nonblocking = 1;
 		ioctlsocket__(listenSocket, FIONBIO, &nonblocking );
 

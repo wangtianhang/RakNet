@@ -35,7 +35,7 @@ using namespace ThreadEmulation;
 
 void RakSleep(unsigned int ms)
 {
-#if defined(_WIN32)
+#if 1
 	Sleep(ms);
 
 
