@@ -71,7 +71,7 @@ using namespace pp;
 
 
 
-#if   defined(_WIN32)
+#if   1
 #include "WSAStartupSingleton.h"
 #include "WindowsIncludes.h"
 
@@ -155,7 +155,7 @@ void SocketLayer::SetSocketOptions( __UDPSOCKET__ listenSocket, bool blockingSoc
 		sock_opt=1;
 		if ( setsockopt__(listenSocket, SOL_SOCKET, SO_BROADCAST, ( char * ) & sock_opt, sizeof( sock_opt ) ) == -1 )
 		{
-#if defined(_WIN32) && defined(_DEBUG)
+#if 1 && defined(_DEBUG)
 #if  !defined(WINDOWS_PHONE_8)
 			DWORD dwIOError = GetLastError();
 			// On Vista, can get WSAEACCESS (10013)
@@ -193,7 +193,7 @@ RakNet::RakString SocketLayer::GetSubNetForSocketAndIp(__UDPSOCKET__ inSock, Rak
 #if   defined(WINDOWS_STORE_RT)
 	RakAssert("Not yet supported" && 0);
 	return "";
-#elif defined(_WIN32)
+#elif 1
 	INTERFACE_INFO InterfaceList[20];
 	unsigned long nBytesReturned;
 	if (WSAIoctl(inSock, SIO_GET_INTERFACE_LIST, 0, 0, &InterfaceList,
@@ -361,7 +361,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 	char ac[ 80 ];
 	if ( gethostname( ac, sizeof( ac ) ) == -1 )
 	{
- #if defined(_WIN32) && !defined(WINDOWS_PHONE_8)
+ #if 1 && !defined(WINDOWS_PHONE_8)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -403,7 +403,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 
 	if ( phe == 0 )
 	{
- #if defined(_WIN32) && !defined(WINDOWS_PHONE_8)
+ #if 1 && !defined(WINDOWS_PHONE_8)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -447,7 +447,7 @@ void SocketLayer::GetMyIP( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_ID
 
 #if   defined(WINDOWS_STORE_RT)
 	GetMyIP_WinRT(addresses);
-#elif defined(_WIN32)
+#elif 1
 	GetMyIP_Win32(addresses);
 #else
 //	GetMyIP_Linux(addresses);
@@ -480,7 +480,7 @@ void SocketLayer::GetSystemAddress_Old ( __UDPSOCKET__ s, SystemAddress *systemA
 	socklen_t len = sizeof(sa);
 	if (getsockname__(s, (sockaddr*)&sa, &len)!=0)
 	{
-#if defined(_WIN32) && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
+#if 1 && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -517,7 +517,7 @@ void SocketLayer::GetSystemAddress ( __UDPSOCKET__ s, SystemAddress *systemAddre
 
 	if (getsockname__(s, (struct sockaddr *)&ss, &slen)!=0)
 	{
-#if defined(_WIN32) && defined(_DEBUG)
+#if 1 && defined(_DEBUG)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,

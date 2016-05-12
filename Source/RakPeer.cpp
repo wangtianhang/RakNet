@@ -78,7 +78,7 @@ RAK_THREAD_DECLARATION(UDTConnect);
 
 
 
-#if   defined(_WIN32)
+#if   1
 //
 #else
 /*
@@ -386,7 +386,7 @@ StartupResult RakPeer::Startup( unsigned int maxConnections, SocketDescriptor *s
 	{
 
 
-#if   defined(_WIN32)
+#if   1
 		threadPriority=0;
 
 
@@ -4495,7 +4495,7 @@ uint64_t RakPeerInterface::Get64BitUniqueRandomNumber(void)
 
 
 
-#if   defined(_WIN32)
+#if   1
 	uint64_t g=RakNet::GetTimeUS();
 
 	RakNet::TimeUS lastTime, thisTime;
@@ -5586,7 +5586,7 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 	// This is here so RecvFromBlocking actually gets data from the same thread
 
 	#if   defined(WINDOWS_STORE_RT)
-	#elif defined(_WIN32)
+	#elif 1
 		if (socketList[0]->GetSocketType()==RNS2T_WINDOWS && ((RNS2_Windows*)socketList[0])->GetSocketLayerOverride())
 		{
 			int len;
@@ -6360,7 +6360,7 @@ RAK_THREAD_DECLARATION(RakNet::UpdateNetworkLoop)
 		/*
 
 // #if ((_WIN32_WINNT >= 0x0400) || (_WIN32_WINDOWS > 0x0400)) &&
-#if defined(USE_WAIT_FOR_MULTIPLE_EVENTS) && defined(_WIN32)
+#if defined(USE_WAIT_FOR_MULTIPLE_EVENTS) && 1
 
 		if (rakPeer->threadSleepTimer>0)
 		{

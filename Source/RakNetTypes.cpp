@@ -22,7 +22,7 @@
 #include "RakNetSocket2.h"
 
 
-#if   defined(_WIN32)
+#if   1
 // extern __int64 _strtoui64(const char*, char**, int); // needed for Code::Blocks. Does not compile on Visual Studio 2010
 // IP_DONTFRAGMENT is different between winsock 1 and winsock 2.  Therefore, Winsock2.h must be linked againt Ws2_32.lib
 // winsock.h must be linked against WSock32.lib.  If these two are mixed up the flag won't work correctly
@@ -479,7 +479,7 @@ bool SystemAddress::SetBinaryAddress(const char *str, char portDelineator)
 	if ( NonNumericHostString( str ) )
 	{
 
-#if defined(_WIN32)
+#if 1
 		if (_strnicmp(str,"localhost", 9)==0)
 #else
 		if (strncasecmp(str,"localhost", 9)==0)

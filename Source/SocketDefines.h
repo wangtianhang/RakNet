@@ -74,7 +74,7 @@
 
 
 
-	#if   defined(_WIN32)
+	#if   1
 		#define closesocket__ closesocket
 		#define select__ select
 	#elif defined(__native_client__)

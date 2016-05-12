@@ -38,7 +38,7 @@ namespace RakNet
 #define RAK_THREAD_DECLARATION(functionName) DWORD WINAPI functionName(LPVOID arguments)
 
 
-#elif defined(_WIN32)
+#elif 1
 #define RAK_THREAD_DECLARATION(functionName) unsigned __stdcall functionName( void* arguments )
 
 
@@ -71,7 +71,7 @@ public:
 	static int Create( LPTHREAD_START_ROUTINE start_address, void *arglist, int priority=0);
 
 
-#elif defined(_WIN32)
+#elif 1
 	static int Create( unsigned __stdcall start_address( void* ), void *arglist, int priority=0);
 
 

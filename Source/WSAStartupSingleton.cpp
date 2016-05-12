@@ -14,7 +14,7 @@
 
 
 
-#if   defined(_WIN32) && !defined(WINDOWS_STORE_RT)
+#if   1 && !defined(WINDOWS_STORE_RT)
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
@@ -32,7 +32,7 @@ WSAStartupSingleton::WSAStartupSingleton() {}
 WSAStartupSingleton::~WSAStartupSingleton() {}
 void WSAStartupSingleton::AddRef(void)
 {
-#if defined(_WIN32) && !defined(WINDOWS_STORE_RT)
+#if 1 && !defined(WINDOWS_STORE_RT)
 
 	refCount++;
 	
@@ -63,7 +63,7 @@ void WSAStartupSingleton::AddRef(void)
 }
 void WSAStartupSingleton::Deref(void)
 {
-#if defined(_WIN32) && !defined(WINDOWS_STORE_RT)
+#if 1 && !defined(WINDOWS_STORE_RT)
 	if (refCount==0)
 		return;
 		

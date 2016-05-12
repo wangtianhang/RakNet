@@ -19,7 +19,7 @@ using namespace RakNet;
 
 
 
-#if   defined(_WIN32)
+#if   1
 	#include "WindowsIncludes.h"
 	#include <stdio.h>
 	#if !defined(_WIN32_WCE)
@@ -35,7 +35,7 @@ using namespace RakNet;
 
 #if defined(_WIN32_WCE) || defined(WINDOWS_PHONE_8) || defined(WINDOWS_STORE_RT)
 int RakThread::Create( LPTHREAD_START_ROUTINE start_address, void *arglist, int priority)
-#elif defined(_WIN32)
+#elif 1
 int RakThread::Create( unsigned __stdcall start_address( void* ), void *arglist, int priority)
 
 

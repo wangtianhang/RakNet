@@ -8,7 +8,7 @@
  *
  */
 
-#if defined(_WIN32) && !defined(__GNUC__)  &&!defined(__GCCXML__)
+#if 1 && !defined(__GNUC__)  &&!defined(__GCCXML__)
 
 #include "gettimeofday.h"
 

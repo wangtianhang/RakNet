@@ -91,7 +91,7 @@ RakNetSocket2* RakNetSocket2Allocator::AllocRNS2(void)
 
 
 
-#elif defined(_WIN32)
+#elif 1
 	s2 = RakNet::OP_NEW<RNS2_Windows>(_FILE_AND_LINE_);
 	s2->SetSocketType(RNS2T_WINDOWS);
 #else
@@ -116,7 +116,7 @@ void RakNetSocket2::GetMyIP( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_
 
 
 
-#elif defined(_WIN32)
+#elif 1
 	RNS2_Windows::GetMyIP( addresses );
 #else
 	RNS2_Linux::GetMyIP( addresses );
@@ -142,7 +142,7 @@ void RakNetSocket2::DomainNameToIP( const char *domainName, char ip[65] ) {
 
 
 
-#elif defined(_WIN32)
+#elif 1
 	return DomainNameToIP_Berkley( domainName, ip );
 #else
 	return DomainNameToIP_Berkley( domainName, ip );
@@ -478,7 +478,7 @@ RNS2Socket RNS2_Berkley::GetSocket(void) const {return rns2Socket;}
 
 
 
-#if   defined(_WIN32)
+#if   1
 RNS2_Windows::RNS2_Windows() {slo=0;}
 RNS2_Windows::~RNS2_Windows() {}
 RNS2BindResult RNS2_Windows::Bind( RNS2_BerkleyBindParameters *bindParameters, const char *file, unsigned int line ) {

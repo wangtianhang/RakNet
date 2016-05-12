@@ -194,7 +194,7 @@ bool TCPInterface::Start(unsigned short port, unsigned short maxIncomingConnecti
 	{
 
 
-#if   defined(_WIN32)
+#if   1
 		threadPriority=0;
 
 

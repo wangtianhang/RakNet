@@ -12,7 +12,7 @@
 ///
 
 
-#if defined(_WIN32)
+#if 1
 #include "WindowsIncludes.h"
 
  #if !defined(WINDOWS_PHONE_8)
@@ -28,7 +28,7 @@
 
 
 
-#if defined(_WIN32)
+#if 1
 //DWORD mProcMask;
 //DWORD mSysMask;
 //HANDLE mThread;
@@ -136,7 +136,7 @@ RakNet::TimeMS RakNet::GetTimeMS( void )
 
 
 
-#if   defined(_WIN32)
+#if   1
 RakNet::TimeUS GetTimeUS_Windows( void )
 {
 	if ( initialized == false)
@@ -211,7 +211,7 @@ RakNet::TimeUS RakNet::GetTimeUS( void )
 
 
 
-#if   defined(_WIN32)
+#if   1
 	return GetTimeUS_Windows();
 #else
 	return GetTimeUS_Linux();

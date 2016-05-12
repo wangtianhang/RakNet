@@ -12,7 +12,7 @@
 #include "NativeTypes.h"
 #include <stdlib.h>
 
-#if !defined(_WIN32)
+#if !1
 #include <stdint.h>
 #endif
 

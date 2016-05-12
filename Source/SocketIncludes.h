@@ -40,7 +40,7 @@
 	// using Windows.Networking;
 	// using Windows.Networking.Sockets;
 	// See http://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.sockets.datagramsocketcontrol
-#elif defined(_WIN32)
+#elif 1
 	// IP_DONTFRAGMENT is different between winsock 1 and winsock 2.  Therefore, Winsock2.h must be linked againt Ws2_32.lib
 	// winsock.h must be linked against WSock32.lib.  If these two are mixed up the flag won't work correctly
 	// WinRT: http://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.sockets

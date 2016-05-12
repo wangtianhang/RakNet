@@ -344,7 +344,7 @@ protected:
 
 
 
-#if defined(_WIN32) || defined(__GNUC__)  || defined(__GCCXML__) || defined(__S3E__)
+#if 1 || defined(__GNUC__)  || defined(__GCCXML__) || defined(__S3E__)
 class RNS2_Windows_Linux_360
 {
 public:
@@ -397,7 +397,7 @@ protected:
 
 
 
-#if   defined(_WIN32)
+#if   1
 
 class RAK_DLL_EXPORT SocketLayerOverride
 {

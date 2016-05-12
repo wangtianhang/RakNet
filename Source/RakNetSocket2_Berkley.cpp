@@ -71,7 +71,7 @@ void RNS2_Berkley::SetIPHdrIncl(int ipHdrIncl)
 void RNS2_Berkley::SetDoNotFragment( int opt )
 {
 	#if defined( IP_DONTFRAGMENT )
- #if defined(_WIN32) && !defined(_DEBUG)
+ #if 1 && !defined(_DEBUG)
 		// If this assert hit you improperly linked against WSock32.h
 		RakAssert(IP_DONTFRAGMENT==14);
 	#endif
@@ -110,7 +110,7 @@ void RNS2_Berkley::GetSystemAddressIPV4And6 ( RNS2Socket rns2Socket, SystemAddre
 
 	if ( getsockname__(rns2Socket, (struct sockaddr *)&ss, &slen)!=0)
 	{
-#if defined(_WIN32) && defined(_DEBUG)
+#if 1 && defined(_DEBUG)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -216,10 +216,10 @@ RNS2BindResult RNS2_Berkley::BindSharedIPV4( RNS2_BerkleyBindParameters *bindPar
 
 
 
-#if defined(_WIN32)
+#if 1
 		closesocket__(rns2Socket);
 		return BR_FAILED_TO_BIND_SOCKET;
-#elif (defined(__GNUC__) || defined(__GCCXML__) ) && !defined(_WIN32)
+#elif (defined(__GNUC__) || defined(__GCCXML__) ) && !1
 		closesocket__(rns2Socket);
 		switch (ret)
 		{
@@ -384,7 +384,7 @@ void RNS2_Berkley::RecvFromBlockingIPV4And6(RNS2RecvStruct *recvFromStruct)
 
 	recvFromStruct->bytesRead = recvfrom__(rns2Socket, recvFromStruct->data, dataOutSize, flag, sockAddrPtr, socketlenPtr );
 
-#if defined(_WIN32) && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
+#if 1 && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
 	if (recvFromStruct->bytesRead==-1)
 	{
 		DWORD dwIOError = GetLastError();
@@ -503,7 +503,7 @@ void RNS2_Berkley::RecvFromBlockingIPV4(RNS2RecvStruct *recvFromStruct)
 		}
 		else if ( dwIOError != WSAEWOULDBLOCK && dwIOError != WSAEADDRNOTAVAIL)
 		{
-#if defined(_WIN32) && !defined(_XBOX) && !defined(_XBOX_720_COMPILE_AS_WINDOWS) && !defined(X360) && defined(_DEBUG) && !defined(_XBOX_720_COMPILE_AS_WINDOWS) && !defined(WINDOWS_PHONE_8)
+#if 1 && !defined(_XBOX) && !defined(_XBOX_720_COMPILE_AS_WINDOWS) && !defined(X360) && defined(_DEBUG) && !defined(_XBOX_720_COMPILE_AS_WINDOWS) && !defined(WINDOWS_PHONE_8)
 			LPVOID messageBuffer;
 			FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
 				NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
