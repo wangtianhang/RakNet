@@ -397,12 +397,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AutopatcherPatchContext.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\AutopatcherRepositoryInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>

@@ -296,8 +296,6 @@
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\AutopatcherPatchContext.h" />
-    <ClInclude Include="..\..\Source\AutopatcherRepositoryInterface.h" />
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
     <ClInclude Include="..\..\Source\CCRakNetUDT.h" />
     <ClInclude Include="..\..\Source\CommandParserInterface.h" />
