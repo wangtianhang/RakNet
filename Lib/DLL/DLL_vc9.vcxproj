@@ -274,7 +274,6 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_ThreadsafeAllocatingQueue.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_Tree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
-    <ClInclude Include="..\..\Source\DataStruct\SingleProducerConsumer.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h" />
@@ -301,7 +300,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h" />
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />

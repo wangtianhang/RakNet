@@ -307,9 +307,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -330,9 +327,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h">
       <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DataStruct\SingleProducerConsumer.h">
-      <Filter>Source Files\DataStruct</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\LocklessTypes.h">
       <Filter>Source Files\Miscellaneous</Filter>
