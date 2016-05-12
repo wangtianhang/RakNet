@@ -215,8 +215,6 @@
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
     <ClCompile Include="..\..\Source\CCRakNetUDT.cpp" />
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
-    <ClCompile Include="..\..\Source\ConnectionGraph2.cpp" />
-    <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
@@ -226,7 +224,6 @@
     <ClCompile Include="..\..\Source\Getche.cpp" />
     <ClCompile Include="..\..\Source\Gets.cpp" />
     <ClCompile Include="..\..\Source\GridSectorizer.cpp" />
-    <ClCompile Include="..\..\Source\Itoa.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\MessageFilter.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
@@ -238,6 +235,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\FormatString.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
@@ -292,8 +290,6 @@
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
     <ClInclude Include="..\..\Source\CCRakNetUDT.h" />
     <ClInclude Include="..\..\Source\CommandParserInterface.h" />
-    <ClInclude Include="..\..\Source\ConnectionGraph2.h" />
-    <ClInclude Include="..\..\Source\ConsoleServer.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BPlusTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BytePool.h" />
@@ -323,7 +319,6 @@
     <ClInclude Include="..\..\Source\Gets.h" />
     <ClInclude Include="..\..\Source\GridSectorizer.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
-    <ClInclude Include="..\..\Source\Itoa.h" />
     <ClInclude Include="..\..\Source\Kbhit.h" />
     <ClInclude Include="..\..\Source\LocklessTypes.h" />
     <ClInclude Include="..\..\Source\MessageFilter.h" />
@@ -338,6 +333,7 @@
     <ClInclude Include="..\..\Source\Miscellaneous\FormatString.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\Itoa.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
