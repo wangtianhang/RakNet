@@ -219,10 +219,6 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
-    <ClCompile Include="..\..\Source\EpochTimeToString.cpp" />
-    <ClCompile Include="..\..\Source\FullyConnectedMesh2.cpp" />
-    <ClCompile Include="..\..\Source\Getche.cpp" />
-    <ClCompile Include="..\..\Source\Gets.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\MessageFilter.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
@@ -252,6 +248,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp" />
     <ClCompile Include="..\..\Source\NatPunchthroughClient.cpp" />
@@ -275,7 +272,6 @@
     <ClCompile Include="..\..\Source\RakSleep.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
-    <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
@@ -306,12 +302,7 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_ThreadsafeAllocatingQueue.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_Tree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
-    <ClInclude Include="..\..\Source\EpochTimeToString.h" />
-    <ClInclude Include="..\..\Source\FullyConnectedMesh2.h" />
-    <ClInclude Include="..\..\Source\Getche.h" />
-    <ClInclude Include="..\..\Source\Gets.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
-    <ClInclude Include="..\..\Source\Kbhit.h" />
     <ClInclude Include="..\..\Source\LocklessTypes.h" />
     <ClInclude Include="..\..\Source\MessageFilter.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
@@ -348,6 +339,7 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h" />
@@ -377,7 +369,6 @@
     <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
-    <ClInclude Include="..\..\Source\SuperFastHash.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
     <ClInclude Include="..\..\Source\TransportInterface.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />

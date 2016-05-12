@@ -38,18 +38,6 @@
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\EpochTimeToString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\FullyConnectedMesh2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Getche.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Gets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\LocklessTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -117,9 +105,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SocketLayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\SuperFastHash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TCPInterface.cpp">
@@ -215,6 +200,9 @@
     <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h">
@@ -298,22 +286,7 @@
     <ClInclude Include="..\..\Source\CommandParserInterface.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\EpochTimeToString.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\FullyConnectedMesh2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Getche.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Gets.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\InternalPacket.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Kbhit.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\LocklessTypes.h">
@@ -401,9 +374,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SocketLayer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SuperFastHash.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TCPInterface.h">
@@ -521,6 +491,9 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Itoa.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
