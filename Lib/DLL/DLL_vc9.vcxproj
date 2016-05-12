@@ -231,10 +231,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\PacketConsoleLogger.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\PacketFileLogger.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\PacketLogger.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\PacketOutputWindowLogger.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
@@ -249,7 +245,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp" />
     <ClCompile Include="..\..\Source\NetworkIDManager.cpp" />
     <ClCompile Include="..\..\Source\NetworkIDObject.cpp" />
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp" />
@@ -311,10 +306,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Itoa.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\PacketConsoleLogger.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\PacketFileLogger.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\PacketLogger.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\PacketOutputWindowLogger.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h" />
@@ -335,7 +326,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h" />
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
