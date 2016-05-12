@@ -85,7 +85,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\DataStruct;..\..\Source\DataStruct;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\DataStruct;..\..\Source\DataStruct;..\..\Source\Miscellaneous;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -212,38 +212,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
+    <ClCompile Include="..\..\Source\CCRakNetUDT.cpp" />
+    <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
+    <ClCompile Include="..\..\Source\ConnectionGraph2.cpp" />
+    <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
-    <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
-    <ClCompile Include="..\..\Source\Base64Encoder.cpp" />
-    <ClCompile Include="..\..\Source\BitStream.cpp" />
-    <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
-    <ClCompile Include="..\..\Source\CCRakNetUDT.cpp" />
-    <ClCompile Include="..\..\Source\CheckSum.cpp" />
-    <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
-    <ClCompile Include="..\..\Source\ConnectionGraph2.cpp" />
-    <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
-    <ClCompile Include="..\..\Source\DataCompressor.cpp" />
-    <ClCompile Include="..\..\Source\DR_SHA1.cpp" />
-    <ClCompile Include="..\..\Source\DynDNS.cpp" />
     <ClCompile Include="..\..\Source\EpochTimeToString.cpp" />
-    <ClCompile Include="..\..\Source\FormatString.cpp" />
     <ClCompile Include="..\..\Source\FullyConnectedMesh2.cpp" />
     <ClCompile Include="..\..\Source\Getche.cpp" />
     <ClCompile Include="..\..\Source\Gets.cpp" />
-    <ClCompile Include="..\..\Source\GetTime.cpp" />
-    <ClCompile Include="..\..\Source\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\GridSectorizer.cpp" />
     <ClCompile Include="..\..\Source\Itoa.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
-    <ClCompile Include="..\..\Source\LogCommandParser.cpp" />
     <ClCompile Include="..\..\Source\MessageFilter.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\FormatString.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\LogCommandParser.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp" />
     <ClCompile Include="..\..\Source\NatPunchthroughClient.cpp" />
     <ClCompile Include="..\..\Source\NatPunchthroughServer.cpp" />
     <ClCompile Include="..\..\Source\NatTypeDetectionClient.cpp" />
@@ -256,9 +258,13 @@
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp" />
     <ClCompile Include="..\..\Source\PacketLogger.cpp" />
     <ClCompile Include="..\..\Source\PacketOutputWindowLogger.cpp" />
-    <ClCompile Include="..\..\Source\RakMemoryOverride.cpp" />
+    <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
+    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
     <ClCompile Include="..\..\Source\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\RakNetTransport2.cpp" />
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
@@ -267,7 +273,6 @@
     <ClCompile Include="..\..\Source\RakString.cpp" />
     <ClCompile Include="..\..\Source\RakThread.cpp" />
     <ClCompile Include="..\..\Source\RakWString.cpp" />
-    <ClCompile Include="..\..\Source\Rand.cpp" />
     <ClCompile Include="..\..\Source\RandSync.cpp" />
     <ClCompile Include="..\..\Source\ReadyEvent.cpp" />
     <ClCompile Include="..\..\Source\RelayPlugin.cpp" />
@@ -277,16 +282,11 @@
     <ClCompile Include="..\..\Source\SecureHandshake.cpp" />
     <ClCompile Include="..\..\Source\SendToThread.cpp" />
     <ClCompile Include="..\..\Source\SignaledEvent.cpp" />
-    <ClCompile Include="..\..\Source\SimpleMutex.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
-    <ClCompile Include="..\..\Source\StatisticsHistory.cpp" />
     <ClCompile Include="..\..\Source\StringCompressor.cpp" />
-    <ClCompile Include="..\..\Source\StringTable.cpp" />
     <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\TableSerializer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
-    <ClCompile Include="..\..\Source\TelnetTransport.cpp" />
-    <ClCompile Include="..\..\Source\ThreadsafePacketLogger.cpp" />
     <ClCompile Include="..\..\Source\UDPForwarder.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyClient.cpp" />
     <ClCompile Include="..\..\Source\UDPProxyCoordinator.cpp" />
@@ -298,15 +298,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\AutopatcherPatchContext.h" />
     <ClInclude Include="..\..\Source\AutopatcherRepositoryInterface.h" />
-    <ClInclude Include="..\..\Source\Base64Encoder.h" />
-    <ClInclude Include="..\..\Source\BitStream.h" />
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
     <ClInclude Include="..\..\Source\CCRakNetUDT.h" />
-    <ClInclude Include="..\..\Source\CheckSum.h" />
     <ClInclude Include="..\..\Source\CommandParserInterface.h" />
     <ClInclude Include="..\..\Source\ConnectionGraph2.h" />
     <ClInclude Include="..\..\Source\ConsoleServer.h" />
-    <ClInclude Include="..\..\Source\DataCompressor.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BPlusTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BytePool.h" />
@@ -330,24 +326,38 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_ThreadsafeAllocatingQueue.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_Tree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
-    <ClInclude Include="..\..\Source\DR_SHA1.h" />
-    <ClInclude Include="..\..\Source\DynDNS.h" />
     <ClInclude Include="..\..\Source\EpochTimeToString.h" />
-    <ClInclude Include="..\..\Source\Export.h" />
-    <ClInclude Include="..\..\Source\FormatString.h" />
     <ClInclude Include="..\..\Source\FullyConnectedMesh2.h" />
     <ClInclude Include="..\..\Source\Getche.h" />
     <ClInclude Include="..\..\Source\Gets.h" />
-    <ClInclude Include="..\..\Source\GetTime.h" />
-    <ClInclude Include="..\..\Source\gettimeofday.h" />
     <ClInclude Include="..\..\Source\GridSectorizer.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\Itoa.h" />
     <ClInclude Include="..\..\Source\Kbhit.h" />
     <ClInclude Include="..\..\Source\LocklessTypes.h" />
-    <ClInclude Include="..\..\Source\LogCommandParser.h" />
     <ClInclude Include="..\..\Source\MessageFilter.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\Export.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\FormatString.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\LogCommandParser.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\Rand.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h" />
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
@@ -365,9 +375,6 @@
     <ClInclude Include="..\..\Source\PacketOutputWindowLogger.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
-    <ClInclude Include="..\..\Source\RakAlloca.h" />
-    <ClInclude Include="..\..\Source\RakAssert.h" />
-    <ClInclude Include="..\..\Source\RakMemoryOverride.h" />
     <ClInclude Include="..\..\Source\RakNetCommandParser.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
     <ClInclude Include="..\..\Source\RakNetSmartPtr.h" />
@@ -383,7 +390,7 @@
     <ClInclude Include="..\..\Source\RakString.h" />
     <ClInclude Include="..\..\Source\RakThread.h" />
     <ClInclude Include="..\..\Source\RakWString.h" />
-    <ClInclude Include="..\..\Source\Rand.h" />
+    <ClInclude Include="..\..\Source\RandSync.h" />
     <ClInclude Include="..\..\Source\ReadyEvent.h" />
     <ClInclude Include="..\..\Source\RefCountedObj.h" />
     <ClInclude Include="..\..\Source\RelayPlugin.h" />
@@ -394,19 +401,14 @@
     <ClInclude Include="..\..\Source\SecureHandshake.h" />
     <ClInclude Include="..\..\Source\SendToThread.h" />
     <ClInclude Include="..\..\Source\SignaledEvent.h" />
-    <ClInclude Include="..\..\Source\SimpleMutex.h" />
     <ClInclude Include="..\..\Source\SingleProducerConsumer.h" />
+    <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
-    <ClInclude Include="..\..\Source\StatisticsHistory.h" />
     <ClInclude Include="..\..\Source\StringCompressor.h" />
-    <ClInclude Include="..\..\Source\StringTable.h" />
     <ClInclude Include="..\..\Source\SuperFastHash.h" />
     <ClInclude Include="..\..\Source\TableSerializer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
-    <ClInclude Include="..\..\Source\TelnetTransport.h" />
-    <ClInclude Include="..\..\Source\ThreadPool.h" />
-    <ClInclude Include="..\..\Source\ThreadsafePacketLogger.h" />
     <ClInclude Include="..\..\Source\TransportInterface.h" />
     <ClInclude Include="..\..\Source\UDPForwarder.h" />
     <ClInclude Include="..\..\Source\UDPProxyClient.h" />
