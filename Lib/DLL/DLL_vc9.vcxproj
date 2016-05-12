@@ -85,6 +85,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\DataStruct;..\..\Source\DataStruct;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -211,6 +212,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp" />
+    <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
+    <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
+    <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
+    <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
@@ -225,10 +231,6 @@
     <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
     <ClCompile Include="..\..\Source\DataCompressor.cpp" />
     <ClCompile Include="..\..\Source\DR_SHA1.cpp" />
-    <ClCompile Include="..\..\Source\DS_BytePool.cpp" />
-    <ClCompile Include="..\..\Source\DS_ByteQueue.cpp" />
-    <ClCompile Include="..\..\Source\DS_HuffmanEncodingTree.cpp" />
-    <ClCompile Include="..\..\Source\DS_Table.cpp" />
     <ClCompile Include="..\..\Source\DynDNS.cpp" />
     <ClCompile Include="..\..\Source\EpochTimeToString.cpp" />
     <ClCompile Include="..\..\Source\FormatString.cpp" />
@@ -254,7 +256,6 @@
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp" />
     <ClCompile Include="..\..\Source\PacketLogger.cpp" />
     <ClCompile Include="..\..\Source\PacketOutputWindowLogger.cpp" />
-    <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
@@ -308,30 +309,30 @@
     <ClInclude Include="..\..\Source\ConnectionGraph2.h" />
     <ClInclude Include="..\..\Source\ConsoleServer.h" />
     <ClInclude Include="..\..\Source\DataCompressor.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_BPlusTree.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_BytePool.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_ByteQueue.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Hash.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Heap.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_HuffmanEncodingTreeFactory.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_HuffmanEncodingTreeNode.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_LinkedList.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_List.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Map.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_MemoryPool.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Multilist.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_OrderedChannelHeap.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_OrderedList.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Queue.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_QueueLinkedList.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_RangeList.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Table.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_ThreadsafeAllocatingQueue.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_Tree.h" />
+    <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
     <ClInclude Include="..\..\Source\DR_SHA1.h" />
-    <ClInclude Include="..\..\Source\DS_BinarySearchTree.h" />
-    <ClInclude Include="..\..\Source\DS_BPlusTree.h" />
-    <ClInclude Include="..\..\Source\DS_BytePool.h" />
-    <ClInclude Include="..\..\Source\DS_ByteQueue.h" />
-    <ClInclude Include="..\..\Source\DS_Hash.h" />
-    <ClInclude Include="..\..\Source\DS_Heap.h" />
-    <ClInclude Include="..\..\Source\DS_HuffmanEncodingTree.h" />
-    <ClInclude Include="..\..\Source\DS_HuffmanEncodingTreeFactory.h" />
-    <ClInclude Include="..\..\Source\DS_HuffmanEncodingTreeNode.h" />
-    <ClInclude Include="..\..\Source\DS_LinkedList.h" />
-    <ClInclude Include="..\..\Source\DS_List.h" />
-    <ClInclude Include="..\..\Source\DS_Map.h" />
-    <ClInclude Include="..\..\Source\DS_MemoryPool.h" />
-    <ClInclude Include="..\..\Source\DS_Multilist.h" />
-    <ClInclude Include="..\..\Source\DS_OrderedChannelHeap.h" />
-    <ClInclude Include="..\..\Source\DS_OrderedList.h" />
-    <ClInclude Include="..\..\Source\DS_Queue.h" />
-    <ClInclude Include="..\..\Source\DS_QueueLinkedList.h" />
-    <ClInclude Include="..\..\Source\DS_RangeList.h" />
-    <ClInclude Include="..\..\Source\DS_Table.h" />
-    <ClInclude Include="..\..\Source\DS_ThreadsafeAllocatingQueue.h" />
-    <ClInclude Include="..\..\Source\DS_Tree.h" />
-    <ClInclude Include="..\..\Source\DS_WeightedGraph.h" />
     <ClInclude Include="..\..\Source\DynDNS.h" />
     <ClInclude Include="..\..\Source\EpochTimeToString.h" />
     <ClInclude Include="..\..\Source\Export.h" />
