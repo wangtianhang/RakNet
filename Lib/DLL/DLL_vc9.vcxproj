@@ -219,8 +219,6 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
-    <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
-    <ClCompile Include="..\..\Source\LogCommandParser.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp" />
@@ -229,6 +227,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
@@ -288,9 +287,8 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_ThreadsafeAllocatingQueue.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_Tree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h" />
+    <ClInclude Include="..\..\Source\DataStruct\SingleProducerConsumer.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
-    <ClInclude Include="..\..\Source\LocklessTypes.h" />
-    <ClInclude Include="..\..\Source\LogCommandParser.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h" />
@@ -301,6 +299,7 @@
     <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Itoa.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\LocklessTypes.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h" />

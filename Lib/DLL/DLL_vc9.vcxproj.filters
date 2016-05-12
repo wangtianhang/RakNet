@@ -38,9 +38,6 @@
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\LocklessTypes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\NetworkIDManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -158,8 +155,8 @@
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\LogCommandParser.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,9 +242,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\InternalPacket.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\LocklessTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MessageIdentifiers.h">
@@ -406,8 +400,11 @@
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\LogCommandParser.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\Source\DataStruct\SingleProducerConsumer.h">
+      <Filter>Source Files\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\LocklessTypes.h">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
