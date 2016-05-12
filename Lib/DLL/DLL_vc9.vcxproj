@@ -224,18 +224,13 @@
     <ClCompile Include="..\..\Source\ConnectionGraph2.cpp" />
     <ClCompile Include="..\..\Source\ConsoleServer.cpp" />
     <ClCompile Include="..\..\Source\DataCompressor.cpp" />
-    <ClCompile Include="..\..\Source\DirectoryDeltaTransfer.cpp" />
     <ClCompile Include="..\..\Source\DR_SHA1.cpp" />
     <ClCompile Include="..\..\Source\DS_BytePool.cpp" />
     <ClCompile Include="..\..\Source\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DS_Table.cpp" />
     <ClCompile Include="..\..\Source\DynDNS.cpp" />
-    <ClCompile Include="..\..\Source\EmailSender.cpp" />
     <ClCompile Include="..\..\Source\EpochTimeToString.cpp" />
-    <ClCompile Include="..\..\Source\FileList.cpp" />
-    <ClCompile Include="..\..\Source\FileListTransfer.cpp" />
-    <ClCompile Include="..\..\Source\FileOperations.cpp" />
     <ClCompile Include="..\..\Source\FormatString.cpp" />
     <ClCompile Include="..\..\Source\FullyConnectedMesh2.cpp" />
     <ClCompile Include="..\..\Source\Getche.cpp" />
@@ -243,7 +238,6 @@
     <ClCompile Include="..\..\Source\GetTime.cpp" />
     <ClCompile Include="..\..\Source\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\GridSectorizer.cpp" />
-    <ClCompile Include="..\..\Source\IncrementalReadInterface.cpp" />
     <ClCompile Include="..\..\Source\Itoa.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\LogCommandParser.cpp" />
@@ -316,7 +310,6 @@
     <ClInclude Include="..\..\Source\ConnectionGraph2.h" />
     <ClInclude Include="..\..\Source\ConsoleServer.h" />
     <ClInclude Include="..\..\Source\DataCompressor.h" />
-    <ClInclude Include="..\..\Source\DirectoryDeltaTransfer.h" />
     <ClInclude Include="..\..\Source\DR_SHA1.h" />
     <ClInclude Include="..\..\Source\DS_BinarySearchTree.h" />
     <ClInclude Include="..\..\Source\DS_BPlusTree.h" />
@@ -342,14 +335,8 @@
     <ClInclude Include="..\..\Source\DS_Tree.h" />
     <ClInclude Include="..\..\Source\DS_WeightedGraph.h" />
     <ClInclude Include="..\..\Source\DynDNS.h" />
-    <ClInclude Include="..\..\Source\EmailSender.h" />
     <ClInclude Include="..\..\Source\EpochTimeToString.h" />
     <ClInclude Include="..\..\Source\Export.h" />
-    <ClInclude Include="..\..\Source\FileList.h" />
-    <ClInclude Include="..\..\Source\FileListNodeContext.h" />
-    <ClInclude Include="..\..\Source\FileListTransfer.h" />
-    <ClInclude Include="..\..\Source\FileListTransferCBInterface.h" />
-    <ClInclude Include="..\..\Source\FileOperations.h" />
     <ClInclude Include="..\..\Source\FormatString.h" />
     <ClInclude Include="..\..\Source\FullyConnectedMesh2.h" />
     <ClInclude Include="..\..\Source\Getche.h" />
@@ -357,7 +344,6 @@
     <ClInclude Include="..\..\Source\GetTime.h" />
     <ClInclude Include="..\..\Source\gettimeofday.h" />
     <ClInclude Include="..\..\Source\GridSectorizer.h" />
-    <ClInclude Include="..\..\Source\IncrementalReadInterface.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\Itoa.h" />
     <ClInclude Include="..\..\Source\Kbhit.h" />
