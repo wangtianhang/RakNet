@@ -29,12 +29,6 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
       <Filter>Source Files\DataStruct</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -53,7 +47,19 @@
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakWString.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SendToThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp">
@@ -62,13 +68,22 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\TableSerializer.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\TelnetTransport.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\SignaledEvent.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp">
@@ -78,6 +93,12 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\DataCompressor.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
@@ -191,15 +212,6 @@
     <ClCompile Include="..\..\Source\RakSleep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakWString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RandSync.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -218,22 +230,10 @@
     <ClCompile Include="..\..\Source\SecureHandshake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\SendToThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\SignaledEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\SocketLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\StringCompressor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\SuperFastHash.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TableSerializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TCPInterface.cpp">
@@ -313,15 +313,6 @@
     <ClInclude Include="..\..\Source\DataStruct\DS_WeightedGraph.h">
       <Filter>Source Files\DataStruct</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -349,7 +340,19 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakString.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Rand.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SendToThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h">
@@ -358,7 +361,13 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\TableSerializer.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\TelnetTransport.h">
@@ -370,11 +379,26 @@
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadsafePacketLogger.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\DataCompressor.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
       <Filter>Source Files</Filter>
@@ -511,15 +535,6 @@
     <ClInclude Include="..\..\Source\RakSleep.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakString.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakThread.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakWString.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RandSync.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -544,15 +559,6 @@
     <ClInclude Include="..\..\Source\SecureHandshake.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\SendToThread.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SignaledEvent.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SingleProducerConsumer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\SocketDefines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -562,13 +568,7 @@
     <ClInclude Include="..\..\Source\SocketLayer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\StringCompressor.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\SuperFastHash.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TableSerializer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TCPInterface.h">
@@ -578,9 +578,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
