@@ -110,19 +110,10 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp">
@@ -334,19 +325,10 @@
     <ClInclude Include="..\..\Source\Miscellaneous\ThreadPool.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\Export.h">

@@ -219,11 +219,8 @@
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_HuffmanEncodingTree.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\Base64Encoder.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\BitStream.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\CheckSum.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\DynDNS.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\GetTime.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
@@ -284,11 +281,8 @@
     <ClInclude Include="..\..\Source\DataStruct\SingleProducerConsumer.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\Base64Encoder.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\CheckSum.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\DR_SHA1.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\DynDNS.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\Export.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\GetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\gettimeofday.h" />
