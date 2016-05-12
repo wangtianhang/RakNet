@@ -10,9 +10,11 @@
 
 
 #include "PluginInterface2.h"
-#include "PacketizedTCP.h"
+//#include "PacketizedTCP.h"
 #include "RakPeerInterface.h"
 #include "BitStream.h"
+
+#include "TCPInterface.h"
 
 using namespace RakNet;
 
