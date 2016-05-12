@@ -244,8 +244,6 @@
     <ClCompile Include="..\..\Source\GetTime.cpp" />
     <ClCompile Include="..\..\Source\gettimeofday.cpp" />
     <ClCompile Include="..\..\Source\GridSectorizer.cpp" />
-    <ClCompile Include="..\..\Source\HTTPConnection.cpp" />
-    <ClCompile Include="..\..\Source\HTTPConnection2.cpp" />
     <ClCompile Include="..\..\Source\IncrementalReadInterface.cpp" />
     <ClCompile Include="..\..\Source\Itoa.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
@@ -361,8 +359,6 @@
     <ClInclude Include="..\..\Source\GetTime.h" />
     <ClInclude Include="..\..\Source\gettimeofday.h" />
     <ClInclude Include="..\..\Source\GridSectorizer.h" />
-    <ClInclude Include="..\..\Source\HTTPConnection.h" />
-    <ClInclude Include="..\..\Source\HTTPConnection2.h" />
     <ClInclude Include="..\..\Source\IncrementalReadInterface.h" />
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\Itoa.h" />
