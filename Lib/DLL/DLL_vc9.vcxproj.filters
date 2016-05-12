@@ -15,6 +15,9 @@
     <Filter Include="Source Files\Miscellaneous">
       <UniqueIdentifier>{f1428224-26ee-4e0a-b6e8-c6d8ea4c1240}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{af38c82f-b866-454e-83c0-50a6d0148fe9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp">
@@ -124,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Other\Gets.cpp">
+      <Filter>Source Files\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -327,6 +333,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Other\Gets.h">
+      <Filter>Source Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Other\Kbhit.h">
+      <Filter>Source Files\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

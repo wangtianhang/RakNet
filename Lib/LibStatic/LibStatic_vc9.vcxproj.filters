@@ -15,6 +15,9 @@
     <Filter Include="Source Files\Miscellaneous">
       <UniqueIdentifier>{a338e29d-f88b-423e-85ea-db486cd0664b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{15b78fe9-6ec9-4958-97ea-c5cc0ff2c302}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
@@ -224,6 +227,12 @@
     <ClInclude Include="..\..\Source\PluginInterface2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Other\Gets.h">
+      <Filter>Source Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Other\Kbhit.h">
+      <Filter>Source Files\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
@@ -333,6 +342,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginInterface2.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Other\Gets.cpp">
+      <Filter>Source Files\Other</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

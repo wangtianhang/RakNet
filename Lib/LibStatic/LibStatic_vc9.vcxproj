@@ -79,7 +79,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\source\Miscellaneous;..\..\source\DataStruct;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\source\Miscellaneous;..\..\source\DataStruct;..\..\source\Other;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -232,6 +232,8 @@
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
+    <ClInclude Include="..\..\Source\Other\Gets.h" />
+    <ClInclude Include="..\..\Source\Other\Kbhit.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
@@ -272,6 +274,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
+    <ClCompile Include="..\..\Source\Other\Gets.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
