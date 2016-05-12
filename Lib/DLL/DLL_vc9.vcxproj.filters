@@ -32,9 +32,6 @@
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\CCRakNetUDT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -206,9 +203,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\CCRakNetUDT.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CommandParserInterface.h">

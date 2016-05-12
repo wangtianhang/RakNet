@@ -213,7 +213,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp" />
-    <ClCompile Include="..\..\Source\CCRakNetUDT.cpp" />
     <ClCompile Include="..\..\Source\CommandParserInterface.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp" />
     <ClCompile Include="..\..\Source\DataStruct\DS_ByteQueue.cpp" />
@@ -253,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
-    <ClInclude Include="..\..\Source\CCRakNetUDT.h" />
     <ClInclude Include="..\..\Source\CommandParserInterface.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h" />
     <ClInclude Include="..\..\Source\DataStruct\DS_BPlusTree.h" />
