@@ -41,7 +41,7 @@
 #include "FileOperations.h"
 #include "SuperFastHash.h"
 #include "RakAssert.h"
-#include "LinuxStrings.h"
+//#include "LinuxStrings.h"
 
 #define MAX_FILENAME_LENGTH 512
 static const unsigned HASH_LENGTH=4;

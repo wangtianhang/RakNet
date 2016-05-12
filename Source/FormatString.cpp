@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include "LinuxStrings.h"
+//#include "LinuxStrings.h"
 
 char * FormatString(const char *format, ...)
 {

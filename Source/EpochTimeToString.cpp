@@ -15,7 +15,7 @@
 #include <stdarg.h>
 // localtime
 #include <time.h>
-#include "LinuxStrings.h"
+//#include "LinuxStrings.h"
 
 char * EpochTimeToString(long long time)
 {

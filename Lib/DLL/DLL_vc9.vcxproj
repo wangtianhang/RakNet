@@ -251,7 +251,6 @@
     <ClCompile Include="..\..\Source\HTTPConnection2.cpp" />
     <ClCompile Include="..\..\Source\IncrementalReadInterface.cpp" />
     <ClCompile Include="..\..\Source\Itoa.cpp" />
-    <ClCompile Include="..\..\Source\LinuxStrings.cpp" />
     <ClCompile Include="..\..\Source\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\LogCommandParser.cpp" />
     <ClCompile Include="..\..\Source\MessageFilter.cpp" />
@@ -376,14 +375,12 @@
     <ClInclude Include="..\..\Source\InternalPacket.h" />
     <ClInclude Include="..\..\Source\Itoa.h" />
     <ClInclude Include="..\..\Source\Kbhit.h" />
-    <ClInclude Include="..\..\Source\LinuxStrings.h" />
     <ClInclude Include="..\..\Source\LocklessTypes.h" />
     <ClInclude Include="..\..\Source\LogCommandParser.h" />
     <ClInclude Include="..\..\Source\MessageFilter.h" />
     <ClInclude Include="..\..\Source\MessageIdentifiers.h" />
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
-    <ClInclude Include="..\..\Source\NativeFeatureIncludesOverrides.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
     <ClInclude Include="..\..\Source\NatPunchthroughClient.h" />
     <ClInclude Include="..\..\Source\NatPunchthroughServer.h" />
@@ -397,19 +394,15 @@
     <ClInclude Include="..\..\Source\PacketizedTCP.h" />
     <ClInclude Include="..\..\Source\PacketLogger.h" />
     <ClInclude Include="..\..\Source\PacketOutputWindowLogger.h" />
-    <ClInclude Include="..\..\Source\PacketPool.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
-    <ClInclude Include="..\..\Source\PS3Includes.h" />
     <ClInclude Include="..\..\Source\Rackspace.h" />
     <ClInclude Include="..\..\Source\RakAlloca.h" />
     <ClInclude Include="..\..\Source\RakAssert.h" />
     <ClInclude Include="..\..\Source\RakMemoryOverride.h" />
     <ClInclude Include="..\..\Source\RakNetCommandParser.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
-    <ClInclude Include="..\..\Source\RakNetDefinesOverrides.h" />
     <ClInclude Include="..\..\Source\RakNetSmartPtr.h" />
-    <ClInclude Include="..\..\Source\RakNetSocket.h" />
     <ClInclude Include="..\..\Source\RakNetSocket2.h" />
     <ClInclude Include="..\..\Source\RakNetStatistics.h" />
     <ClInclude Include="..\..\Source\RakNetTime.h" />
@@ -435,9 +428,7 @@
     <ClInclude Include="..\..\Source\SendToThread.h" />
     <ClInclude Include="..\..\Source\SignaledEvent.h" />
     <ClInclude Include="..\..\Source\SimpleMutex.h" />
-    <ClInclude Include="..\..\Source\SimpleTCPServer.h" />
     <ClInclude Include="..\..\Source\SingleProducerConsumer.h" />
-    <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\StatisticsHistory.h" />
@@ -461,10 +452,8 @@
     <ClInclude Include="..\..\Source\VariableDeltaSerializer.h" />
     <ClInclude Include="..\..\Source\VariableListDeltaTracker.h" />
     <ClInclude Include="..\..\Source\VariadicSQLParser.h" />
-    <ClInclude Include="..\..\Source\VitaIncludes.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
-    <ClInclude Include="..\..\Source\XBox360Includes.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />

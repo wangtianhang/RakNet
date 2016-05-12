@@ -14,7 +14,7 @@
 #include "BitStream.h"
 #include <stdarg.h>
 #include <string.h>
-#include "LinuxStrings.h"
+//#include "LinuxStrings.h"
 #include "StringCompressor.h"
 #include "SimpleMutex.h"
 #include <stdlib.h>

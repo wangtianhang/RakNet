@@ -119,9 +119,6 @@
     <ClCompile Include="..\..\Source\Itoa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\LinuxStrings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\LocklessTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -502,9 +499,6 @@
     <ClInclude Include="..\..\Source\Kbhit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\LinuxStrings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\LocklessTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -521,9 +515,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\NativeFeatureIncludesOverrides.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\NativeTypes.h">
@@ -565,16 +556,10 @@
     <ClInclude Include="..\..\Source\PacketOutputWindowLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PacketPool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PacketPriority.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginInterface2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PS3Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Rackspace.h">
@@ -595,13 +580,7 @@
     <ClInclude Include="..\..\Source\RakNetDefines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetDefinesOverrides.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakNetSmartPtr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetSocket2.h">
@@ -679,13 +658,7 @@
     <ClInclude Include="..\..\Source\SimpleMutex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\SimpleTCPServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\SingleProducerConsumer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SocketDefines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SocketIncludes.h">
@@ -757,16 +730,10 @@
     <ClInclude Include="..\..\Source\VariadicSQLParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\VitaIncludes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\XBox360Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
