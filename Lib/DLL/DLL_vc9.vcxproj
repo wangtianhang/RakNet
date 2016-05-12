@@ -241,8 +241,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
-    <ClCompile Include="..\..\Source\NetworkIDManager.cpp" />
-    <ClCompile Include="..\..\Source\NetworkIDObject.cpp" />
     <ClCompile Include="..\..\Source\PacketizedTCP.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetCommandParser.cpp" />
@@ -322,8 +320,6 @@
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
-    <ClInclude Include="..\..\Source\NetworkIDManager.h" />
-    <ClInclude Include="..\..\Source\NetworkIDObject.h" />
     <ClInclude Include="..\..\Source\PacketizedTCP.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
