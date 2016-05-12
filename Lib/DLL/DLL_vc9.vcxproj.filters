@@ -215,9 +215,6 @@
     <ClCompile Include="..\..\Source\ReplicaManager3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Router2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\SecureHandshake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -240,18 +237,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TCPInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UDPForwarder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UDPProxyClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UDPProxyCoordinator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UDPProxyServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
@@ -556,9 +541,6 @@
     <ClInclude Include="..\..\Source\ReplicaManager3.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Router2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\SecureHandshake.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -593,21 +575,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TransportInterface.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UDPForwarder.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UDPProxyClient.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UDPProxyCommon.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UDPProxyCoordinator.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UDPProxyServer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\WindowsIncludes.h">

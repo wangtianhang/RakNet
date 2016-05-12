@@ -278,7 +278,6 @@
     <ClCompile Include="..\..\Source\RelayPlugin.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
     <ClCompile Include="..\..\Source\ReplicaManager3.cpp" />
-    <ClCompile Include="..\..\Source\Router2.cpp" />
     <ClCompile Include="..\..\Source\SecureHandshake.cpp" />
     <ClCompile Include="..\..\Source\SendToThread.cpp" />
     <ClCompile Include="..\..\Source\SignaledEvent.cpp" />
@@ -287,10 +286,6 @@
     <ClCompile Include="..\..\Source\SuperFastHash.cpp" />
     <ClCompile Include="..\..\Source\TableSerializer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
-    <ClCompile Include="..\..\Source\UDPForwarder.cpp" />
-    <ClCompile Include="..\..\Source\UDPProxyClient.cpp" />
-    <ClCompile Include="..\..\Source\UDPProxyCoordinator.cpp" />
-    <ClCompile Include="..\..\Source\UDPProxyServer.cpp" />
     <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -393,7 +388,6 @@
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
     <ClInclude Include="..\..\Source\ReplicaEnums.h" />
     <ClInclude Include="..\..\Source\ReplicaManager3.h" />
-    <ClInclude Include="..\..\Source\Router2.h" />
     <ClInclude Include="..\..\Source\SecureHandshake.h" />
     <ClInclude Include="..\..\Source\SendToThread.h" />
     <ClInclude Include="..\..\Source\SignaledEvent.h" />
@@ -406,11 +400,6 @@
     <ClInclude Include="..\..\Source\TableSerializer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
     <ClInclude Include="..\..\Source\TransportInterface.h" />
-    <ClInclude Include="..\..\Source\UDPForwarder.h" />
-    <ClInclude Include="..\..\Source\UDPProxyClient.h" />
-    <ClInclude Include="..\..\Source\UDPProxyCommon.h" />
-    <ClInclude Include="..\..\Source\UDPProxyCoordinator.h" />
-    <ClInclude Include="..\..\Source\UDPProxyServer.h" />
     <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>
