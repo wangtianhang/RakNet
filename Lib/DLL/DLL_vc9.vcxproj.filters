@@ -211,13 +211,7 @@
     <ClInclude Include="..\..\Source\MessageIdentifiers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MTUSize.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\NativeTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PacketPriority.h">
@@ -242,12 +236,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ReliabilityLayer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SocketDefines.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\SocketIncludes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SocketLayer.h">
@@ -333,6 +321,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h">
       <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\SocketDefines.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\MTUSize.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SocketIncludes.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NativeTypes.h">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

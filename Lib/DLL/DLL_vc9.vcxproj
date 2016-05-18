@@ -299,9 +299,10 @@
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h" />
-    <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
+    <ClInclude Include="..\..\Source\NetLookOver\MTUSize.h" />
+    <ClInclude Include="..\..\Source\NetLookOver\SocketDefines.h" />
     <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h" />
     <ClInclude Include="..\..\Source\Other\Gets.h" />
     <ClInclude Include="..\..\Source\Other\Kbhit.h" />
@@ -313,7 +314,6 @@
     <ClInclude Include="..\..\Source\RakPeer.h" />
     <ClInclude Include="..\..\Source\RakPeerInterface.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
-    <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
