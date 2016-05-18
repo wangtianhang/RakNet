@@ -211,9 +211,6 @@
     <ClInclude Include="..\..\Source\MessageIdentifiers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\NativeFeatureIncludes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PacketPriority.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -333,6 +330,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\NetLookOver\SocketLayer.h">
       <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NativeFeatureIncludes.h">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
