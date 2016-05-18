@@ -74,22 +74,9 @@ RakNetSocket2* RakNetSocket2Allocator::AllocRNS2(void)
 	s2 = RakNet::OP_NEW<RNS2_WindowsStore8>(_FILE_AND_LINE_);
 	s2->SetSocketType(RNS2T_WINDOWS_STORE_8);
 
-
-
-
-
-
 #elif defined(__native_client__)
 	s2 = RakNet::OP_NEW<RNS2_NativeClient>(_FILE_AND_LINE_);
 	s2->SetSocketType(RNS2T_CHROME);
-
-
-
-
-
-
-
-
 
 #elif 1
 	s2 = RakNet::OP_NEW<RNS2_Windows>(_FILE_AND_LINE_);
@@ -106,14 +93,8 @@ void RakNetSocket2::GetMyIP( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_
 	RNS2_WindowsStore8::GetMyIP( addresses );
 
 
-
-
 #elif defined(__native_client__)
 	RNS2_NativeClient::GetMyIP( addresses );
-
-
-
-
 
 
 #elif 1
@@ -133,15 +114,6 @@ void RakNetSocket2::DomainNameToIP( const char *domainName, char ip[65] ) {
 #elif defined(__native_client__)
 	return DomainNameToIP_Berkley( domainName, ip );
 
-
-
-
-
-
-
-
-
-
 #elif 1
 	return DomainNameToIP_Berkley( domainName, ip );
 #else
@@ -151,132 +123,6 @@ void RakNetSocket2::DomainNameToIP( const char *domainName, char ip[65] ) {
 
 #if defined(WINDOWS_STORE_RT)
 #elif defined(__native_client__)
-RNS2_NativeClient::RNS2_NativeClient() {bindState = BS_UNBOUND; sendInProgress=false;}
-RNS2_NativeClient::~RNS2_NativeClient()
-{
-	bufferedSendsMutex.Lock();
-	while (bufferedSends.Size())
-		RakNet::OP_DELETE(bufferedSends.Pop(), _FILE_AND_LINE_);
-	bufferedSendsMutex.Unlock();
-}
-void RNS2_NativeClient::onSocketBound(void* pData, int32_t dataSize)
-{
-	RAKNET_DEBUG_PRINTF("onSocketBound ==> %d\n", dataSize);
-	RNS2_NativeClient *csc = (RNS2_NativeClient *)pData;
-
-	//any error codes will be given to us in the dataSize value
-	if(dataSize < 0)
-	{
-		csc->bindState=BS_FAILED;
-		fprintf(stderr,"onSocketBound exiting, dataSize = %d\n", dataSize);
-		return;
-	}
-
-	csc->bindState=BS_BOUND;
-
-	csc->ProcessBufferedSend();
-	csc->IssueReceiveCall();
-}
-void RNS2_NativeClient::ProcessBufferedSend(void)
-{
-	// Don't send until bound
-	if (bindState!=BS_BOUND)
-		return;
-	// Fast non-threadsafe check
-	if (bufferedSends.IsEmpty()==true)
-		return;
-
-	sendInProgressMutex.Lock();
-	if (sendInProgress==true) {sendInProgressMutex.Unlock(); return;}
-	else {sendInProgress=true;}
-	sendInProgressMutex.Unlock();
-
-	RNS2_SendParameters_NativeClient *sp;
-	bufferedSendsMutex.Lock();
-	if (bufferedSends.IsEmpty()==false)
-		sp=bufferedSends.Pop();
-	else
-		sp=0;
-	bufferedSendsMutex.Unlock();
-	if (sp==0)
-	{
-		sendInProgressMutex.Lock();
-		sendInProgress=false;
-		sendInProgressMutex.Unlock();
-		return; // Nothing to send after all
-	}
-
-	SendImmediate(sp);
-	// sp remains in memory until the callback completes
-	// DeallocSP(sp);
-}
-void RNS2_NativeClient::DeallocSP(RNS2_SendParameters_NativeClient *sp)
-{
-	rakFree_Ex(sp->data, _FILE_AND_LINE_);
-	RakNet::OP_DELETE(sp, _FILE_AND_LINE_);
-}
-RNS2_SendParameters_NativeClient* RNS2_NativeClient::CloneSP(RNS2_SendParameters *sp, RNS2_NativeClient *socket2, const char *file, unsigned int line)
-{
-	RNS2_SendParameters_NativeClient *spNew = RakNet::OP_NEW<RNS2_SendParameters_NativeClient>(file, line);
-	spNew->data=(char*) rakMalloc(sp->length);
-	memcpy(spNew->data,sp->data,sp->length);
-	spNew->length = sp->length;
-	spNew->socket2=socket2;
-	spNew->systemAddress=sp->systemAddress;
-	spNew->ttl=0; // Unused
-	return spNew;
-}
-void RNS2_NativeClient::onSendTo(void* pData, int32_t dataSize)
-{
-	if(dataSize <= 0)
-		RAKNET_DEBUG_PRINTF("onSendTo: send failed with error %d\n", dataSize);
-
-	RNS2_SendParameters_NativeClient *sp = (RNS2_SendParameters_NativeClient*) pData;
-
-	// Caller will check sendInProgress to send again if needed
-	sp->socket2->sendInProgressMutex.Lock();
-	sp->socket2->sendInProgress=false;
-	sp->socket2->sendInProgressMutex.Unlock();
-
-	DeallocSP(sp);
-
-//	if(dataSize == PP_ERROR_ABORTED)
-//		return;
-}
-RNS2SendResult RNS2_NativeClient::Send( RNS2_SendParameters *sendParameters, const char *file, unsigned int line )
-{
-	if (bindState==BS_FAILED)
-		return -1;
-
-	// This is called from multiple threads. Always buffer the send, until native client is threadsafe
-	BufferSend(sendParameters, file, line);
-	return sendParameters->length;
-}
-void RNS2_NativeClient::BufferSend( RNS2_SendParameters *sendParameters, const char *file, unsigned int line )
-{
-	if (bindState==BS_FAILED)
-		return;
-
-	RNS2_SendParameters_NativeClient* sp = CloneSP(sendParameters, this, file, line);
-	bufferedSendsMutex.Lock();
-	bufferedSends.Push(sp, file, line);
-	bufferedSendsMutex.Unlock();
-
-	// Do not check to send immediately, because this was probably invoked from a thread and native client is not threadsafe
-}
-void RNS2_NativeClient::GetMyIP( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] ) {addresses[0]=UNASSIGNED_SYSTEM_ADDRESS; RakAssert("GetMyIP Unsupported?" && 0);}
-const NativeClientBindParameters *RNS2_NativeClient::GetBindings(void) const {return &binding;}
-void RNS2_NativeClient::Update(void)
-{
-	// Don't send until bound
-	if (bindState==BS_BOUND)
-	{
-		do 
-		{
-			ProcessBufferedSend();
-		} while (sendInProgress==false && bufferedSends.Size()>1);
-	}	
-}
 
 #else // defined(__native_client__)
 bool IRNS2_Berkley::IsPortInUse(unsigned short port, const char *hostAddress, unsigned short addressFamily, int type ) {
@@ -432,47 +278,6 @@ void RNS2_Berkley::BlockOnStopRecvPollingThread(void)
 const RNS2_BerkleyBindParameters *RNS2_Berkley::GetBindings(void) const {return &binding;}
 RNS2Socket RNS2_Berkley::GetSocket(void) const {return rns2Socket;}
 // See RakNetSocket2_Berkley.cpp for WriteSharedIPV4, BindSharedIPV4And6 and other implementations
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #if   1

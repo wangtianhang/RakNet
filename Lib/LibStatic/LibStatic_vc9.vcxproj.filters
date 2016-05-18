@@ -337,8 +337,5 @@
     <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp">
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.h">
-      <Filter>Source Files\NetLookOver</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
