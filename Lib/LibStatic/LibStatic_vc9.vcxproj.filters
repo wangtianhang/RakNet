@@ -146,9 +146,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -230,6 +227,9 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
@@ -275,9 +275,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp">
@@ -338,6 +335,9 @@
       <Filter>Source Files\Other</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>

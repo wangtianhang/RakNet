@@ -216,6 +216,7 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetSmartPtr.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetVersion.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h" />
@@ -225,7 +226,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\Rand.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SignaledEvent.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\StringTable.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\SuperFastHash.h" />
@@ -262,6 +262,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp" />
@@ -269,7 +270,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\Rand.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SignaledEvent.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
