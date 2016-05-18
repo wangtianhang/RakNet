@@ -233,6 +233,7 @@
     <ClInclude Include="..\..\Source\NativeTypes.h" />
     <ClInclude Include="..\..\Source\NetLookOver\MTUSize.h" />
     <ClInclude Include="..\..\Source\NetLookOver\SocketDefines.h" />
+    <ClInclude Include="..\..\Source\NetLookOver\SocketLayer.h" />
     <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h" />
     <ClInclude Include="..\..\Source\Other\Gets.h" />
     <ClInclude Include="..\..\Source\Other\Kbhit.h" />
@@ -245,7 +246,6 @@
     <ClInclude Include="..\..\Source\RakPeerInterface.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
-    <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +272,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
+    <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp" />
     <ClCompile Include="..\..\Source\Other\Gets.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
@@ -283,7 +284,6 @@
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
-    <ClCompile Include="..\..\Source\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

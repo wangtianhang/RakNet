@@ -65,9 +65,6 @@
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\SocketLayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -129,6 +126,9 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp">
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
@@ -235,9 +235,6 @@
     <ClInclude Include="..\..\Source\ReliabilityLayer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\SocketLayer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -333,6 +330,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetDefines.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\SocketLayer.h">
+      <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
