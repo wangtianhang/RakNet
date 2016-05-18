@@ -18,6 +18,9 @@
     <Filter Include="Source Files\Other">
       <UniqueIdentifier>{15b78fe9-6ec9-4958-97ea-c5cc0ff2c302}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\NetLookOver">
+      <UniqueIdentifier>{60d1ad2e-a006-4d5c-9eef-276cb5b6ac54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
@@ -188,9 +191,6 @@
     <ClInclude Include="..\..\Source\TCPInterface.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -226,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h">
+      <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -319,9 +322,6 @@
     <ClCompile Include="..\..\Source\TCPInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -336,6 +336,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

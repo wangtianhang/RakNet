@@ -18,6 +18,9 @@
     <Filter Include="Source Files\Other">
       <UniqueIdentifier>{af38c82f-b866-454e-83c0-50a6d0148fe9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\NetLookOver">
+      <UniqueIdentifier>{c5288c0c-1851-447c-86ef-e3a280455e11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_BytePool.cpp">
@@ -116,9 +119,6 @@
     <ClCompile Include="..\..\Source\TCPInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -127,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -316,9 +319,6 @@
     <ClInclude Include="..\..\Source\TCPInterface.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\WSAStartupSingleton.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -330,6 +330,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h">
       <Filter>Source Files\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h">
+      <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

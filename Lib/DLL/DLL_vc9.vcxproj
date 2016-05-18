@@ -85,7 +85,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Source\DataStruct;..\..\Source\Miscellaneous;..\..\Source\Other;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\Source\DataStruct;..\..\Source\Miscellaneous;..\..\Source\Other;..\..\Source\NetLookOver;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -235,6 +235,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
+    <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp" />
     <ClCompile Include="..\..\Source\Other\Gets.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
@@ -247,7 +248,6 @@
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
-    <ClCompile Include="..\..\Source\WSAStartupSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
@@ -302,6 +302,7 @@
     <ClInclude Include="..\..\Source\MTUSize.h" />
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
+    <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h" />
     <ClInclude Include="..\..\Source\Other\Gets.h" />
     <ClInclude Include="..\..\Source\Other\Kbhit.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
@@ -316,7 +317,6 @@
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
-    <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
