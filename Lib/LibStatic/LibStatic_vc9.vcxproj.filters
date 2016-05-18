@@ -122,9 +122,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetSmartPtr.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetTime.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
@@ -260,9 +257,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp">

@@ -216,7 +216,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakAssert.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakMemoryOverride.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetSmartPtr.h" />
-    <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetVersion.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h" />
@@ -263,7 +262,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\Itoa.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
-    <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp" />

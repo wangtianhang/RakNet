@@ -86,9 +86,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\SimpleMutex.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Miscellaneous\StatisticsHistory.cpp">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
@@ -287,9 +284,6 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\SimpleMutex.h">
-      <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Miscellaneous\StatisticsHistory.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\StringCompressor.h">
