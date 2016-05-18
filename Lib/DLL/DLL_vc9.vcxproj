@@ -241,9 +241,6 @@
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />

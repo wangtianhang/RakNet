@@ -298,15 +298,6 @@
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley_NativeClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakNetTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
