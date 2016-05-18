@@ -235,6 +235,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\StringCompressor.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\StringTable.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\SuperFastHash.cpp" />
+    <ClCompile Include="..\..\Source\NetLookOver\RakNetSocket2.cpp" />
     <ClCompile Include="..\..\source\netlookover\RakNetSocket2_Berkley_NativeClient.h" />
     <ClCompile Include="..\..\source\netlookover\RakNetSocket2_Windows_Linux.h" />
     <ClCompile Include="..\..\Source\NetLookOver\RakNetSocket2_Windows_Linux_360.h" />
@@ -242,7 +243,6 @@
     <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp" />
     <ClCompile Include="..\..\Source\Other\Gets.cpp" />
     <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
-    <ClCompile Include="..\..\Source\RakNetSocket2.cpp" />
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
@@ -301,6 +301,7 @@
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h" />
     <ClInclude Include="..\..\Source\NativeTypes.h" />
     <ClInclude Include="..\..\Source\NetLookOver\MTUSize.h" />
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2.h" />
     <ClInclude Include="..\..\Source\NetLookOver\SocketDefines.h" />
     <ClInclude Include="..\..\Source\NetLookOver\SocketLayer.h" />
     <ClInclude Include="..\..\Source\NetLookOver\WSAStartupSingleton.h" />
@@ -309,7 +310,6 @@
     <ClInclude Include="..\..\Source\PacketPriority.h" />
     <ClInclude Include="..\..\Source\PluginInterface2.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
-    <ClInclude Include="..\..\Source\RakNetSocket2.h" />
     <ClInclude Include="..\..\Source\RakNetSocket2_Berkley.h" />
     <ClInclude Include="..\..\Source\RakNetTypes.h" />
     <ClInclude Include="..\..\Source\RakPeer.h" />

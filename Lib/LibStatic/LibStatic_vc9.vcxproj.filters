@@ -161,9 +161,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetSocket2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakNetTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -239,6 +236,9 @@
     <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2_Windows_Linux_360.h">
       <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
@@ -301,9 +301,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakNetTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -335,6 +332,9 @@
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\RakNetSocket2.cpp">
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
