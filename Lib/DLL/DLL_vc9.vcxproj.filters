@@ -41,9 +41,6 @@
     <ClCompile Include="..\..\Source\PluginInterface2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetTypes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakPeer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -128,6 +125,9 @@
     <ClCompile Include="..\..\Source\NetLookOver\RakNetSocket2.cpp">
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\RakNetTypes.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\DataStruct\DS_BinarySearchTree.h">
@@ -205,16 +205,7 @@
     <ClInclude Include="..\..\Source\InternalPacket.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MessageIdentifiers.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PacketPriority.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PluginInterface2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetTypes.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakPeer.h">
@@ -332,6 +323,15 @@
       <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MessageIdentifiers.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PacketPriority.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetTypes.h">
       <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>

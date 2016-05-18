@@ -161,9 +161,6 @@
     <ClInclude Include="..\..\Source\Miscellaneous\BitStream.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakNetTypes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakPeer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -180,12 +177,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\InternalPacket.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MessageIdentifiers.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PacketPriority.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginInterface2.h">
@@ -237,6 +228,15 @@
       <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MessageIdentifiers.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PacketPriority.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetTypes.h">
       <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>
@@ -301,9 +301,6 @@
     <ClCompile Include="..\..\Source\Miscellaneous\DR_SHA1.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetTypes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakPeer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -335,6 +332,9 @@
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\NetLookOver\RakNetSocket2.cpp">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\NetLookOver\RakNetTypes.cpp">
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
