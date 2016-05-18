@@ -302,11 +302,8 @@ void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef addr
 
 RNS2BindResult RNS2_Berkley::BindShared( RNS2_BerkleyBindParameters *bindParameters, const char *file, unsigned int line ) {
 	RNS2BindResult br;
-#if RAKNET_SUPPORT_IPV6==1
-	br=BindSharedIPV4And6(bindParameters, file, line);
-#else
+
 	br=BindSharedIPV4(bindParameters, file, line);
-#endif
 
 	if (br!=BR_SUCCESS)
 		return br;

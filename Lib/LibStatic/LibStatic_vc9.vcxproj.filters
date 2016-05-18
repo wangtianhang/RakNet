@@ -338,7 +338,7 @@
       <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NetLookOver</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

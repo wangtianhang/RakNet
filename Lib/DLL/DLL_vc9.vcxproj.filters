@@ -332,7 +332,7 @@
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\RakNetSocket2_Berkley.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NetLookOver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

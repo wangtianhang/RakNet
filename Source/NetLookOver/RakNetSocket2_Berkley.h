@@ -94,61 +94,6 @@ void RNS2_Berkley::GetSystemAddressIPV4 ( RNS2Socket rns2Socket, SystemAddress *
 			systemAddressOut->address.addr4.sin_addr.s_addr=inet_addr__("127.0.0.1");
 	}
 }
-void RNS2_Berkley::GetSystemAddressIPV4And6 ( RNS2Socket rns2Socket, SystemAddress *systemAddressOut )
-{
-#if RAKNET_SUPPORT_IPV6==1
-
-	socklen_t slen;
-	sockaddr_storage ss;
-	slen = sizeof(ss);
-
-	if ( getsockname__(rns2Socket, (struct sockaddr *)&ss, &slen)!=0)
-	{
-#if 1 && defined(_DEBUG)
-		DWORD dwIOError = GetLastError();
-		LPVOID messageBuffer;
-		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
-		// something has gone wrong here...
-		RAKNET_DEBUG_PRINTF( "getsockname failed:Error code - %d\n%s", dwIOError, messageBuffer );
-
-		//Free the buffer.
-		LocalFree( messageBuffer );
-#endif
-		systemAddressOut->FromString(0);
-		return;
-	}
-
-	if (ss.ss_family==AF_INET)
-	{
-		memcpy(&systemAddressOut->address.addr4,(sockaddr_in *)&ss,sizeof(sockaddr_in));
-		systemAddressOut->debugPort=ntohs(systemAddressOut->address.addr4.sin_port);
-
-		uint32_t zero = 0;		
-		if (memcmp(&systemAddressOut->address.addr4.sin_addr.s_addr, &zero, sizeof(zero))==0)
-			systemAddressOut->SetToLoopback(4);
-		//	systemAddressOut->address.addr4.sin_port=ntohs(systemAddressOut->address.addr4.sin_port);
-	}
-	else
-	{
-		memcpy(&systemAddressOut->address.addr6,(sockaddr_in6 *)&ss,sizeof(sockaddr_in6));
-		systemAddressOut->debugPort=ntohs(systemAddressOut->address.addr6.sin6_port);
-
-		char zero[16];
-		memset(zero,0,sizeof(zero));
-		if (memcmp(&systemAddressOut->address.addr4.sin_addr.s_addr, &zero, sizeof(zero))==0)
-			systemAddressOut->SetToLoopback(6);
-
-		//	systemAddressOut->address.addr6.sin6_port=ntohs(systemAddressOut->address.addr6.sin6_port);
-	}
-
-#else
-	(void) rns2Socket;
-	(void) systemAddressOut;
-	return;
-#endif
-}
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4702 ) // warning C4702: unreachable code
@@ -238,143 +183,6 @@ RNS2BindResult RNS2_Berkley::BindSharedIPV4( RNS2_BerkleyBindParameters *bindPar
 	return BR_SUCCESS;
 
 }
-RNS2BindResult RNS2_Berkley::BindSharedIPV4And6( RNS2_BerkleyBindParameters *bindParameters, const char *file, unsigned int line ) {
-	
-	(void) file;
-	(void) line;
-	(void) bindParameters;
-
-#if RAKNET_SUPPORT_IPV6==1
-
-	int ret=0;
-	struct addrinfo hints;
-	struct addrinfo *servinfo=0, *aip;  // will point to the results
-	PrepareAddrInfoHints2(&hints);
-	hints.ai_family=bindParameters->addressFamily;
-	char portStr[32];
-	Itoa(bindParameters->port,portStr,10);
-
-
-	// On Ubuntu, "" returns "No address associated with hostname" while 0 works.
-	if (bindParameters->hostAddress && 
-		(_stricmp(bindParameters->hostAddress,"UNASSIGNED_SYSTEM_ADDRESS")==0 || bindParameters->hostAddress[0]==0))
-	{
-		getaddrinfo(0, portStr, &hints, &servinfo);
-	}
-	else
-	{
-		getaddrinfo(bindParameters->hostAddress, portStr, &hints, &servinfo);
-	}
-
-	// Try all returned addresses until one works
-	for (aip = servinfo; aip != NULL; aip = aip->ai_next)
-	{
-		// Open socket. The address type depends on what
-		// getaddrinfo() gave us.
-		rns2Socket = socket__(aip->ai_family, aip->ai_socktype, aip->ai_protocol);
-
-		if (rns2Socket == -1)
-			return BR_FAILED_TO_BIND_SOCKET;
-
-
-		ret = bind__(rns2Socket, aip->ai_addr, (int) aip->ai_addrlen );
-		if (ret>=0)
-		{
-			// Is this valid?
-			memcpy(&boundAddress.address.addr6, aip->ai_addr, sizeof(boundAddress.address.addr6));
-
-			freeaddrinfo(servinfo); // free the linked-list
-
-			SetSocketOptions();
-			SetNonBlockingSocket(bindParameters->nonBlockingSocket);
-			SetBroadcastSocket(bindParameters->setBroadcast);
-			SetIPHdrIncl(bindParameters->setIPHdrIncl);
-
-			GetSystemAddressIPV4And6( rns2Socket, &boundAddress );
-			
-			return BR_SUCCESS;
-		}
-		else
-		{
-			closesocket__(rns2Socket);
-		}
-	}
-	
-	return BR_FAILED_TO_BIND_SOCKET;
-
-#else
-return BR_REQUIRES_RAKNET_SUPPORT_IPV6_DEFINE;
-#endif
-}
-
-void RNS2_Berkley::RecvFromBlockingIPV4And6(RNS2RecvStruct *recvFromStruct)
-{
-#if RAKNET_SUPPORT_IPV6==1
-
-	sockaddr_storage their_addr;
-	sockaddr* sockAddrPtr;
-	socklen_t sockLen;
-	socklen_t* socketlenPtr=(socklen_t*) &sockLen;
-	memset(&their_addr,0,sizeof(their_addr));
-	int dataOutSize;
-	const int flag=0;
-
-	{
-		sockLen=sizeof(their_addr);
-		sockAddrPtr=(sockaddr*) &their_addr;
-	}
-
-
-
-
-	dataOutSize=MAXIMUM_MTU_SIZE;
-
-
-	recvFromStruct->bytesRead = recvfrom__(rns2Socket, recvFromStruct->data, dataOutSize, flag, sockAddrPtr, socketlenPtr );
-
-#if 1 && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
-	if (recvFromStruct->bytesRead==-1)
-	{
-		DWORD dwIOError = GetLastError();
-		if (dwIoError != 10035)
-		{
-			LPVOID messageBuffer;
-			FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-				( LPTSTR ) & messageBuffer, 0, NULL );
-			// I see this hit on XP with IPV6 for some reason
-			RAKNET_DEBUG_PRINTF( "Warning: recvfrom failed:Error code - %d\n%s", dwIOError, messageBuffer );
-			LocalFree( messageBuffer );
-		}
-	}	
-#endif
-
-
-	if (recvFromStruct->bytesRead<=0)
-		return;
-	recvFromStruct->timeRead=RakNet::GetTimeUS();
-
-
-	{
-		if (their_addr.ss_family==AF_INET)
-		{
-			memcpy(&recvFromStruct->systemAddress.address.addr4,(sockaddr_in *)&their_addr,sizeof(sockaddr_in));
-			recvFromStruct->systemAddress.debugPort=ntohs(recvFromStruct->systemAddress.address.addr4.sin_port);
-			//	systemAddressOut->address.addr4.sin_port=ntohs( systemAddressOut->address.addr4.sin_port );
-		}
-		else
-		{
-			memcpy(&recvFromStruct->systemAddress.address.addr6,(sockaddr_in6 *)&their_addr,sizeof(sockaddr_in6));
-			recvFromStruct->systemAddress.debugPort=ntohs(recvFromStruct->systemAddress.address.addr6.sin6_port);
-			//	systemAddressOut->address.addr6.sin6_port=ntohs( systemAddressOut->address.addr6.sin6_port );
-		}
-	}
-
-
-#else
-	(void) recvFromStruct;
-#endif
-}
 
 void RNS2_Berkley::RecvFromBlockingIPV4(RNS2RecvStruct *recvFromStruct)
 {
@@ -415,11 +223,7 @@ void RNS2_Berkley::RecvFromBlockingIPV4(RNS2RecvStruct *recvFromStruct)
 
 void RNS2_Berkley::RecvFromBlocking(RNS2RecvStruct *recvFromStruct)
 {
-#if RAKNET_SUPPORT_IPV6==1
-	return RecvFromBlockingIPV4And6(recvFromStruct);
-#else
 	return RecvFromBlockingIPV4(recvFromStruct);
-#endif
 }
 
 #endif // !defined(WINDOWS_STORE_RT) && !defined(__native_client__)
