@@ -41,12 +41,12 @@ using namespace RakNet;
 //#include "RakNetSocket2_360_720.cpp"
 //#include "RakNetSocket2_PS3_PS4.cpp"
 //#include "RakNetSocket2_PS4.cpp"
-#include "RakNetSocket2_Windows_Linux.cpp"
-#include "RakNetSocket2_Windows_Linux_360.cpp"
+#include "RakNetSocket2_Windows_Linux.h"
+#include "RakNetSocket2_Windows_Linux_360.h"
 //#include "RakNetSocket2_Vita.cpp"
 //#include "RakNetSocket2_NativeClient.cpp"
-#include "RakNetSocket2_Berkley.cpp"
-#include "RakNetSocket2_Berkley_NativeClient.cpp"
+#include "RakNetSocket2_Berkley.h"
+#include "RakNetSocket2_Berkley_NativeClient.h"
 //#include "RakNetSocket2_WindowsStore8.cpp"
 #undef RAKNET_SOCKET_2_INLINE_FUNCTIONS
 

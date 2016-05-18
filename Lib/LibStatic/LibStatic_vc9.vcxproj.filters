@@ -230,6 +230,15 @@
     <ClInclude Include="..\..\Source\NativeFeatureIncludes.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2_Berkley_NativeClient.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2_Windows_Linux.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\NetLookOver\RakNetSocket2_Windows_Linux_360.h">
+      <Filter>Source Files\NetLookOver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DataStruct\DS_Table.cpp">
@@ -295,9 +304,6 @@
     <ClCompile Include="..\..\Source\RakNetSocket2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakNetTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -330,6 +336,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp">
       <Filter>Source Files\NetLookOver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RakNetSocket2_Berkley.h">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
