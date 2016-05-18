@@ -250,9 +250,6 @@
     <ClInclude Include="..\..\Source\SocketLayer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\WindowsIncludes.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakAlloca.h">
       <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>

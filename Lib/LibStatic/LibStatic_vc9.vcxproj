@@ -246,7 +246,6 @@
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
     <ClInclude Include="..\..\Source\SocketLayer.h" />
     <ClInclude Include="..\..\Source\TCPInterface.h" />
-    <ClInclude Include="..\..\Source\WindowsIncludes.h" />
     <ClInclude Include="..\..\Source\WSAStartupSingleton.h" />
   </ItemGroup>
   <ItemGroup>
