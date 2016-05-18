@@ -59,9 +59,6 @@
     <ClCompile Include="..\..\Source\RakPeer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RakSleep.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -130,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Other\Gets.cpp">
       <Filter>Source Files\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,9 +241,6 @@
     <ClInclude Include="..\..\Source\RakPeerInterface.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\RakSleep.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\ReliabilityLayer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -339,6 +336,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Other\Kbhit.h">
       <Filter>Source Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h">
+      <Filter>Source Files\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

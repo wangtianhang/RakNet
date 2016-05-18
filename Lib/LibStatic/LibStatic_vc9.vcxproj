@@ -219,6 +219,7 @@
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetStatistics.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetTime.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakNetVersion.h" />
+    <ClInclude Include="..\..\Source\Miscellaneous\RakSleep.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakString.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h" />
     <ClInclude Include="..\..\Source\Miscellaneous\RakWString.h" />
@@ -241,7 +242,6 @@
     <ClInclude Include="..\..\Source\RakNetTypes.h" />
     <ClInclude Include="..\..\Source\RakPeer.h" />
     <ClInclude Include="..\..\Source\RakPeerInterface.h" />
-    <ClInclude Include="..\..\Source\RakSleep.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
     <ClInclude Include="..\..\Source\SocketDefines.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
@@ -264,6 +264,7 @@
     <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakMemoryOverride.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakNetStatistics.cpp" />
+    <ClCompile Include="..\..\Source\Miscellaneous\RakSleep.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakString.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp" />
     <ClCompile Include="..\..\Source\Miscellaneous\RakWString.cpp" />
@@ -283,7 +284,6 @@
     <ClCompile Include="..\..\Source\RakNetSocket2_Windows_Linux_360.cpp" />
     <ClCompile Include="..\..\Source\RakNetTypes.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
-    <ClCompile Include="..\..\Source\RakSleep.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
     <ClCompile Include="..\..\Source\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\TCPInterface.cpp" />
