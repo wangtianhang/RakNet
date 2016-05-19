@@ -527,7 +527,6 @@ private:
 	uint32_t unacknowledgedBytes;
 	
 	bool ResendBufferOverflow(void) const;
-	void ValidateResendList(void) const;
 	void ResetPacketsAndDatagrams(void);
 	void PushPacket(CCTimeType time, InternalPacket *internalPacket, bool isReliable);
 	void PushDatagram(void);
