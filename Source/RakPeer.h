@@ -77,37 +77,6 @@ public:
 	/// \return RAKNET_STARTED on success, otherwise appropriate failure enumeration.
 	StartupResult Startup( unsigned int maxConnections, SocketDescriptor *socketDescriptors, unsigned socketDescriptorCount, int threadPriority=-99999 );
 
-	/// If you accept connections, you must call this or else security will not be enabled for incoming connections.
-	/// This feature requires more round trips, bandwidth, and CPU time for the connection handshake
-	/// x64 builds require under 25% of the CPU time of other builds
-	/// See the Encryption sample for example usage
-	/// \pre Must be called while offline
-	/// \pre LIBCAT_SECURITY must be defined to 1 in NativeFeatureIncludes.h for this function to have any effect
-	/// \param[in] publicKey A pointer to the public key for accepting new connections
-	/// \param[in] privateKey A pointer to the private key for accepting new connections
-	/// \param[in] bRequireClientKey: Should be set to false for most servers.  Allows the server to accept a public key from connecting clients as a proof of identity but eats twice as much CPU time as a normal connection
-	bool InitializeSecurity( const char *publicKey, const char *privateKey, bool bRequireClientKey = false );
-
-	/// Disables security for incoming connections.
-	/// \note Must be called while offline
-	void DisableSecurity( void );
-
-	/// \brief This is useful if you have a fixed-address internal server behind a LAN.
-	///
-	///  Secure connections are determined by the recipient of an incoming connection. This has no effect if called on the system attempting to connect.	
-	/// \note If secure connections are on, do not use secure connections for a specific IP address.
-	/// \param[in] ip IP address to add. * wildcards are supported.
-	void AddToSecurityExceptionList(const char *ip);
-
-	/// \brief Remove a specific connection previously added via AddToSecurityExceptionList.
-	/// \param[in] ip IP address to remove. Pass 0 to remove all IP addresses. * wildcards are supported.
-	void RemoveFromSecurityExceptionList(const char *ip);
-
-	/// \brief Checks to see if a given IP is in the security exception list.
-	/// \param[in] IP address to check.
-	/// \return True if the IP address is found in security exception list, else returns false.
-	bool IsInSecurityExceptionList(const char *ip);
-
 	/// \brief Sets the maximum number of incoming connections allowed.
 	/// \details If the number of incoming connections is less than the number of players currently connected,
 	/// no more players will be allowed to connect.  If this is greater than the maximum number of peers allowed,
@@ -524,18 +493,6 @@ public:
 	/// \param[in] connectionSocketIndex userConnectionSocketIndex.
 	/// \remarks Used for NAT-Punchthrough
 	void SendTTL( const char* host, unsigned short remotePort, int ttl, unsigned connectionSocketIndex=0 );
-
-	// -------------------------------------------------------------------------------------------- Plugin Functions--------------------------------------------------------------------------------------------
-	/// \brief Attaches a Plugin interface to an instance of the base class (RakPeer or PacketizedTCP) to run code automatically on message receipt in the Receive call.
-	/// If the plugin returns false from PluginInterface::UsesReliabilityLayer(), which is the case for all plugins except PacketLogger, you can call AttachPlugin() and DetachPlugin() for this plugin while RakPeer is active.
-	/// \param[in] messageHandler Pointer to the plugin to attach.
-	//void AttachPlugin( PluginInterface2 *plugin );
-
-	/// \brief Detaches a Plugin interface from the instance of the base class (RakPeer or PacketizedTCP) it is attached to.
-	///	\details This method disables the plugin code from running automatically on base class's updates or message receipt.
-	/// If the plugin returns false from PluginInterface::UsesReliabilityLayer(), which is the case for all plugins except PacketLogger, you can call AttachPlugin() and DetachPlugin() for this plugin while RakPeer is active.
-	/// \param[in] messageHandler Pointer to a plugin to detach.
-	//void DetachPlugin( PluginInterface2 *messageHandler );
 
 	// --------------------------------------------------------------------------------------------Miscellaneous Functions--------------------------------------------------------------------------------------------
 	/// \brief Puts a message back in the receive queue in case you don't want to deal with it immediately.
