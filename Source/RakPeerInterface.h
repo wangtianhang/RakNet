@@ -491,11 +491,11 @@ public:
 	/// This limit does not apply to the sum of all connections!
 	/// Exceeding the limit queues up outgoing traffic
 	/// \param[in] maxBitsPerSecond Maximum bits per second to send.  Use 0 for unlimited (default). Once set, it takes effect immedately and persists until called again.
-	virtual void SetPerConnectionOutgoingBandwidthLimit( unsigned maxBitsPerSecond )=0;
+	//virtual void SetPerConnectionOutgoingBandwidthLimit( unsigned maxBitsPerSecond )=0;
 
 	/// Returns if you previously called ApplyNetworkSimulator
 	/// \return If you previously called ApplyNetworkSimulator
-	virtual bool IsNetworkSimulatorActive( void )=0;
+	//virtual bool IsNetworkSimulatorActive( void )=0;
 
 	// --------------------------------------------------------------------------------------------Statistical Functions - Functions dealing with API performance--------------------------------------------------------------------------------------------
 
@@ -508,13 +508,13 @@ public:
 	virtual RakNetStatistics * GetStatistics( const SystemAddress systemAddress, RakNetStatistics *rns=0 )=0;
 	/// \brief Returns the network statistics of the system at the given index in the remoteSystemList.
 	///	\return True if the index is less than the maximum number of peers allowed and the system is active. False otherwise.
-	virtual bool GetStatistics( const unsigned int index, RakNetStatistics *rns )=0;
+	//virtual bool GetStatistics( const unsigned int index, RakNetStatistics *rns )=0;
 	/// \brief Returns the list of systems, and statistics for each of those systems
 	/// Each system has one entry in each of the lists, in the same order
 	/// \param[out] addresses SystemAddress for each connected system
 	/// \param[out] guids RakNetGUID for each connected system
 	/// \param[out] statistics Calculated RakNetStatistics for each connected system
-	virtual void GetStatisticsList(DataStructures::List<SystemAddress> &addresses, DataStructures::List<RakNetGUID> &guids, DataStructures::List<RakNetStatistics> &statistics)=0;
+	//virtual void GetStatisticsList(DataStructures::List<SystemAddress> &addresses, DataStructures::List<RakNetGUID> &guids, DataStructures::List<RakNetStatistics> &statistics)=0;
 
 	/// \Returns how many messages are waiting when you call Receive()
 	virtual unsigned int GetReceiveBufferSize(void)=0;
@@ -532,7 +532,7 @@ public:
 	virtual bool RunUpdateCycle( BitStream &updateBitStream )=0;
 
 	/// \internal
-	virtual bool SendOutOfBand(const char *host, unsigned short remotePort, const char *data, BitSize_t dataLength, unsigned connectionSocketIndex=0 )=0;
+	//virtual bool SendOutOfBand(const char *host, unsigned short remotePort, const char *data, BitSize_t dataLength, unsigned connectionSocketIndex=0 )=0;
 
 }
 // #if defined(SN_TARGET_PSP2)

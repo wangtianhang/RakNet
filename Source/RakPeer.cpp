@@ -2275,22 +2275,22 @@ Packet* RakPeer::AllocatePacket(unsigned dataSize)
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-void RakPeer::SetPerConnectionOutgoingBandwidthLimit( unsigned maxBitsPerSecond )
-{
-	maxOutgoingBPS=maxBitsPerSecond;
-}
+// void RakPeer::SetPerConnectionOutgoingBandwidthLimit( unsigned maxBitsPerSecond )
+// {
+// 	maxOutgoingBPS=maxBitsPerSecond;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Returns if you previously called ApplyNetworkSimulator
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::IsNetworkSimulatorActive( void )
-{
-#ifdef _DEBUG
-	return _packetloss>0 || _minExtraPing>0 || _extraPingVariance>0;
-#else
-	return false;
-#endif
-}
+// bool RakPeer::IsNetworkSimulatorActive( void )
+// {
+// #ifdef _DEBUG
+// 	return _packetloss>0 || _minExtraPing>0 || _extraPingVariance>0;
+// #else
+// 	return false;
+// #endif
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void RakPeer::WriteOutOfBandHeader(RakNet::BitStream *bitStream)
@@ -2311,46 +2311,46 @@ void RakPeer::WriteOutOfBandHeader(RakNet::BitStream *bitStream)
 // 	incomingDatagramEventHandler=_incomingDatagramEventHandler;
 // }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::SendOutOfBand(const char *host, unsigned short remotePort, const char *data, BitSize_t dataLength, unsigned connectionSocketIndex )
-{
-	if ( IsActive() == false )
-		return false;
-
-	if (host==0  || host[0]==0)
-		return false;
-
-	// If this assert hits then Startup wasn't called or the call failed.
-	RakAssert(connectionSocketIndex < socketList.Size());
-
-	// This is a security measure.  Don't send data longer than this value
-	RakAssert(dataLength <= (MAX_OFFLINE_DATA_LENGTH + sizeof(unsigned char)+sizeof(RakNet::Time)+RakNetGUID::size()+sizeof(OFFLINE_MESSAGE_DATA_ID)));
-
-	if (host==0)
-		return false;
-
-	// 34 bytes
-	RakNet::BitStream bitStream;
-	WriteOutOfBandHeader(&bitStream);
-
-	if (dataLength>0)
-	{
-		bitStream.Write(data, dataLength);
-	}
-	
-	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
-
-	RNS2_SendParameters bsp;
-	bsp.data = (char*) bitStream.GetData();
-	bsp.length = bitStream.GetNumberOfBytesUsed();
-	bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
-	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
-	unsigned i;
-//	for (i=0; i < pluginListNTS.Size(); i++)
-//		pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
-	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
-
-	return true;
-}
+// bool RakPeer::SendOutOfBand(const char *host, unsigned short remotePort, const char *data, BitSize_t dataLength, unsigned connectionSocketIndex )
+// {
+// 	if ( IsActive() == false )
+// 		return false;
+// 
+// 	if (host==0  || host[0]==0)
+// 		return false;
+// 
+// 	// If this assert hits then Startup wasn't called or the call failed.
+// 	RakAssert(connectionSocketIndex < socketList.Size());
+// 
+// 	// This is a security measure.  Don't send data longer than this value
+// 	RakAssert(dataLength <= (MAX_OFFLINE_DATA_LENGTH + sizeof(unsigned char)+sizeof(RakNet::Time)+RakNetGUID::size()+sizeof(OFFLINE_MESSAGE_DATA_ID)));
+// 
+// 	if (host==0)
+// 		return false;
+// 
+// 	// 34 bytes
+// 	RakNet::BitStream bitStream;
+// 	WriteOutOfBandHeader(&bitStream);
+// 
+// 	if (dataLength>0)
+// 	{
+// 		bitStream.Write(data, dataLength);
+// 	}
+// 	
+// 	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
+// 
+// 	RNS2_SendParameters bsp;
+// 	bsp.data = (char*) bitStream.GetData();
+// 	bsp.length = bitStream.GetNumberOfBytesUsed();
+// 	bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
+// 	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
+// 	unsigned i;
+// //	for (i=0; i < pluginListNTS.Size(); i++)
+// //		pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
+// 	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
+// 
+// 	return true;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 RakNetStatistics * RakPeer::GetStatistics( const SystemAddress systemAddress, RakNetStatistics *rns )
@@ -2398,39 +2398,39 @@ RakNetStatistics * RakPeer::GetStatistics( const SystemAddress systemAddress, Ra
 	return 0;
 }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::GetStatisticsList(DataStructures::List<SystemAddress> &addresses, DataStructures::List<RakNetGUID> &guids, DataStructures::List<RakNetStatistics> &statistics)
-{
-	addresses.Clear(false, _FILE_AND_LINE_);
-	guids.Clear(false, _FILE_AND_LINE_);
-	statistics.Clear(false, _FILE_AND_LINE_);
-
-	if ( remoteSystemList == 0 || endThreads == true )
-		return;
-
-	unsigned int i;
-	for (i=0; i < activeSystemListSize; i++)
-	{
-		if ((activeSystemList[i])->isActive &&
-			(activeSystemList[i])->connectMode==RakPeer::RemoteSystemStruct::CONNECTED)
-		{
-			addresses.Push((activeSystemList[i])->systemAddress, _FILE_AND_LINE_ );
-			guids.Push((activeSystemList[i])->guid, _FILE_AND_LINE_ );
-			RakNetStatistics rns;
-			(activeSystemList[i])->reliabilityLayer.GetStatistics(&rns);
-			statistics.Push(rns, _FILE_AND_LINE_);
-		}
-	}
-}
+// void RakPeer::GetStatisticsList(DataStructures::List<SystemAddress> &addresses, DataStructures::List<RakNetGUID> &guids, DataStructures::List<RakNetStatistics> &statistics)
+// {
+// 	addresses.Clear(false, _FILE_AND_LINE_);
+// 	guids.Clear(false, _FILE_AND_LINE_);
+// 	statistics.Clear(false, _FILE_AND_LINE_);
+// 
+// 	if ( remoteSystemList == 0 || endThreads == true )
+// 		return;
+// 
+// 	unsigned int i;
+// 	for (i=0; i < activeSystemListSize; i++)
+// 	{
+// 		if ((activeSystemList[i])->isActive &&
+// 			(activeSystemList[i])->connectMode==RakPeer::RemoteSystemStruct::CONNECTED)
+// 		{
+// 			addresses.Push((activeSystemList[i])->systemAddress, _FILE_AND_LINE_ );
+// 			guids.Push((activeSystemList[i])->guid, _FILE_AND_LINE_ );
+// 			RakNetStatistics rns;
+// 			(activeSystemList[i])->reliabilityLayer.GetStatistics(&rns);
+// 			statistics.Push(rns, _FILE_AND_LINE_);
+// 		}
+// 	}
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::GetStatistics( const unsigned int index, RakNetStatistics *rns )
-{
-	if (index < maximumNumberOfPeers && remoteSystemList[ index ].isActive)
-	{
-		remoteSystemList[ index ].reliabilityLayer.GetStatistics(rns);
-		return true;
-	}
-	return false;
-}
+// bool RakPeer::GetStatistics( const unsigned int index, RakNetStatistics *rns )
+// {
+// 	if (index < maximumNumberOfPeers && remoteSystemList[ index ].isActive)
+// 	{
+// 		remoteSystemList[ index ].reliabilityLayer.GetStatistics(rns);
+// 		return true;
+// 	}
+// 	return false;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 unsigned int RakPeer::GetReceiveBufferSize(void)
 {
