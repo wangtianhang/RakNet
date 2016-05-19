@@ -332,7 +332,7 @@ public:
 	/// Subtract GetClockDifferential() from a time returned by the remote system to get that time relative to your own system
 	/// Returns 0 if the system is unknown
 	/// \param[in] systemIdentifier Which system we are referring to
-	RakNet::Time GetClockDifferential( const AddressOrGUID systemIdentifier );
+	//RakNet::Time GetClockDifferential( const AddressOrGUID systemIdentifier );
 	
 	// --------------------------------------------------------------------------------------------Static Data Functions - Functions dealing with API defined synchronized memory--------------------------------------------------------------------------------------------
 	/// \brief Sets the data to send along with a LAN server discovery or offline ping reply.
@@ -340,13 +340,13 @@ public:
 	/// \param[in] length Length of the data in bytes, or 0 for none
 	/// \note \a length should be under 400 bytes, as a security measure against flood attacks
 	/// \sa Ping.cpp
-	void SetOfflinePingResponse( const char *data, const unsigned int length );
+	//void SetOfflinePingResponse( const char *data, const unsigned int length );
 
 	/// \brief Returns pointers to a copy of the \a data passed to SetOfflinePingResponse.
 	/// \param[out] data A pointer to a copy of the data passed to SetOfflinePingResponse()
 	/// \param[out] length A pointer filled in with the length parameter passed to SetOfflinePingResponse()
 	/// \sa SetOfflinePingResponse
-	void GetOfflinePingResponse( char **data, unsigned int *length );
+	//void GetOfflinePingResponse( char **data, unsigned int *length );
 	
 	//--------------------------------------------------------------------------------------------Network Functions - Functions dealing with the network in general--------------------------------------------------------------------------------------------
 	/// \brief Returns the unique address identifier that represents you or another system on the the network
@@ -363,13 +363,13 @@ public:
 
 	/// \brief Returns the unique address identifier that represents the target on the the network and is based on the target's external IP / port.
 	/// \param[in] target The SystemAddress of the remote system. Usually the same for all systems, unless you have two or more network cards.
-	SystemAddress GetExternalID( const SystemAddress target ) const;
+	//SystemAddress GetExternalID( const SystemAddress target ) const;
 
 	/// Return my own GUID
-	const RakNetGUID GetMyGUID(void) const;
+	//const RakNetGUID GetMyGUID(void) const;
 
 	/// Return the address bound to a socket at the specified index
-	SystemAddress GetMyBoundAddress(const int socketIndex=0);
+	//SystemAddress GetMyBoundAddress(const int socketIndex=0);
 
 	/// \brief  Given a connected system address, this method gives the unique GUID representing that instance of RakPeer.
 	/// This will be the same on all systems connected to that instance of RakPeer, even if the external system addresses are different.
@@ -390,7 +390,7 @@ public:
 	/// Returns false if system address was not found or client public key is not known
 	/// \param[in] input The RakNetGUID of the system
 	/// \param[in] client_public_key The connected client's public key is copied to this address.  Buffer must be cat::EasyHandshake::PUBLIC_KEY_BYTES bytes in length.
-	bool GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const;
+	//bool GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const;
 
 	/// \brief Set the time, in MS, to use before considering ourselves disconnected after not being able to deliver a reliable message.
 
@@ -409,22 +409,22 @@ public:
 	/// \brief Returns the current MTU size
 	/// \param[in] target Which system to get MTU for.  UNASSIGNED_SYSTEM_ADDRESS to get the default
 	/// \return The current MTU size of the target system.
-	int GetMTUSize( const SystemAddress target ) const;
+	//int GetMTUSize( const SystemAddress target ) const;
 
 	/// \brief Returns the number of IP addresses this system has internally.
 	/// \details Get the actual addresses from GetLocalIP()
-	unsigned GetNumberOfAddresses( void );
+	//unsigned GetNumberOfAddresses( void );
 
 	/// Returns an IP address at index 0 to GetNumberOfAddresses-1 in ipList array.
 	/// \param[in] index index into the list of IP addresses
 	/// \return The local IP address at this index
-	const char* GetLocalIP( unsigned int index );
+	//const char* GetLocalIP( unsigned int index );
 
 	/// Is this a local IP?
 	/// Checks if this ip is in the ipList array.
 	/// \param[in] An IP address to check, excluding the port.
 	/// \return True if this is one of the IP addresses returned by GetLocalIP
-	bool IsLocalIP( const char *ip );
+	//bool IsLocalIP( const char *ip );
 
 	/// \brief Allow or disallow connection responses from any IP. 
 	/// \details Normally this should be false, but may be necessary when connecting to servers with multiple IP addresses.

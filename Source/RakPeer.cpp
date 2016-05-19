@@ -1651,13 +1651,13 @@ void RakPeer::GetSystemList(DataStructures::List<SystemAddress> &addresses, Data
 /// Subtract the time from a time returned by the remote system to get that time relative to your own system
 /// Returns 0 if the system is unknown
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-RakNet::Time RakPeer::GetClockDifferential( const AddressOrGUID systemIdentifier )
-{
-	RemoteSystemStruct *remoteSystem = GetRemoteSystem(systemIdentifier, false, false);
-	if (remoteSystem == 0)
-		return 0;
-	return GetClockDifferentialInt(remoteSystem);
-}
+// RakNet::Time RakPeer::GetClockDifferential( const AddressOrGUID systemIdentifier )
+// {
+// 	RemoteSystemStruct *remoteSystem = GetRemoteSystem(systemIdentifier, false, false);
+// 	if (remoteSystem == 0)
+// 		return 0;
+// 	return GetClockDifferentialInt(remoteSystem);
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1692,18 +1692,18 @@ RakNet::Time RakPeer::GetClockDifferentialInt(RemoteSystemStruct *remoteSystem) 
 // data: a block of data to store, or 0 for none
 // length: The length of data in bytes, or 0 for none
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetOfflinePingResponse( const char *data, const unsigned int length )
-{
-	RakAssert(length < 400);
-
-	rakPeerMutexes[ offlinePingResponse_Mutex ].Lock();
-	offlinePingResponse.Reset();
-
-	if ( data && length > 0 )
-		offlinePingResponse.Write( data, length );
-
-	rakPeerMutexes[ offlinePingResponse_Mutex ].Unlock();
-}
+// void RakPeer::SetOfflinePingResponse( const char *data, const unsigned int length )
+// {
+// 	RakAssert(length < 400);
+// 
+// 	rakPeerMutexes[ offlinePingResponse_Mutex ].Lock();
+// 	offlinePingResponse.Reset();
+// 
+// 	if ( data && length > 0 )
+// 		offlinePingResponse.Write( data, length );
+// 
+// 	rakPeerMutexes[ offlinePingResponse_Mutex ].Unlock();
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Returns pointers to a copy of the data passed to SetOfflinePingResponse
@@ -1711,13 +1711,13 @@ void RakPeer::SetOfflinePingResponse( const char *data, const unsigned int lengt
 // \param[out] length A pointer filled in with the length parameter passed to SetOfflinePingResponse()
 // \sa SetOfflinePingResponse
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::GetOfflinePingResponse( char **data, unsigned int *length )
-{
-	rakPeerMutexes[ offlinePingResponse_Mutex ].Lock();
-	*data = (char*) offlinePingResponse.GetData();
-	*length = (int) offlinePingResponse.GetNumberOfBytesUsed();
-	rakPeerMutexes[ offlinePingResponse_Mutex ].Unlock();
-}
+// void RakPeer::GetOfflinePingResponse( char **data, unsigned int *length )
+// {
+// 	rakPeerMutexes[ offlinePingResponse_Mutex ].Lock();
+// 	*data = (char*) offlinePingResponse.GetData();
+// 	*length = (int) offlinePingResponse.GetNumberOfBytesUsed();
+// 	rakPeerMutexes[ offlinePingResponse_Mutex ].Unlock();
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1763,47 +1763,47 @@ void RakPeer::SetInternalID(SystemAddress systemAddress, int index)
 // Parameters:
 // target: Which remote system you are referring to for your external ID
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SystemAddress RakPeer::GetExternalID( const SystemAddress target ) const
-{
-	unsigned i;
-	SystemAddress inactiveExternalId;
-
-	inactiveExternalId=UNASSIGNED_SYSTEM_ADDRESS;
-
-	if (target==UNASSIGNED_SYSTEM_ADDRESS)
-		return firstExternalID;
-
-	// First check for active connection with this systemAddress
-	for ( i = 0; i < maximumNumberOfPeers; i++ )
-	{
-		if (remoteSystemList[ i ].systemAddress == target )
-		{
-			if ( remoteSystemList[ i ].isActive )
-				return remoteSystemList[ i ].myExternalSystemAddress;
-			else if (remoteSystemList[ i ].myExternalSystemAddress!=UNASSIGNED_SYSTEM_ADDRESS)
-				inactiveExternalId=remoteSystemList[ i ].myExternalSystemAddress;
-		}
-	}
-
-	return inactiveExternalId;
-}
+// SystemAddress RakPeer::GetExternalID( const SystemAddress target ) const
+// {
+// 	unsigned i;
+// 	SystemAddress inactiveExternalId;
+// 
+// 	inactiveExternalId=UNASSIGNED_SYSTEM_ADDRESS;
+// 
+// 	if (target==UNASSIGNED_SYSTEM_ADDRESS)
+// 		return firstExternalID;
+// 
+// 	// First check for active connection with this systemAddress
+// 	for ( i = 0; i < maximumNumberOfPeers; i++ )
+// 	{
+// 		if (remoteSystemList[ i ].systemAddress == target )
+// 		{
+// 			if ( remoteSystemList[ i ].isActive )
+// 				return remoteSystemList[ i ].myExternalSystemAddress;
+// 			else if (remoteSystemList[ i ].myExternalSystemAddress!=UNASSIGNED_SYSTEM_ADDRESS)
+// 				inactiveExternalId=remoteSystemList[ i ].myExternalSystemAddress;
+// 		}
+// 	}
+// 
+// 	return inactiveExternalId;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-const RakNetGUID RakPeer::GetMyGUID(void) const
-{
-	return myGuid;
-}
+// const RakNetGUID RakPeer::GetMyGUID(void) const
+// {
+// 	return myGuid;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SystemAddress RakPeer::GetMyBoundAddress(const int socketIndex)
-{
-	DataStructures::List<RakNetSocket2* > sockets;
-	GetSockets( sockets );
-	if (sockets.Size()>0)
-		return sockets[socketIndex]->GetBoundAddress();
-	else
-		return UNASSIGNED_SYSTEM_ADDRESS;
-}
+// SystemAddress RakPeer::GetMyBoundAddress(const int socketIndex)
+// {
+// 	DataStructures::List<RakNetSocket2* > sockets;
+// 	GetSockets( sockets );
+// 	if (sockets.Size()>0)
+// 		return sockets[socketIndex]->GetBoundAddress();
+// 	else
+// 		return UNASSIGNED_SYSTEM_ADDRESS;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const RakNetGUID& RakPeer::GetGuidFromSystemAddress( const SystemAddress input ) const
@@ -1887,17 +1887,17 @@ SystemAddress RakPeer::GetSystemAddressFromGuid( const RakNetGUID input ) const
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-bool RakPeer::GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const
-{
-#if LIBCAT_SECURITY == 1
-
-#else
-	(void) input;
-	(void) client_public_key;
-#endif
-
-	return false;
-}
+// bool RakPeer::GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const
+// {
+// #if LIBCAT_SECURITY == 1
+// 
+// #else
+// 	(void) input;
+// 	(void) client_public_key;
+// #endif
+// 
+// 	return false;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Set the time, in MS, to use before considering ourselves disconnected after not being able to deliver a reliable packet
@@ -1951,92 +1951,92 @@ RakNet::TimeMS RakPeer::GetTimeoutTime( const SystemAddress target )
 // Description:
 // Returns the current MTU size
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int RakPeer::GetMTUSize( const SystemAddress target ) const
-{
-	if (target!=UNASSIGNED_SYSTEM_ADDRESS)
-	{
-		RemoteSystemStruct *rss=GetRemoteSystemFromSystemAddress(target, false, true);
-		if (rss)
-			return rss->MTUSize;
-	}
-	return defaultMTUSize;
-}
+// int RakPeer::GetMTUSize( const SystemAddress target ) const
+// {
+// 	if (target!=UNASSIGNED_SYSTEM_ADDRESS)
+// 	{
+// 		RemoteSystemStruct *rss=GetRemoteSystemFromSystemAddress(target, false, true);
+// 		if (rss)
+// 			return rss->MTUSize;
+// 	}
+// 	return defaultMTUSize;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
 // Returns the number of IP addresses we have
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-unsigned int RakPeer::GetNumberOfAddresses( void )
-{
-
-	if (IsActive()==false)
-	{
-		FillIPList();
-	}
-
-	int i = 0;
-
-	while ( ipList[ i ]!=UNASSIGNED_SYSTEM_ADDRESS )
-		i++;
-
-	return i;
-
-
-
-
-}
+// unsigned int RakPeer::GetNumberOfAddresses( void )
+// {
+// 
+// 	if (IsActive()==false)
+// 	{
+// 		FillIPList();
+// 	}
+// 
+// 	int i = 0;
+// 
+// 	while ( ipList[ i ]!=UNASSIGNED_SYSTEM_ADDRESS )
+// 		i++;
+// 
+// 	return i;
+// 
+// 
+// 
+// 
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Returns an IP address at index 0 to GetNumberOfAddresses-1
 // \param[in] index index into the list of IP addresses
 // \return The local IP address at this index
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const char* RakPeer::GetLocalIP( unsigned int index )
-{
-	if (IsActive()==false)
-	{
-	// Fill out ipList structure
-
-	FillIPList();
-
-	}
-
-
-	static char str[128];
-	ipList[index].ToString(false,str);
-	return str;
-
-
-
-
-}
+// const char* RakPeer::GetLocalIP( unsigned int index )
+// {
+// 	if (IsActive()==false)
+// 	{
+// 	// Fill out ipList structure
+// 
+// 	FillIPList();
+// 
+// 	}
+// 
+// 
+// 	static char str[128];
+// 	ipList[index].ToString(false,str);
+// 	return str;
+// 
+// 
+// 
+// 
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Is this a local IP?
 // \param[in] An IP address to check
 // \return True if this is one of the IP addresses returned by GetLocalIP
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::IsLocalIP( const char *ip )
-{
-	if (ip==0 || ip[0]==0)
-		return false;
-
-
-	if (strcmp(ip, "127.0.0.1")==0 || strcmp(ip, "localhost")==0)
-		return true;
-
-	int num = GetNumberOfAddresses();
-	int i;
-	for (i=0; i < num; i++)
-	{
-		if (strcmp(ip, GetLocalIP(i))==0)
-			return true;
-	}
-
-
-
-
-	return false;
-}
+// bool RakPeer::IsLocalIP( const char *ip )
+// {
+// 	if (ip==0 || ip[0]==0)
+// 		return false;
+// 
+// 
+// 	if (strcmp(ip, "127.0.0.1")==0 || strcmp(ip, "localhost")==0)
+// 		return true;
+// 
+// 	int num = 1;
+// 	int i;
+// 	for (i=0; i < num; i++)
+// 	{
+// 		if (strcmp(ip, GetLocalIP(i))==0)
+// 			return true;
+// 	}
+// 
+// 
+// 
+// 
+// 	return false;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:

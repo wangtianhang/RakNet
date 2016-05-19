@@ -297,7 +297,7 @@ public:
 	/// Subtract GetClockDifferential() from a time returned by the remote system to get that time relative to your own system
 	/// Returns 0 if the system is unknown
 	/// \param[in] systemIdentifier Which system we are referring to
-	virtual RakNet::Time GetClockDifferential( const AddressOrGUID systemIdentifier )=0;
+	//virtual RakNet::Time GetClockDifferential( const AddressOrGUID systemIdentifier )=0;
 
 	// --------------------------------------------------------------------------------------------Static Data Functions - Functions dealing with API defined synchronized memory--------------------------------------------------------------------------------------------
 	/// Sets the data to send along with a LAN server discovery or offline ping reply.
@@ -305,13 +305,13 @@ public:
 	/// \param[in] data a block of data to store, or 0 for none
 	/// \param[in] length The length of data in bytes, or 0 for none
 	/// \sa Ping.cpp
-	virtual void SetOfflinePingResponse( const char *data, const unsigned int length )=0;
+	//virtual void SetOfflinePingResponse( const char *data, const unsigned int length )=0;
 
 	/// Returns pointers to a copy of the data passed to SetOfflinePingResponse
 	/// \param[out] data A pointer to a copy of the data passed to \a SetOfflinePingResponse()
 	/// \param[out] length A pointer filled in with the length parameter passed to SetOfflinePingResponse()
 	/// \sa SetOfflinePingResponse
-	virtual void GetOfflinePingResponse( char **data, unsigned int *length )=0;
+	//virtual void GetOfflinePingResponse( char **data, unsigned int *length )=0;
 
 	//--------------------------------------------------------------------------------------------Network Functions - Functions dealing with the network in general--------------------------------------------------------------------------------------------
 	/// Return the unique address identifier that represents you or another system on the the network and is based on your local IP / port.
@@ -329,13 +329,13 @@ public:
 	/// Return the unique address identifier that represents you on the the network and is based on your externalIP / port
 	/// (the IP / port the specified player uses to communicate with you)
 	/// \param[in] target Which remote system you are referring to for your external ID.  Usually the same for all systems, unless you have two or more network cards.
-	virtual SystemAddress GetExternalID( const SystemAddress target ) const=0;
+	//virtual SystemAddress GetExternalID( const SystemAddress target ) const=0;
 
 	/// Return my own GUID
-	virtual const RakNetGUID GetMyGUID(void) const=0;
+	//virtual const RakNetGUID GetMyGUID(void) const=0;
 
 	/// Return the address bound to a socket at the specified index
-	virtual SystemAddress GetMyBoundAddress(const int socketIndex=0)=0;
+	//virtual SystemAddress GetMyBoundAddress(const int socketIndex=0)=0;
 
 	/// Get a random number (to generate a GUID)
 	static uint64_t Get64BitUniqueRandomNumber(void);
@@ -360,7 +360,7 @@ public:
 	/// Returns false if system address was not found or client public key is not known
 	/// \param[in] input The RakNetGUID of the system
 	/// \param[in] client_public_key The connected client's public key is copied to this address.  Buffer must be cat::EasyHandshake::PUBLIC_KEY_BYTES bytes in length.
-	virtual bool GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const=0;
+	//virtual bool GetClientPublicKeyFromSystemAddress( const SystemAddress input, char *client_public_key ) const=0;
 
 	/// Set the time, in MS, to use before considering ourselves disconnected after not being able to deliver a reliable message.
 	/// Default time is 10,000 or 10 seconds in release and 30,000 or 30 seconds in debug.
@@ -376,20 +376,20 @@ public:
 	/// Returns the current MTU size
 	/// \param[in] target Which system to get this for.  UNASSIGNED_SYSTEM_ADDRESS to get the default
 	/// \return The current MTU size
-	virtual int GetMTUSize( const SystemAddress target ) const=0;
+	//virtual int GetMTUSize( const SystemAddress target ) const=0;
 
 	/// Returns the number of IP addresses this system has internally. Get the actual addresses from GetLocalIP()
-	virtual unsigned GetNumberOfAddresses( void )=0;
+	//virtual unsigned GetNumberOfAddresses( void )=0;
 
 	/// Returns an IP address at index 0 to GetNumberOfAddresses-1
 	/// \param[in] index index into the list of IP addresses
 	/// \return The local IP address at this index
-	virtual const char* GetLocalIP( unsigned int index )=0;
+	//virtual const char* GetLocalIP( unsigned int index )=0;
 
 	/// Is this a local IP?
 	/// \param[in] An IP address to check, excluding the port
 	/// \return True if this is one of the IP addresses returned by GetLocalIP
-	virtual bool IsLocalIP( const char *ip )=0;
+	//virtual bool IsLocalIP( const char *ip )=0;
 
 	/// Allow or disallow connection responses from any IP. Normally this should be false, but may be necessary
 	/// when connecting to servers with multiple IP addresses.
