@@ -38,9 +38,6 @@
     <ClCompile Include="..\..\Source\CCRakNetSlidingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginInterface2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\RakPeer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,9 +91,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\LocklessTypes.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TCPInterface.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Miscellaneous\RakThread.cpp">
       <Filter>Source Files\Miscellaneous</Filter>
@@ -205,9 +199,6 @@
     <ClInclude Include="..\..\Source\InternalPacket.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginInterface2.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\RakPeer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -279,9 +270,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\LocklessTypes.h">
       <Filter>Source Files\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TCPInterface.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Miscellaneous\RakThread.h">
       <Filter>Source Files\Miscellaneous</Filter>

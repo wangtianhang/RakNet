@@ -36,7 +36,7 @@
 #include "BitStream.h"
 #include "NativeFeatureIncludes.h"
 //#include "SecureHandshake.h"
-#include "PluginInterface2.h"
+//#include "PluginInterface2.h"
 #include "Rand.h"
 #include "RakNetSocket2.h"
 
@@ -146,7 +146,7 @@ public:
 	/// \retval true Success
 	/// \retval false Modified packet
 	bool HandleSocketReceiveFromConnectedPlayer(
-		const char *buffer, unsigned int length, SystemAddress &systemAddress, DataStructures::List<PluginInterface2*> &messageHandlerList, int MTUSize,
+		const char *buffer, unsigned int length, SystemAddress &systemAddress, int MTUSize,
 		RakNetSocket2 *s, RakNetRandom *rnr, CCTimeType timeRead, BitStream &updateBitStream);
 
 	/// This allocates bytes and writes a user-level message to those bytes.
@@ -176,7 +176,6 @@ public:
 	/// \param[in] messageHandlerList A list of registered plugins
 	void Update( RakNetSocket2 *s, SystemAddress &systemAddress, int MTUSize, CCTimeType time,
 		unsigned bitsPerSecondLimit,
-		DataStructures::List<PluginInterface2*> &messageHandlerList,
 		RakNetRandom *rnr, BitStream &updateBitStream);
 	
 	/// Were you ever unable to deliver a packet despite retries?
@@ -234,7 +233,7 @@ private:
 	InternalPacket* CreateInternalPacketFromBitStream( RakNet::BitStream *bitStream, CCTimeType time );
 
 	/// Does what the function name says
-	unsigned RemovePacketFromResendListAndDeleteOlderReliableSequenced( const MessageNumberType messageNumber, CCTimeType time, DataStructures::List<PluginInterface2*> &messageHandlerList, const SystemAddress &systemAddress );
+	unsigned RemovePacketFromResendListAndDeleteOlderReliableSequenced( const MessageNumberType messageNumber, CCTimeType time, const SystemAddress &systemAddress );
 
 	/// Acknowledge receipt of the packet with the specified messageNumber
 	void SendAcknowledgementPacket( const DatagramSequenceNumberType messageNumber, CCTimeType time);

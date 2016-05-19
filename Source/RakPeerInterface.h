@@ -492,13 +492,13 @@ public:
 	/// \brief Attaches a Plugin interface to an instance of the base class (RakPeer or PacketizedTCP) to run code automatically on message receipt in the Receive call.
 	/// If the plugin returns false from PluginInterface::UsesReliabilityLayer(), which is the case for all plugins except PacketLogger, you can call AttachPlugin() and DetachPlugin() for this plugin while RakPeer is active.
 	/// \param[in] messageHandler Pointer to the plugin to attach.
-	virtual void AttachPlugin( PluginInterface2 *plugin )=0;
+	//virtual void AttachPlugin( PluginInterface2 *plugin )=0;
 
 	/// \brief Detaches a Plugin interface from the instance of the base class (RakPeer or PacketizedTCP) it is attached to.
 	///	\details This method disables the plugin code from running automatically on base class's updates or message receipt.
 	/// If the plugin returns false from PluginInterface::UsesReliabilityLayer(), which is the case for all plugins except PacketLogger, you can call AttachPlugin() and DetachPlugin() for this plugin while RakPeer is active.
 	/// \param[in] messageHandler Pointer to a plugin to detach.
-	virtual void DetachPlugin( PluginInterface2 *messageHandler )=0;
+	//virtual void DetachPlugin( PluginInterface2 *messageHandler )=0;
 
 	// --------------------------------------------------------------------------------------------Miscellaneous Functions--------------------------------------------------------------------------------------------
 	/// Put a message back at the end of the receive queue in case you don't want to deal with it immediately

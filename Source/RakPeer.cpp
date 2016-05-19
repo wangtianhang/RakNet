@@ -38,7 +38,7 @@
 #include "MessageIdentifiers.h"
 #include "DS_HuffmanEncodingTree.h"
 #include "Rand.h"
-#include "PluginInterface2.h"
+//#include "PluginInterface2.h"
 #include "StringCompressor.h"
 #include "StringTable.h"
 //#include "NetworkIDObject.h"
@@ -725,15 +725,15 @@ StartupResult RakPeer::Startup( unsigned int maxConnections, SocketDescriptor *s
 #endif // RAKPEER_USER_THREADED!=1
 	}
 
-	for (i=0; i < pluginListTS.Size(); i++)
-	{
-		pluginListTS[i]->OnRakPeerStartup();
-	}
-
-	for (i=0; i < pluginListNTS.Size(); i++)
-	{
-		pluginListNTS[i]->OnRakPeerStartup();
-	}
+// 	for (i=0; i < pluginListTS.Size(); i++)
+// 	{
+// 		pluginListTS[i]->OnRakPeerStartup();
+// 	}
+// 
+// 	for (i=0; i < pluginListNTS.Size(); i++)
+// 	{
+// 		pluginListNTS[i]->OnRakPeerStartup();
+// 	}
 
 #ifdef USE_THREADED_SEND
 	RakNet::SendToThread::AddRef();
@@ -1083,14 +1083,14 @@ void RakPeer::Shutdown( unsigned int blockDuration, unsigned char orderingChanne
 			time = RakNet::GetTimeMS();
 		}
 	}
-	for (i=0; i < pluginListTS.Size(); i++)
-	{
-		pluginListTS[i]->OnRakPeerShutdown();
-	}
-	for (i=0; i < pluginListNTS.Size(); i++)
-	{
-		pluginListNTS[i]->OnRakPeerShutdown();
-	}
+// 	for (i=0; i < pluginListTS.Size(); i++)
+// 	{
+// 		pluginListTS[i]->OnRakPeerShutdown();
+// 	}
+// 	for (i=0; i < pluginListNTS.Size(); i++)
+// 	{
+// 		pluginListNTS[i]->OnRakPeerShutdown();
+// 	}
 
 	activeSystemListSize=0;
 
@@ -1483,7 +1483,7 @@ Packet* RakPeer::Receive( void )
 
 	RakNet::Packet *packet;
 //	Packet **threadPacket;
-	PluginReceiveResult pluginResult;
+//	PluginReceiveResult pluginResult;
 
 	int offset;
 	unsigned int i;
@@ -1525,14 +1525,14 @@ Packet* RakPeer::Receive( void )
 #endif
 	*/
 
-	for (i=0; i < pluginListTS.Size(); i++)
-	{
-		pluginListTS[i]->Update();
-	}
-	for (i=0; i < pluginListNTS.Size(); i++)
-	{
-		pluginListNTS[i]->Update();
-	}
+// 	for (i=0; i < pluginListTS.Size(); i++)
+// 	{
+// 		pluginListTS[i]->Update();
+// 	}
+// 	for (i=0; i < pluginListNTS.Size(); i++)
+// 	{
+// 		pluginListNTS[i]->Update();
+// 	}
 
 	do
 	{
@@ -1562,40 +1562,40 @@ Packet* RakPeer::Receive( void )
 // 			return packet;
 
 
-		CallPluginCallbacks(pluginListTS, packet);
-		CallPluginCallbacks(pluginListNTS, packet);
+		//CallPluginCallbacks(pluginListTS, packet);
+		//CallPluginCallbacks(pluginListNTS, packet);
 
-		for (i=0; i < pluginListTS.Size(); i++)
-		{
- 			pluginResult=pluginListTS[i]->OnReceive(packet);
-			if (pluginResult==RR_STOP_PROCESSING_AND_DEALLOCATE)
-			{
-				DeallocatePacket( packet );
-				packet=0; // Will do the loop again and get another packet
-				break; // break out of the enclosing for
-			}
-			else if (pluginResult==RR_STOP_PROCESSING)
-			{
-				packet=0;
-				break;
-			}
-		}
+// 		for (i=0; i < pluginListTS.Size(); i++)
+// 		{
+//  			pluginResult=pluginListTS[i]->OnReceive(packet);
+// 			if (pluginResult==RR_STOP_PROCESSING_AND_DEALLOCATE)
+// 			{
+// 				DeallocatePacket( packet );
+// 				packet=0; // Will do the loop again and get another packet
+// 				break; // break out of the enclosing for
+// 			}
+// 			else if (pluginResult==RR_STOP_PROCESSING)
+// 			{
+// 				packet=0;
+// 				break;
+// 			}
+// 		}
 
-		for (i=0; i < pluginListNTS.Size(); i++)
-		{
-			pluginResult=pluginListNTS[i]->OnReceive(packet);
-			if (pluginResult==RR_STOP_PROCESSING_AND_DEALLOCATE)
-			{
-				DeallocatePacket( packet );
-				packet=0; // Will do the loop again and get another packet
-				break; // break out of the enclosing for
-			}
-			else if (pluginResult==RR_STOP_PROCESSING)
-			{
-				packet=0;
-				break;
-			}
-		}
+// 		for (i=0; i < pluginListNTS.Size(); i++)
+// 		{
+// 			pluginResult=pluginListNTS[i]->OnReceive(packet);
+// 			if (pluginResult==RR_STOP_PROCESSING_AND_DEALLOCATE)
+// 			{
+// 				DeallocatePacket( packet );
+// 				packet=0; // Will do the loop again and get another packet
+// 				break; // break out of the enclosing for
+// 			}
+// 			else if (pluginResult==RR_STOP_PROCESSING)
+// 			{
+// 				packet=0;
+// 				break;
+// 			}
+// 		}
 	
 	} while(packet==0);
 
@@ -2132,8 +2132,8 @@ bool RakPeer::Ping( const char* host, unsigned short remotePort, bool onlyReplyO
 		return false;
 	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
 	unsigned i;
-	for (i=0; i < pluginListNTS.Size(); i++)
-		pluginListNTS[i]->OnDirectSocketSend((const char*)bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), bsp.systemAddress);
+//	for (i=0; i < pluginListNTS.Size(); i++)
+//		pluginListNTS[i]->OnDirectSocketSend((const char*)bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), bsp.systemAddress);
 	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
 
 	return true;
@@ -2744,8 +2744,8 @@ void RakPeer::SendTTL( const char* host, unsigned short remotePort, int ttl, uns
 		bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
 		bsp.ttl=ttl;
 		unsigned i;
-		for (i=0; i < pluginListNTS.Size(); i++)
-			pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
+//		for (i=0; i < pluginListNTS.Size(); i++)
+//			pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
 		socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
 	}
 #endif
@@ -2757,65 +2757,65 @@ void RakPeer::SendTTL( const char* host, unsigned short remotePort, int ttl, uns
 //
 // \param messageHandler Pointer to a plugin to attach
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::AttachPlugin( PluginInterface2 *plugin )
-{
-	bool isNotThreadsafe = plugin->UsesReliabilityLayer();
-	if (isNotThreadsafe)
-	{
-		if (pluginListNTS.GetIndexOf(plugin)==MAX_UNSIGNED_LONG)
-		{
-			plugin->SetRakPeerInterface(this);
-			plugin->OnAttach();
-			pluginListNTS.Insert(plugin, _FILE_AND_LINE_);
-		}
-	}
-	else
-	{
-		if (pluginListTS.GetIndexOf(plugin)==MAX_UNSIGNED_LONG)
-		{
-			plugin->SetRakPeerInterface(this);
-			plugin->OnAttach();
-			pluginListTS.Insert(plugin, _FILE_AND_LINE_);
-		}
-	}
-}
+// void RakPeer::AttachPlugin( PluginInterface2 *plugin )
+// {
+// 	bool isNotThreadsafe = plugin->UsesReliabilityLayer();
+// 	if (isNotThreadsafe)
+// 	{
+// 		if (pluginListNTS.GetIndexOf(plugin)==MAX_UNSIGNED_LONG)
+// 		{
+// 			plugin->SetRakPeerInterface(this);
+// 			plugin->OnAttach();
+// 			pluginListNTS.Insert(plugin, _FILE_AND_LINE_);
+// 		}
+// 	}
+// 	else
+// 	{
+// 		if (pluginListTS.GetIndexOf(plugin)==MAX_UNSIGNED_LONG)
+// 		{
+// 			plugin->SetRakPeerInterface(this);
+// 			plugin->OnAttach();
+// 			pluginListTS.Insert(plugin, _FILE_AND_LINE_);
+// 		}
+// 	}
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Detaches a Plugin interface to run code automatically on message receipt
 //
 // \param messageHandler Pointer to a plugin to detach
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::DetachPlugin( PluginInterface2 *plugin )
-{
-	if (plugin==0)
-		return;
-
-	unsigned int index;
-
-	bool isNotThreadsafe = plugin->UsesReliabilityLayer();
-	if (isNotThreadsafe)
-	{
-		index = pluginListNTS.GetIndexOf(plugin);
-		if (index!=MAX_UNSIGNED_LONG)
-		{
-			// Unordered list so delete from end for speed
-			pluginListNTS[index]=pluginListNTS[pluginListNTS.Size()-1];
-			pluginListNTS.RemoveFromEnd();
-		}
-	}
-	else
-	{
-		index = pluginListTS.GetIndexOf(plugin);
-		if (index!=MAX_UNSIGNED_LONG)
-		{
-			// Unordered list so delete from end for speed
-			pluginListTS[index]=pluginListTS[pluginListTS.Size()-1];
-			pluginListTS.RemoveFromEnd();
-		}
-	}
-	plugin->OnDetach();
-	plugin->SetRakPeerInterface(0);
-}
+// void RakPeer::DetachPlugin( PluginInterface2 *plugin )
+// {
+// 	if (plugin==0)
+// 		return;
+// 
+// 	unsigned int index;
+// 
+// 	bool isNotThreadsafe = plugin->UsesReliabilityLayer();
+// 	if (isNotThreadsafe)
+// 	{
+// 		index = pluginListNTS.GetIndexOf(plugin);
+// 		if (index!=MAX_UNSIGNED_LONG)
+// 		{
+// 			// Unordered list so delete from end for speed
+// 			pluginListNTS[index]=pluginListNTS[pluginListNTS.Size()-1];
+// 			pluginListNTS.RemoveFromEnd();
+// 		}
+// 	}
+// 	else
+// 	{
+// 		index = pluginListTS.GetIndexOf(plugin);
+// 		if (index!=MAX_UNSIGNED_LONG)
+// 		{
+// 			// Unordered list so delete from end for speed
+// 			pluginListTS[index]=pluginListTS[pluginListTS.Size()-1];
+// 			pluginListTS.RemoveFromEnd();
+// 		}
+// 	}
+// 	plugin->OnDetach();
+// 	plugin->SetRakPeerInterface(0);
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Put a packet back at the end of the receive queue in case you don't want to deal with it immediately
@@ -2829,10 +2829,10 @@ void RakPeer::PushBackPacket( Packet *packet, bool pushAtHead)
 		return;
 
 	unsigned i;
-	for (i=0; i < pluginListTS.Size(); i++)
-		pluginListTS[i]->OnPushBackPacket((const char*) packet->data, packet->bitSize, packet->systemAddress);
-	for (i=0; i < pluginListNTS.Size(); i++)
-		pluginListNTS[i]->OnPushBackPacket((const char*) packet->data, packet->bitSize, packet->systemAddress);
+//	for (i=0; i < pluginListTS.Size(); i++)
+//		pluginListTS[i]->OnPushBackPacket((const char*) packet->data, packet->bitSize, packet->systemAddress);
+//	for (i=0; i < pluginListNTS.Size(); i++)
+//		pluginListNTS[i]->OnPushBackPacket((const char*) packet->data, packet->bitSize, packet->systemAddress);
 
 	packetReturnMutex.Lock();
 	if (pushAtHead)
@@ -3040,8 +3040,8 @@ bool RakPeer::SendOutOfBand(const char *host, unsigned short remotePort, const c
 	bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
 	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
 	unsigned i;
-	for (i=0; i < pluginListNTS.Size(); i++)
-		pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
+//	for (i=0; i < pluginListNTS.Size(); i++)
+//		pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
 	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
 
 	return true;
@@ -4549,8 +4549,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 	systemAddress.ToString(false, str1);
 	if (rakPeer->IsBanned( str1 ))
 	{
-		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-			rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
+//		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//			rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
 
 		RakNet::BitStream bs;
 		bs.Write((MessageID)ID_CONNECTION_BANNED);
@@ -4562,8 +4562,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 		bsp.data = (char*) bs.GetData();
 		bsp.length = bs.GetNumberOfBytesUsed();
 		bsp.systemAddress = systemAddress;
-		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-			rakPeer->pluginListNTS[i]->OnDirectSocketSend((char*) bs.GetData(), bs.GetNumberOfBitsUsed(), systemAddress);
+//		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//			rakPeer->pluginListNTS[i]->OnDirectSocketSend((char*) bs.GetData(), bs.GetNumberOfBitsUsed(), systemAddress);
 		rakNetSocket->Send(&bsp, _FILE_AND_LINE_);
 
 /*
@@ -4628,8 +4628,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 
 	if (*isOfflineMessage)
 	{
-		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-			rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
+//		for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//			rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
 
 		// These are all messages from unconnected systems.  Messages here can be any size, but are never processed from connected systems.
 		if ( ( (unsigned char) data[ 0 ] == ID_UNCONNECTED_PING_OPEN_CONNECTIONS
@@ -4658,8 +4658,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				rakPeer->rakPeerMutexes[ RakPeer::offlinePingResponse_Mutex ].Unlock();
 
 				unsigned i;
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*)outBitStream.GetData(), outBitStream.GetNumberOfBytesUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*)outBitStream.GetData(), outBitStream.GetNumberOfBytesUsed(), systemAddress);
 
 				RNS2_SendParameters bsp;
 				bsp.data = (char*) outBitStream.GetData();
@@ -4736,8 +4736,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 		}
 		else if ((unsigned char)(data)[0] == (MessageID)ID_OPEN_CONNECTION_REPLY_1)
 		{
-			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
+//			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
 
 			RakNet::BitStream bsIn((unsigned char*) data,length,false);
 			bsIn.IgnoreBytes(sizeof(MessageID));
@@ -4852,8 +4852,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 					// Our guid
 					bsOut.Write(rakPeer->GetGuidFromSystemAddress(UNASSIGNED_SYSTEM_ADDRESS));
 
-					for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-						rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), rcs->systemAddress);
+//					for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//						rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), rcs->systemAddress);
 
 					// SocketLayer::SendTo( rakPeer->socketList[rcs->socketIndex], (const char*) bsOut.GetData(), bsOut.GetNumberOfBytesUsed(), rcs->systemAddress, _FILE_AND_LINE_ );
 
@@ -4870,8 +4870,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 		}
 		else if ((unsigned char)(data)[0] == (MessageID)ID_OPEN_CONNECTION_REPLY_2)
 		{
-			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
+//			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
 
 			RakNet::BitStream bs((unsigned char*) data,length,false);
 			bs.IgnoreBytes(sizeof(MessageID));
@@ -5143,8 +5143,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				bs.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
 				bs.Write(rakPeer->GetGuidFromSystemAddress(UNASSIGNED_SYSTEM_ADDRESS));
 
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((char*)bs.GetData(), bs.GetNumberOfBitsUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((char*)bs.GetData(), bs.GetNumberOfBitsUsed(), systemAddress);
 
 				// SocketLayer::SendTo( rakNetSocket, (char*)bs.GetData(), bs.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 
@@ -5157,8 +5157,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				return true;
 			}
 
-			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
+//			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//				rakPeer->pluginListNTS[i]->OnDirectSocketReceive(data, length*8, systemAddress);
 
 			RakNet::BitStream bsOut;
 			bsOut.Write((MessageID)ID_OPEN_CONNECTION_REPLY_1);
@@ -5185,8 +5185,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 			else
 				bsOut.WriteCasted<uint16_t>(length+UDP_HEADER_SIZE);
 
-			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-				rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
+//			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//				rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
 			// SocketLayer::SendTo( rakNetSocket, (const char*) bsOut.GetData(), bsOut.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 
 			RNS2_SendParameters bsp;
@@ -5317,8 +5317,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 #endif // LIBCAT_SECURITY
 
 				unsigned int i;
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBitsUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBitsUsed(), systemAddress);
 				// SocketLayer::SendTo( rakNetSocket, (const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 
 				RNS2_SendParameters bsp;
@@ -5334,8 +5334,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				bsOut.Write((MessageID)ID_ALREADY_CONNECTED);
 				bsOut.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
 				bsOut.Write(rakPeer->myGuid);
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
 				// SocketLayer::SendTo( rakNetSocket, (const char*) bsOut.GetData(), bsOut.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 				RNS2_SendParameters bsp;
 				bsp.data = (char*) bsOut.GetData();
@@ -5351,8 +5351,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				bsOut.Write((MessageID)ID_NO_FREE_INCOMING_CONNECTIONS);
 				bsOut.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
 				bsOut.Write(rakPeer->myGuid);
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
 				//SocketLayer::SendTo( rakNetSocket, (const char*) bsOut.GetData(), bsOut.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 				RNS2_SendParameters bsp;
 				bsp.data = (char*) bsOut.GetData();
@@ -5371,8 +5371,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 				bsOut.Write((MessageID)ID_IP_RECENTLY_CONNECTED);
 				bsOut.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
 				bsOut.Write(rakPeer->myGuid);
-				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
+//				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//					rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsOut.GetData(), bsOut.GetNumberOfBitsUsed(), systemAddress);
 				//SocketLayer::SendTo( rakNetSocket, (const char*) bsOut.GetData(), bsOut.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 
 				RNS2_SendParameters bsp;
@@ -5407,8 +5407,8 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 #endif // LIBCAT_SECURITY
 
 			unsigned int i;
-			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
-				rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBitsUsed(), systemAddress);
+//			for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
+//				rakPeer->pluginListNTS[i]->OnDirectSocketSend((const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBitsUsed(), systemAddress);
 			// SocketLayer::SendTo( rakNetSocket, (const char*) bsAnswer.GetData(), bsAnswer.GetNumberOfBytesUsed(), systemAddress, _FILE_AND_LINE_ );
 			RNS2_SendParameters bsp;
 			bsp.data = (char*) bsAnswer.GetData();
@@ -5458,7 +5458,7 @@ void ProcessNetworkPacket( SystemAddress systemAddress, const char *data, const 
 		if ( isOfflineMessage==false)
 		{
 			remoteSystem->reliabilityLayer.HandleSocketReceiveFromConnectedPlayer(
-				data, length, systemAddress, rakPeer->pluginListNTS, remoteSystem->MTUSize,
+				data, length, systemAddress, remoteSystem->MTUSize,
 				rakNetSocket, &rnr, timeRead, updateBitStream);
 		}
 	}
@@ -5766,8 +5766,8 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 					//RAKNET_DEBUG_PRINTF("%i:IOCR, ", __LINE__);
 
 					unsigned i;
-					for (i=0; i < pluginListNTS.Size(); i++)
-						pluginListNTS[i]->OnDirectSocketSend((const char*) bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), rcs->systemAddress);
+//					for (i=0; i < pluginListNTS.Size(); i++)
+//						pluginListNTS[i]->OnDirectSocketSend((const char*) bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), rcs->systemAddress);
 
 					RakNetSocket2 *socketToUse;
 					if (rcs->socket == 0)
@@ -5868,7 +5868,7 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 				}
 			}
 
-			remoteSystem->reliabilityLayer.Update( remoteSystem->rakNetSocket, systemAddress, remoteSystem->MTUSize, timeNS, maxOutgoingBPS, pluginListNTS, &rnr, updateBitStream ); // systemAddress only used for the internet simulator test
+			remoteSystem->reliabilityLayer.Update( remoteSystem->rakNetSocket, systemAddress, remoteSystem->MTUSize, timeNS, maxOutgoingBPS, &rnr, updateBitStream ); // systemAddress only used for the internet simulator test
 
 			// Check for failure conditions
 			if ( remoteSystem->reliabilityLayer.IsDeadConnection() ||
@@ -6408,57 +6408,57 @@ RAK_THREAD_DECLARATION(RakNet::UpdateNetworkLoop)
 
 }
 
-void RakPeer::CallPluginCallbacks(DataStructures::List<PluginInterface2*> &pluginList, Packet *packet)
-{
-	for (unsigned int i=0; i < pluginList.Size(); i++)
-	{
-		switch (packet->data[0])
-		{
-		case ID_DISCONNECTION_NOTIFICATION:
-			pluginList[i]->OnClosedConnection(packet->systemAddress, packet->guid, LCR_DISCONNECTION_NOTIFICATION);
-			break;
-		case ID_CONNECTION_LOST:
-			pluginList[i]->OnClosedConnection(packet->systemAddress, packet->guid, LCR_CONNECTION_LOST);
-			break;
-		case ID_NEW_INCOMING_CONNECTION:
-			pluginList[i]->OnNewConnection(packet->systemAddress, packet->guid, true);
-			break;
-		case ID_CONNECTION_REQUEST_ACCEPTED:
-			pluginList[i]->OnNewConnection(packet->systemAddress, packet->guid, false);
-			break;
-		case ID_CONNECTION_ATTEMPT_FAILED:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_CONNECTION_ATTEMPT_FAILED);
-			break;
-		case ID_REMOTE_SYSTEM_REQUIRES_PUBLIC_KEY:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_REMOTE_SYSTEM_REQUIRES_PUBLIC_KEY);
-			break;
-		case ID_OUR_SYSTEM_REQUIRES_SECURITY:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_OUR_SYSTEM_REQUIRES_SECURITY);
-			break;
-		case ID_PUBLIC_KEY_MISMATCH:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_PUBLIC_KEY_MISMATCH);
-			break;
-		case ID_ALREADY_CONNECTED:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_ALREADY_CONNECTED);
-			break;
-		case ID_NO_FREE_INCOMING_CONNECTIONS:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_NO_FREE_INCOMING_CONNECTIONS);
-			break;
-		case ID_CONNECTION_BANNED:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_CONNECTION_BANNED);
-			break;
-		case ID_INVALID_PASSWORD:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_INVALID_PASSWORD);
-			break;
-		case ID_INCOMPATIBLE_PROTOCOL_VERSION:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_INCOMPATIBLE_PROTOCOL);
-			break;
-		case ID_IP_RECENTLY_CONNECTED:
-			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_IP_RECENTLY_CONNECTED);
-			break;
-		}
-	}
-}
+// void RakPeer::CallPluginCallbacks(DataStructures::List<PluginInterface2*> &pluginList, Packet *packet)
+// {
+// 	for (unsigned int i=0; i < pluginList.Size(); i++)
+// 	{
+// 		switch (packet->data[0])
+// 		{
+// 		case ID_DISCONNECTION_NOTIFICATION:
+// 			pluginList[i]->OnClosedConnection(packet->systemAddress, packet->guid, LCR_DISCONNECTION_NOTIFICATION);
+// 			break;
+// 		case ID_CONNECTION_LOST:
+// 			pluginList[i]->OnClosedConnection(packet->systemAddress, packet->guid, LCR_CONNECTION_LOST);
+// 			break;
+// 		case ID_NEW_INCOMING_CONNECTION:
+// 			pluginList[i]->OnNewConnection(packet->systemAddress, packet->guid, true);
+// 			break;
+// 		case ID_CONNECTION_REQUEST_ACCEPTED:
+// 			pluginList[i]->OnNewConnection(packet->systemAddress, packet->guid, false);
+// 			break;
+// 		case ID_CONNECTION_ATTEMPT_FAILED:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_CONNECTION_ATTEMPT_FAILED);
+// 			break;
+// 		case ID_REMOTE_SYSTEM_REQUIRES_PUBLIC_KEY:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_REMOTE_SYSTEM_REQUIRES_PUBLIC_KEY);
+// 			break;
+// 		case ID_OUR_SYSTEM_REQUIRES_SECURITY:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_OUR_SYSTEM_REQUIRES_SECURITY);
+// 			break;
+// 		case ID_PUBLIC_KEY_MISMATCH:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_PUBLIC_KEY_MISMATCH);
+// 			break;
+// 		case ID_ALREADY_CONNECTED:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_ALREADY_CONNECTED);
+// 			break;
+// 		case ID_NO_FREE_INCOMING_CONNECTIONS:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_NO_FREE_INCOMING_CONNECTIONS);
+// 			break;
+// 		case ID_CONNECTION_BANNED:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_CONNECTION_BANNED);
+// 			break;
+// 		case ID_INVALID_PASSWORD:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_INVALID_PASSWORD);
+// 			break;
+// 		case ID_INCOMPATIBLE_PROTOCOL_VERSION:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_INCOMPATIBLE_PROTOCOL);
+// 			break;
+// 		case ID_IP_RECENTLY_CONNECTED:
+// 			pluginList[i]->OnFailedConnectionAttempt(packet, FCAR_IP_RECENTLY_CONNECTED);
+// 			break;
+// 		}
+// 	}
+// }
 
 void RakPeer::FillIPList(void)
 {

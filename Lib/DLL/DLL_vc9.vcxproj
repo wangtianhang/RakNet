@@ -243,10 +243,8 @@
     <ClCompile Include="..\..\Source\NetLookOver\SocketLayer.cpp" />
     <ClCompile Include="..\..\Source\NetLookOver\WSAStartupSingleton.cpp" />
     <ClCompile Include="..\..\Source\Other\Gets.cpp" />
-    <ClCompile Include="..\..\Source\PluginInterface2.cpp" />
     <ClCompile Include="..\..\Source\RakPeer.cpp" />
     <ClCompile Include="..\..\Source\ReliabilityLayer.cpp" />
-    <ClCompile Include="..\..\Source\TCPInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\CCRakNetSlidingWindow.h" />
@@ -309,14 +307,12 @@
     <ClInclude Include="..\..\Source\Other\Gets.h" />
     <ClInclude Include="..\..\Source\Other\Kbhit.h" />
     <ClInclude Include="..\..\Source\PacketPriority.h" />
-    <ClInclude Include="..\..\Source\PluginInterface2.h" />
     <ClInclude Include="..\..\Source\RakNetDefines.h" />
     <ClInclude Include="..\..\Source\RakNetSocket2_Berkley.h" />
     <ClInclude Include="..\..\Source\RakPeer.h" />
     <ClInclude Include="..\..\Source\RakPeerInterface.h" />
     <ClInclude Include="..\..\Source\ReliabilityLayer.h" />
     <ClInclude Include="..\..\Source\SocketIncludes.h" />
-    <ClInclude Include="..\..\Source\TCPInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
