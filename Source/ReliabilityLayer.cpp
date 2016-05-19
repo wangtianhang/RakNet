@@ -1988,16 +1988,16 @@ bool ReliabilityLayer::AreAcksWaiting(void)
 	return acknowlegements.Size() > 0;
 }
 //-------------------------------------------------------------------------------------------------------
-void ReliabilityLayer::ApplyNetworkSimulator( double _packetloss, RakNet::TimeMS _minExtraPing, RakNet::TimeMS _extraPingVariance )
-{
-#ifdef _DEBUG
-	packetloss=_packetloss;
-	minExtraPing=_minExtraPing;
-	extraPingVariance=_extraPingVariance;
-	//	if (ping < (unsigned int)(minExtraPing+extraPingVariance)*2)
-	//		ping=(minExtraPing+extraPingVariance)*2;
-#endif
-}
+// void ReliabilityLayer::ApplyNetworkSimulator( double _packetloss, RakNet::TimeMS _minExtraPing, RakNet::TimeMS _extraPingVariance )
+// {
+// #ifdef _DEBUG
+// 	packetloss=_packetloss;
+// 	minExtraPing=_minExtraPing;
+// 	extraPingVariance=_extraPingVariance;
+// 	//	if (ping < (unsigned int)(minExtraPing+extraPingVariance)*2)
+// 	//		ping=(minExtraPing+extraPingVariance)*2;
+// #endif
+// }
 //-------------------------------------------------------------------------------------------------------
 void ReliabilityLayer::SetSplitMessageProgressInterval(int interval)
 {
@@ -2016,13 +2016,13 @@ void ReliabilityLayer::SetUnreliableTimeout(RakNet::TimeMS timeoutMS)
 //-------------------------------------------------------------------------------------------------------
 // This will return true if we should not send at this time
 //-------------------------------------------------------------------------------------------------------
-bool ReliabilityLayer::IsSendThrottled( int MTUSize )
-{
-	(void) MTUSize;
-
-	return false;
-	//	return resendList.Size() > windowSize;
-}
+// bool ReliabilityLayer::IsSendThrottled( int MTUSize )
+// {
+// 	(void) MTUSize;
+// 
+// 	return false;
+// 	//	return resendList.Size() > windowSize;
+// }
 
 //-------------------------------------------------------------------------------------------------------
 // We lost a packet

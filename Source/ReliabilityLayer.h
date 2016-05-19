@@ -68,10 +68,7 @@ struct SplitPacketChannel//<SplitPacketChannel>
 	DataStructures::List<InternalPacket*> splitPacketList;
 
 #if PREALLOCATE_LARGE_MESSAGES==1
-	InternalPacket *returnedPacket;
-	bool gotFirstPacket;
-	unsigned int stride;
-	unsigned int splitPacketsArrived;
+
 #else
 	// This is here for progress notifications, since progress notifications return the first packet data, if available
 	InternalPacket *firstPacket;
@@ -194,11 +191,11 @@ public:
 	bool AreAcksWaiting(void);
 
 	// Set outgoing lag and packet loss properties
-	void ApplyNetworkSimulator( double _maxSendBPS, RakNet::TimeMS _minExtraPing, RakNet::TimeMS _extraPingVariance );
+	//void ApplyNetworkSimulator( double _maxSendBPS, RakNet::TimeMS _minExtraPing, RakNet::TimeMS _extraPingVariance );
 
 	/// Returns if you previously called ApplyNetworkSimulator
 	/// \return If you previously called ApplyNetworkSimulator
-	bool IsNetworkSimulatorActive( void );
+	//bool IsNetworkSimulatorActive( void );
 
 	void SetSplitMessageProgressInterval(int interval);
 	void SetUnreliableTimeout(RakNet::TimeMS timeoutMS);
@@ -239,7 +236,7 @@ private:
 	void SendAcknowledgementPacket( const DatagramSequenceNumberType messageNumber, CCTimeType time);
 
 	/// This will return true if we should not send at this time
-	bool IsSendThrottled( int MTUSize );
+	//bool IsSendThrottled( int MTUSize );
 
 	/// We lost a packet
 	void UpdateWindowFromPacketloss( CCTimeType time );

@@ -612,10 +612,6 @@ public:
 		RakNetSocket2* rakNetSocket;
 		SystemIndex remoteSystemIndex;
 
-#if LIBCAT_SECURITY==1
-
-#endif
-
 		enum ConnectMode {NO_ACTION, DISCONNECT_ASAP, DISCONNECT_ASAP_SILENTLY, DISCONNECT_ON_NO_ACK, REQUESTED_CONNECTION, HANDLING_CONNECTION_REQUEST, UNVERIFIED_SENDER, CONNECTED} connectMode;
 	};
 
@@ -771,14 +767,7 @@ protected:
 		PublicKeyMode publicKeyMode;
 		RakNetSocket2* socket;
 		enum {CONNECT=1, /*PING=2, PING_OPEN_CONNECTIONS=4,*/ /*ADVERTISE_SYSTEM=2*/} actionToTake;
-
-#if LIBCAT_SECURITY==1
-
-#endif
 	};
-#if LIBCAT_SECURITY==1
-
-#endif
 
 	//DataStructures::List<DataStructures::List<MemoryBlock>* > automaticVariableSynchronizationList;
 	DataStructures::List<BanStruct*> banList;
