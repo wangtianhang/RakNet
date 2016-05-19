@@ -1399,10 +1399,10 @@ void RakPeer::GetSystemList(DataStructures::List<SystemAddress> &addresses, Data
 // 	banListMutex.Unlock();
 // }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetLimitIPConnectionFrequency(bool b)
-{
-	limitConnectionFrequencyFromTheSameIP=b;
-}
+// void RakPeer::SetLimitIPConnectionFrequency(bool b)
+// {
+// 	limitConnectionFrequencyFromTheSameIP=b;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1507,10 +1507,10 @@ void RakPeer::SetLimitIPConnectionFrequency(bool b)
 // Parameters:
 // target - who to ping
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::Ping( const SystemAddress target )
-{
-	PingInternal(target, false, UNRELIABLE);
-}
+// void RakPeer::Ping( const SystemAddress target )
+// {
+// 	PingInternal(target, false, UNRELIABLE);
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1524,46 +1524,46 @@ void RakPeer::Ping( const SystemAddress target )
 // onlyReplyOnAcceptingConnections: Only request a reply if the remote system has open connections
 // connectionSocketIndex Index into the array of socket descriptors passed to socketDescriptors in RakPeer::Startup() to send on.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::Ping( const char* host, unsigned short remotePort, bool onlyReplyOnAcceptingConnections, unsigned connectionSocketIndex )
-{
-	if ( host == 0 )
-		return false;
-
-	// If this assert hits then Startup wasn't called or the call failed.
-	RakAssert(connectionSocketIndex < socketList.Size());
-
-//	if ( IsActive() == false )
-//		return;
-
-	RakNet::BitStream bitStream( sizeof(unsigned char) + sizeof(RakNet::Time) );
-	if ( onlyReplyOnAcceptingConnections )
-		bitStream.Write((MessageID)ID_UNCONNECTED_PING_OPEN_CONNECTIONS);
-	else
-		bitStream.Write((MessageID)ID_UNCONNECTED_PING);
-
-	bitStream.Write(RakNet::GetTime());
-
-	bitStream.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
-
-	bitStream.Write(GetMyGUID());
-
-	// No timestamp for 255.255.255.255
-	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
-
-	RNS2_SendParameters bsp;
-	bsp.data = (char*) bitStream.GetData() ;
-	bsp.length = bitStream.GetNumberOfBytesUsed();
-	bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
-	if (bsp.systemAddress==UNASSIGNED_SYSTEM_ADDRESS)
-		return false;
-	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
-	unsigned i;
-//	for (i=0; i < pluginListNTS.Size(); i++)
-//		pluginListNTS[i]->OnDirectSocketSend((const char*)bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), bsp.systemAddress);
-	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
-
-	return true;
-}
+// bool RakPeer::Ping( const char* host, unsigned short remotePort, bool onlyReplyOnAcceptingConnections, unsigned connectionSocketIndex )
+// {
+// 	if ( host == 0 )
+// 		return false;
+// 
+// 	// If this assert hits then Startup wasn't called or the call failed.
+// 	RakAssert(connectionSocketIndex < socketList.Size());
+// 
+// //	if ( IsActive() == false )
+// //		return;
+// 
+// 	RakNet::BitStream bitStream( sizeof(unsigned char) + sizeof(RakNet::Time) );
+// 	if ( onlyReplyOnAcceptingConnections )
+// 		bitStream.Write((MessageID)ID_UNCONNECTED_PING_OPEN_CONNECTIONS);
+// 	else
+// 		bitStream.Write((MessageID)ID_UNCONNECTED_PING);
+// 
+// 	bitStream.Write(RakNet::GetTime());
+// 
+// 	bitStream.WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
+// 
+// 	bitStream.Write(GetMyGUID());
+// 
+// 	// No timestamp for 255.255.255.255
+// 	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
+// 
+// 	RNS2_SendParameters bsp;
+// 	bsp.data = (char*) bitStream.GetData() ;
+// 	bsp.length = bitStream.GetNumberOfBytesUsed();
+// 	bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
+// 	if (bsp.systemAddress==UNASSIGNED_SYSTEM_ADDRESS)
+// 		return false;
+// 	bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
+// 	unsigned i;
+// //	for (i=0; i < pluginListNTS.Size(); i++)
+// //		pluginListNTS[i]->OnDirectSocketSend((const char*)bitStream.GetData(), bitStream.GetNumberOfBitsUsed(), bsp.systemAddress);
+// 	socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
+// 
+// 	return true;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1572,27 +1572,27 @@ bool RakPeer::Ping( const char* host, unsigned short remotePort, bool onlyReplyO
 // Parameters:
 // target - whose time to read
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int RakPeer::GetAveragePing( const AddressOrGUID systemIdentifier )
-{
-	int sum, quantity;
-	RemoteSystemStruct *remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
-
-	if ( remoteSystem == 0 )
-		return -1;
-
-	for ( sum = 0, quantity = 0; quantity < PING_TIMES_ARRAY_SIZE; quantity++ )
-	{
-		if ( remoteSystem->pingAndClockDifferential[ quantity ].pingTime == 65535 )
-			break;
-		else
-			sum += remoteSystem->pingAndClockDifferential[ quantity ].pingTime;
-	}
-
-	if ( quantity > 0 )
-		return sum / quantity;
-	else
-		return -1;
-}
+// int RakPeer::GetAveragePing( const AddressOrGUID systemIdentifier )
+// {
+// 	int sum, quantity;
+// 	RemoteSystemStruct *remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
+// 
+// 	if ( remoteSystem == 0 )
+// 		return -1;
+// 
+// 	for ( sum = 0, quantity = 0; quantity < PING_TIMES_ARRAY_SIZE; quantity++ )
+// 	{
+// 		if ( remoteSystem->pingAndClockDifferential[ quantity ].pingTime == 65535 )
+// 			break;
+// 		else
+// 			sum += remoteSystem->pingAndClockDifferential[ quantity ].pingTime;
+// 	}
+// 
+// 	if ( quantity > 0 )
+// 		return sum / quantity;
+// 	else
+// 		return -1;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1601,20 +1601,20 @@ int RakPeer::GetAveragePing( const AddressOrGUID systemIdentifier )
 // Parameters:
 // target - whose time to read
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int RakPeer::GetLastPing( const AddressOrGUID systemIdentifier ) const
-{
-	RemoteSystemStruct * remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
-
-	if ( remoteSystem == 0 )
-		return -1;
-
-//	return (int)(remoteSystem->reliabilityLayer.GetAckPing()/(RakNet::TimeUS)1000);
-
-	if ( remoteSystem->pingAndClockDifferentialWriteIndex == 0 )
-		return remoteSystem->pingAndClockDifferential[ PING_TIMES_ARRAY_SIZE - 1 ].pingTime;
-	else
-		return remoteSystem->pingAndClockDifferential[ remoteSystem->pingAndClockDifferentialWriteIndex - 1 ].pingTime;
-}
+// int RakPeer::GetLastPing( const AddressOrGUID systemIdentifier ) const
+// {
+// 	RemoteSystemStruct * remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
+// 
+// 	if ( remoteSystem == 0 )
+// 		return -1;
+// 
+// //	return (int)(remoteSystem->reliabilityLayer.GetAckPing()/(RakNet::TimeUS)1000);
+// 
+// 	if ( remoteSystem->pingAndClockDifferentialWriteIndex == 0 )
+// 		return remoteSystem->pingAndClockDifferential[ PING_TIMES_ARRAY_SIZE - 1 ].pingTime;
+// 	else
+// 		return remoteSystem->pingAndClockDifferential[ remoteSystem->pingAndClockDifferentialWriteIndex - 1 ].pingTime;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1623,15 +1623,15 @@ int RakPeer::GetLastPing( const AddressOrGUID systemIdentifier ) const
 // Parameters:
 // target - whose time to read
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int RakPeer::GetLowestPing( const AddressOrGUID systemIdentifier ) const
-{
-	RemoteSystemStruct * remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
-
-	if ( remoteSystem == 0 )
-		return -1;
-
-	return remoteSystem->lowestPing;
-}
+// int RakPeer::GetLowestPing( const AddressOrGUID systemIdentifier ) const
+// {
+// 	RemoteSystemStruct * remoteSystem = GetRemoteSystem( systemIdentifier, false, false );
+// 
+// 	if ( remoteSystem == 0 )
+// 		return -1;
+// 
+// 	return remoteSystem->lowestPing;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -1641,10 +1641,10 @@ int RakPeer::GetLowestPing( const AddressOrGUID systemIdentifier ) const
 // Parameters:
 // doPing - True to start occasional pings.  False to stop them.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetOccasionalPing( bool doPing )
-{
-	occasionalPing = doPing;
-}
+// void RakPeer::SetOccasionalPing( bool doPing )
+// {
+// 	occasionalPing = doPing;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /// Return the clock difference between your system and the specified system

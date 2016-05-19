@@ -255,13 +255,13 @@ public:
 	/// Enable or disable allowing frequent connections from the same IP adderss
 	/// This is a security measure which is disabled by default, but can be set to true to prevent attackers from using up all connection slots
 	/// \param[in] b True to limit connections from the same ip to at most 1 per 100 milliseconds.
-	virtual void SetLimitIPConnectionFrequency(bool b)=0;
+	//virtual void SetLimitIPConnectionFrequency(bool b)=0;
 
 	// --------------------------------------------------------------------------------------------Pinging Functions - Functions dealing with the automatic ping mechanism--------------------------------------------------------------------------------------------
 	/// Send a ping to the specified connected system.
 	/// \pre The sender and recipient must already be started via a successful call to Startup()
 	/// \param[in] target Which system to ping
-	virtual void Ping( const SystemAddress target )=0;
+	//virtual void Ping( const SystemAddress target )=0;
 
 	/// Send a ping to the specified unconnected system. The remote system, if it is Initialized, will respond with ID_PONG followed by sizeof(RakNet::TimeMS) containing the system time the ping was sent.(Default is 4 bytes - See __GET_TIME_64BIT in RakNetTypes.h
 	/// System should reply with ID_PONG if it is active
@@ -270,28 +270,28 @@ public:
 	/// \param[in] onlyReplyOnAcceptingConnections Only request a reply if the remote system is accepting connections
 	/// \param[in] connectionSocketIndex Index into the array of socket descriptors passed to socketDescriptors in RakPeer::Startup() to send on.
 	/// \return true on success, false on failure (unknown hostname)
-	virtual bool Ping( const char* host, unsigned short remotePort, bool onlyReplyOnAcceptingConnections, unsigned connectionSocketIndex=0 )=0;
+	//virtual bool Ping( const char* host, unsigned short remotePort, bool onlyReplyOnAcceptingConnections, unsigned connectionSocketIndex=0 )=0;
 
 	/// Returns the average of all ping times read for the specific system or -1 if none read yet
 	/// \param[in] systemAddress Which system we are referring to
 	/// \return The ping time for this system, or -1
-	virtual int GetAveragePing( const AddressOrGUID systemIdentifier )=0;
+	//virtual int GetAveragePing( const AddressOrGUID systemIdentifier )=0;
 
 	/// Returns the last ping time read for the specific system or -1 if none read yet
 	/// \param[in] systemAddress Which system we are referring to
 	/// \return The last ping time for this system, or -1
-	virtual int GetLastPing( const AddressOrGUID systemIdentifier ) const=0;
+	//virtual int GetLastPing( const AddressOrGUID systemIdentifier ) const=0;
 
 	/// Returns the lowest ping time read or -1 if none read yet
 	/// \param[in] systemAddress Which system we are referring to
 	/// \return The lowest ping time for this system, or -1
-	virtual int GetLowestPing( const AddressOrGUID systemIdentifier ) const=0;
+	//virtual int GetLowestPing( const AddressOrGUID systemIdentifier ) const=0;
 
 	/// Ping the remote systems every so often, or not. Can be called anytime.
 	/// By default this is true. Recommended to leave on, because congestion control uses it to determine how often to resend lost packets.
 	/// It would be true by default to prevent timestamp drift, since in the event of a clock spike, the timestamp deltas would no longer be accurate
 	/// \param[in] doPing True to start occasional pings.  False to stop them.
-	virtual void SetOccasionalPing( bool doPing )=0;
+	//virtual void SetOccasionalPing( bool doPing )=0;
 
 	/// Return the clock difference between your system and the specified system
 	/// Subtract GetClockDifferential() from a time returned by the remote system to get that time relative to your own system
