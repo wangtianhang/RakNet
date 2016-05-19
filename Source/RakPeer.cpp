@@ -169,7 +169,7 @@ RakPeer::RakPeer()
 	bytesSentPerSecond = bytesReceivedPerSecond = 0;
 	endThreads = true;
 	isMainLoopThreadActive = false;
-	incomingDatagramEventHandler=0;
+	//incomingDatagramEventHandler=0;
 
 	// isRecvfromThreadActive=false;
 #if defined(GET_TIME_SPIKE_LIMIT) && GET_TIME_SPIKE_LIMIT>0
@@ -177,7 +177,7 @@ RakPeer::RakPeer()
 #else
 	occasionalPing = false;
 #endif
-	allowInternalRouting=false;
+	//allowInternalRouting=false;
 	for (unsigned int i=0; i < MAXIMUM_NUMBER_OF_INTERNAL_IDS; i++)
 		ipList[i]=UNASSIGNED_SYSTEM_ADDRESS;
 	allowConnectionResponseIPMigration = false;
@@ -189,8 +189,8 @@ RakPeer::RakPeer()
 	maxOutgoingBPS=0;
 	firstExternalID=UNASSIGNED_SYSTEM_ADDRESS;
 	myGuid=UNASSIGNED_RAKNET_GUID;
-	userUpdateThreadPtr=0;
-	userUpdateThreadData=0;
+	//userUpdateThreadPtr=0;
+	//userUpdateThreadData=0;
 
 #ifdef _DEBUG
 	// Wait longer to disconnect in debug so I don't get disconnected while tracing
@@ -4031,11 +4031,11 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 
 void RakPeer::OnRNS2Recv(RNS2RecvStruct *recvStruct)
 {
-	if (incomingDatagramEventHandler)
-	{
-		if (incomingDatagramEventHandler(recvStruct)!=true)
-			return;
-	}
+// 	if (incomingDatagramEventHandler)
+// 	{
+// 		if (incomingDatagramEventHandler(recvStruct)!=true)
+// 			return;
+// 	}
 
 	PushBufferedPacket(recvStruct);
 	quitAndDataEvents.SetEvent();
@@ -4059,8 +4059,8 @@ RAK_THREAD_DECLARATION(RakNet::UpdateNetworkLoop)
 
 	while ( rakPeer->endThreads == false )
 	{
-		if (rakPeer->userUpdateThreadPtr)
-			rakPeer->userUpdateThreadPtr(rakPeer, rakPeer->userUpdateThreadData);
+// 		if (rakPeer->userUpdateThreadPtr)
+// 			rakPeer->userUpdateThreadPtr(rakPeer, rakPeer->userUpdateThreadData);
 
 		rakPeer->RunUpdateCycle(updateBitStream);
 

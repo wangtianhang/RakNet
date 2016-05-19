@@ -613,12 +613,7 @@ public:
 		SystemIndex remoteSystemIndex;
 
 #if LIBCAT_SECURITY==1
-		// Cached answer used internally by RakPeer to prevent DoS attacks based on the connexion handshake
-		char answer[cat::EasyHandshake::ANSWER_BYTES];
 
-		// If the server has bRequireClientKey = true, then this is set to the validated public key of the connected client
-		// Valid after connectMode reaches HANDLING_CONNECTION_REQUEST
-		char client_public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
 #endif
 
 		enum ConnectMode {NO_ACTION, DISCONNECT_ASAP, DISCONNECT_ASAP_SILENTLY, DISCONNECT_ON_NO_ACK, REQUESTED_CONNECTION, HANDLING_CONNECTION_REQUEST, UNVERIFIED_SENDER, CONNECTED} connectMode;
@@ -778,15 +773,11 @@ protected:
 		enum {CONNECT=1, /*PING=2, PING_OPEN_CONNECTIONS=4,*/ /*ADVERTISE_SYSTEM=2*/} actionToTake;
 
 #if LIBCAT_SECURITY==1
-		char handshakeChallenge[cat::EasyHandshake::CHALLENGE_BYTES];
-		cat::ClientEasyHandshake *client_handshake;
-		char remote_public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
-//		char remote_challenge[cat::EasyHandshake::CHALLENGE_BYTES];
-	//	char random[16];
+
 #endif
 	};
 #if LIBCAT_SECURITY==1
-	bool GenerateConnectionRequestChallenge(RequestedConnectionStruct *rcs,PublicKey *publicKey);
+
 #endif
 
 	//DataStructures::List<DataStructures::List<MemoryBlock>* > automaticVariableSynchronizationList;
@@ -905,17 +896,17 @@ protected:
 	int splitMessageProgressInterval;
 	RakNet::TimeMS unreliableTimeout;
 
-	bool (*incomingDatagramEventHandler)(RNS2RecvStruct *);
+	//bool (*incomingDatagramEventHandler)(RNS2RecvStruct *);
 
 	// Systems in this list will not go through the secure connection process, even when secure connections are turned on. Wildcards are accepted.
 	DataStructures::List<RakNet::RakString> securityExceptionList;
 
 	SystemAddress ipList[ MAXIMUM_NUMBER_OF_INTERNAL_IDS ];
 
-	bool allowInternalRouting;
+	//bool allowInternalRouting;
 
-	void (*userUpdateThreadPtr)(RakPeerInterface *, void *);
-	void *userUpdateThreadData;
+	//void (*userUpdateThreadPtr)(RakPeerInterface *, void *);
+	//void *userUpdateThreadData;
 
 
 	SignaledEvent quitAndDataEvents;
@@ -939,18 +930,8 @@ protected:
 	//void CallPluginCallbacks(DataStructures::List<PluginInterface2*> &pluginList, Packet *packet);
 
 #if LIBCAT_SECURITY==1
-	// Encryption and security
-	bool _using_security, _require_client_public_key;
-	char my_public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
-	cat::ServerEasyHandshake *_server_handshake;
-	cat::CookieJar *_cookie_jar;
-	bool InitializeClientSecurity(RequestedConnectionStruct *rcs, const char *public_key);
+
 #endif
-
-
-
-
-
 
 	virtual void OnRNS2Recv(RNS2RecvStruct *recvStruct);
 	void FillIPList(void);
