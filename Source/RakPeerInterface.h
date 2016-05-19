@@ -78,17 +78,6 @@ public:
 	/// \return the number of open connections
 	virtual unsigned short NumberOfConnections(void) const=0;
 
-	/// Sets the password incoming connections must match in the call to Connect (defaults to none). Pass 0 to passwordData to specify no password
-	/// This is a way to set a low level password for all incoming connections.  To selectively reject connections, implement your own scheme using CloseConnection() to remove unwanted connections
-	/// \param[in] passwordData A data block that incoming connections must match.  This can be just a password, or can be a stream of data. Specify 0 for no password data
-	/// \param[in] passwordDataLength The length in bytes of passwordData
-	virtual void SetIncomingPassword( const char* passwordData, int passwordDataLength )=0;
-
-	/// Gets the password passed to SetIncomingPassword
-	/// \param[out] passwordData  Should point to a block large enough to hold the password data you passed to SetIncomingPassword()
-	/// \param[in,out] passwordDataLength Maximum size of the array passwordData.  Modified to hold the number of bytes actually written
-	virtual void GetIncomingPassword( char* passwordData, int *passwordDataLength  )=0;
-
 	/// \brief Connect to the specified host (ip or domain name) and server port.
 	/// Calling Connect and not calling SetMaximumIncomingConnections acts as a dedicated client.
 	/// Calling both acts as a true peer. This is a non-blocking connection.
@@ -109,25 +98,6 @@ public:
 	/// \note It is possible to immediately get back ID_CONNECTION_ATTEMPT_FAILED if you exceed the maxConnections parameter passed to Startup(). This could happen if you call CloseConnection() with sendDisconnectionNotificaiton true, then immediately call Connect() before the connection has closed.
 	virtual ConnectionAttemptResult Connect( const char* host, unsigned short remotePort, const char *passwordData, int passwordDataLength, PublicKey *publicKey=0, unsigned connectionSocketIndex=0, unsigned sendConnectionAttemptCount=12, unsigned timeBetweenSendConnectionAttemptsMS=500, RakNet::TimeMS timeoutTime=0 )=0;
 
-	/// \brief Connect to the specified host (ip or domain name) and server port, using a shared socket from another instance of RakNet
-	/// \param[in] host Either a dotted IP address or a domain name
-	/// \param[in] remotePort Which port to connect to on the remote machine.
-	/// \param[in] passwordData A data block that must match the data block on the server passed to SetIncomingPassword.  This can be a string or can be a stream of data.  Use 0 for no password.
-	/// \param[in] passwordDataLength The length in bytes of passwordData
-	/// \param[in] socket A bound socket returned by another instance of RakPeerInterface
-	/// \param[in] sendConnectionAttemptCount How many datagrams to send to the other system to try to connect.
-	/// \param[in] timeBetweenSendConnectionAttemptsMS Time to elapse before a datagram is sent to the other system to try to connect. After sendConnectionAttemptCount number of attempts, ID_CONNECTION_ATTEMPT_FAILED is returned. Under low bandwidth conditions with multiple simultaneous outgoing connections, this value should be raised to 1000 or higher, or else the MTU detection can overrun the available bandwidth.
-	/// \param[in] timeoutTime How long to keep the connection alive before dropping it on unable to send a reliable message. 0 to use the default from SetTimeoutTime(UNASSIGNED_SYSTEM_ADDRESS);
-	/// \return CONNECTION_ATTEMPT_STARTED on successful initiation. Otherwise, an appropriate enumeration indicating failure.
-	/// \note CONNECTION_ATTEMPT_STARTED does not mean you are already connected!
-	virtual ConnectionAttemptResult ConnectWithSocket(const char* host, unsigned short remotePort, const char *passwordData, int passwordDataLength, RakNetSocket2* socket, PublicKey *publicKey=0, unsigned sendConnectionAttemptCount=12, unsigned timeBetweenSendConnectionAttemptsMS=500, RakNet::TimeMS timeoutTime=0)=0;
-
-	/// \brief Connect to the specified network ID (Platform specific console function)
-	/// \details Does built-in NAt traversal
-	/// \param[in] passwordData A data block that must match the data block on the server passed to SetIncomingPassword.  This can be a string or can be a stream of data.  Use 0 for no password.
-	/// \param[in] passwordDataLength The length in bytes of passwordData
-	//virtual bool Console2LobbyConnect( void *networkServiceId, const char *passwordData, int passwordDataLength )=0;
-
 	/// \brief Stops the network threads and closes all connections.
 	/// \param[in] blockDuration How long, in milliseconds, you should wait for all remaining messages to go out, including ID_DISCONNECTION_NOTIFICATION.  If 0, it doesn't wait at all.
 	/// \param[in] orderingChannel If blockDuration > 0, ID_DISCONNECTION_NOTIFICATION will be sent on this channel
@@ -147,7 +117,7 @@ public:
 	/// Returns the next uint32_t that Send() will return
 	/// \note If using RakPeer from multiple threads, this may not be accurate for your thread. Use IncrementNextSendReceipt() in that case.
 	/// \return The next uint32_t that Send() or SendList will return
-	virtual uint32_t GetNextSendReceipt(void)=0;
+	//virtual uint32_t GetNextSendReceipt(void)=0;
 
 	/// Returns the next uint32_t that Send() will return, and increments the value by one
 	/// \note If using RakPeer from multiple threads, pass this to forceReceipt in the send function
@@ -207,7 +177,7 @@ public:
 	/// \param[in] broadcast True to send this packet to all connected systems. If true, then systemAddress specifies who not to send the packet to.
 	/// \param[in] forceReceipt If 0, will automatically determine the receipt number to return. If non-zero, will return what you give it.
 	/// \return 0 on bad input. Otherwise a number that identifies this message. If \a reliability is a type that returns a receipt, on a later call to Receive() you will get ID_SND_RECEIPT_ACKED or ID_SND_RECEIPT_LOSS with bytes 1-4 inclusive containing this number
-	virtual uint32_t SendList( const char **data, const int *lengths, const int numParameters, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber=0 )=0;
+	//virtual uint32_t SendList( const char **data, const int *lengths, const int numParameters, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber=0 )=0;
 
 	/// Gets a message from the incoming message queue.
 	/// Use DeallocatePacket() to deallocate the message after you are done with it.
@@ -268,19 +238,19 @@ public:
 	/// Bans an IP from connecting.  Banned IPs persist between connections but are not saved on shutdown nor loaded on startup.
 	/// param[in] IP Dotted IP address. Can use * as a wildcard, such as 128.0.0.* will ban all IP addresses starting with 128.0.0
 	/// \param[in] milliseconds how many ms for a temporary ban.  Use 0 for a permanent ban
-	virtual void AddToBanList( const char *IP, RakNet::TimeMS milliseconds=0 )=0;
+	//virtual void AddToBanList( const char *IP, RakNet::TimeMS milliseconds=0 )=0;
 
 	/// Allows a previously banned IP to connect. 
 	/// param[in] Dotted IP address. Can use * as a wildcard, such as 128.0.0.* will banAll IP addresses starting with 128.0.0
-	virtual void RemoveFromBanList( const char *IP )=0;
+	//virtual void RemoveFromBanList( const char *IP )=0;
 
 	/// Allows all previously banned IPs to connect.
-	virtual void ClearBanList( void )=0;
+	//virtual void ClearBanList( void )=0;
 
 	/// Returns true or false indicating if a particular IP is banned.
 	/// \param[in] IP - Dotted IP address.
 	/// \return true if IP matches any IPs in the ban list, accounting for any wildcards. False otherwise.
-	virtual bool IsBanned( const char *IP )=0;
+	//virtual bool IsBanned( const char *IP )=0;
 
 	/// Enable or disable allowing frequent connections from the same IP adderss
 	/// This is a security measure which is disabled by default, but can be set to true to prevent attackers from using up all connection slots
