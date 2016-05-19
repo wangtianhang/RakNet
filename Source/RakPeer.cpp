@@ -2046,10 +2046,10 @@ RakNet::TimeMS RakPeer::GetTimeoutTime( const SystemAddress target )
 // Parameters:
 // allow - True to allow this behavior, false to not allow.  Defaults to false.  Value persists between connections
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::AllowConnectionResponseIPMigration( bool allow )
-{
-	allowConnectionResponseIPMigration = allow;
-}
+// void RakPeer::AllowConnectionResponseIPMigration( bool allow )
+// {
+// 	allowConnectionResponseIPMigration = allow;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Description:
@@ -2062,13 +2062,13 @@ void RakPeer::AllowConnectionResponseIPMigration( bool allow )
 // host: Either a dotted IP address or a domain name
 // remotePort: Which port to connect to on the remote machine.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::AdvertiseSystem( const char *host, unsigned short remotePort, const char *data, int dataLength, unsigned connectionSocketIndex )
-{
-	RakNet::BitStream bs;
-	bs.Write((MessageID)ID_ADVERTISE_SYSTEM);
-	bs.WriteAlignedBytes((const unsigned char*) data,dataLength);
-	return SendOutOfBand(host, remotePort, (const char*) bs.GetData(), bs.GetNumberOfBytesUsed(), connectionSocketIndex );
-}
+// bool RakPeer::AdvertiseSystem( const char *host, unsigned short remotePort, const char *data, int dataLength, unsigned connectionSocketIndex )
+// {
+// 	RakNet::BitStream bs;
+// 	bs.Write((MessageID)ID_ADVERTISE_SYSTEM);
+// 	bs.WriteAlignedBytes((const unsigned char*) data,dataLength);
+// 	return SendOutOfBand(host, remotePort, (const char*) bs.GetData(), bs.GetNumberOfBytesUsed(), connectionSocketIndex );
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Controls how often to return ID_DOWNLOAD_PROGRESS for large message downloads.
@@ -2076,21 +2076,21 @@ bool RakPeer::AdvertiseSystem( const char *host, unsigned short remotePort, cons
 // As it can be slow or cumbersome to get this notification for every chunk, you can set the interval at which it is returned.
 // Defaults to 0 (never return this notification)
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetSplitMessageProgressInterval(int interval)
-{
-	RakAssert(interval>=0);
-	splitMessageProgressInterval=interval;
-	for ( unsigned short i = 0; i < maximumNumberOfPeers; i++ )
-		remoteSystemList[ i ].reliabilityLayer.SetSplitMessageProgressInterval(splitMessageProgressInterval);
-}
+// void RakPeer::SetSplitMessageProgressInterval(int interval)
+// {
+// 	RakAssert(interval>=0);
+// 	splitMessageProgressInterval=interval;
+// 	for ( unsigned short i = 0; i < maximumNumberOfPeers; i++ )
+// 		remoteSystemList[ i ].reliabilityLayer.SetSplitMessageProgressInterval(splitMessageProgressInterval);
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Returns what was passed to SetSplitMessageProgressInterval()
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-int RakPeer::GetSplitMessageProgressInterval(void) const
-{
-	return splitMessageProgressInterval;
-}
+// int RakPeer::GetSplitMessageProgressInterval(void) const
+// {
+// 	return splitMessageProgressInterval;
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Set how long to wait before giving up on sending an unreliable message
@@ -2098,40 +2098,40 @@ int RakPeer::GetSplitMessageProgressInterval(void) const
 // Set to 0 or less to never timeout.  Defaults to 0.
 // timeoutMS How many ms to wait before simply not sending an unreliable message.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetUnreliableTimeout(RakNet::TimeMS timeoutMS)
-{
-	unreliableTimeout=timeoutMS;
-	for ( unsigned short i = 0; i < maximumNumberOfPeers; i++ )
-		remoteSystemList[ i ].reliabilityLayer.SetUnreliableTimeout(unreliableTimeout);
-}
+// void RakPeer::SetUnreliableTimeout(RakNet::TimeMS timeoutMS)
+// {
+// 	unreliableTimeout=timeoutMS;
+// 	for ( unsigned short i = 0; i < maximumNumberOfPeers; i++ )
+// 		remoteSystemList[ i ].reliabilityLayer.SetUnreliableTimeout(unreliableTimeout);
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Send a message to host, with the IP socket option TTL set to 3
 // This message will not reach the host, but will open the router.
 // Used for NAT-Punchthrough
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SendTTL( const char* host, unsigned short remotePort, int ttl, unsigned connectionSocketIndex )
-{
-#if !defined(__native_client__) && !defined(WINDOWS_STORE_RT)
-	char fakeData[2];
-	fakeData[0]=0;
-	fakeData[1]=1;
-	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
-	if (socketList[realIndex]->IsBerkleySocket())
-	{
-		RNS2_SendParameters bsp;
-		bsp.data = (char*) fakeData;
-		bsp.length = 2;
-		bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
-		bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
-		bsp.ttl=ttl;
-		unsigned i;
-//		for (i=0; i < pluginListNTS.Size(); i++)
-//			pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
-		socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
-	}
-#endif
-}
+// void RakPeer::SendTTL( const char* host, unsigned short remotePort, int ttl, unsigned connectionSocketIndex )
+// {
+// #if !defined(__native_client__) && !defined(WINDOWS_STORE_RT)
+// 	char fakeData[2];
+// 	fakeData[0]=0;
+// 	fakeData[1]=1;
+// 	unsigned int realIndex = GetRakNetSocketFromUserConnectionSocketIndex(connectionSocketIndex);
+// 	if (socketList[realIndex]->IsBerkleySocket())
+// 	{
+// 		RNS2_SendParameters bsp;
+// 		bsp.data = (char*) fakeData;
+// 		bsp.length = 2;
+// 		bsp.systemAddress.FromStringExplicitPort(host,remotePort, socketList[realIndex]->GetBoundAddress().GetIPVersion());
+// 		bsp.systemAddress.FixForIPVersion(socketList[realIndex]->GetBoundAddress());
+// 		bsp.ttl=ttl;
+// 		unsigned i;
+// //		for (i=0; i < pluginListNTS.Size(); i++)
+// //			pluginListNTS[i]->OnDirectSocketSend((const char*)bsp.data, BYTES_TO_BITS(bsp.length), bsp.systemAddress);
+// 		socketList[realIndex]->Send(&bsp, _FILE_AND_LINE_);
+// 	}
+// #endif
+// }
 
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2160,118 +2160,118 @@ void RakPeer::PushBackPacket( Packet *packet, bool pushAtHead)
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::ChangeSystemAddress(RakNetGUID guid, const SystemAddress &systemAddress)
-{
-	BufferedCommandStruct *bcs;
-
-	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
-	bcs->data = 0;
-	bcs->systemIdentifier.systemAddress=systemAddress;
-	bcs->systemIdentifier.rakNetGuid=guid;
-	bcs->command=BufferedCommandStruct::BCS_CHANGE_SYSTEM_ADDRESS;
-	bufferedCommands.Push(bcs);
-}
+// void RakPeer::ChangeSystemAddress(RakNetGUID guid, const SystemAddress &systemAddress)
+// {
+// 	BufferedCommandStruct *bcs;
+// 
+// 	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
+// 	bcs->data = 0;
+// 	bcs->systemIdentifier.systemAddress=systemAddress;
+// 	bcs->systemIdentifier.rakNetGuid=guid;
+// 	bcs->command=BufferedCommandStruct::BCS_CHANGE_SYSTEM_ADDRESS;
+// 	bufferedCommands.Push(bcs);
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Packet* RakPeer::AllocatePacket(unsigned dataSize)
 {
 	return AllocPacket(dataSize, _FILE_AND_LINE_);
 }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-RakNetSocket2* RakPeer::GetSocket( const SystemAddress target )
-{
-	// Send a query to the thread to get the socket, and return when we got it
-	BufferedCommandStruct *bcs;
-	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
-	bcs->command=BufferedCommandStruct::BCS_GET_SOCKET;
-	bcs->systemIdentifier=target;
-	bcs->data=0;
-	bufferedCommands.Push(bcs);
-
-	// Block up to one second to get the socket, although it should actually take virtually no time
-	SocketQueryOutput *sqo;
-	RakNet::TimeMS stopWaiting = RakNet::GetTimeMS()+1000;
-	DataStructures::List<RakNetSocket2* > output;
-	while (RakNet::GetTimeMS() < stopWaiting)
-	{
-		if (isMainLoopThreadActive==false)
-			return 0;
-
-		RakSleep(0);
-
-		sqo = socketQueryOutput.Pop();
-		if (sqo)
-		{
-			output=sqo->sockets;
-			sqo->sockets.Clear(false, _FILE_AND_LINE_);
-			socketQueryOutput.Deallocate(sqo, _FILE_AND_LINE_);
-			if (output.Size())
-				return output[0];
-			break;
-		}
-	}
-	return 0;
-}
+// RakNetSocket2* RakPeer::GetSocket( const SystemAddress target )
+// {
+// 	// Send a query to the thread to get the socket, and return when we got it
+// 	BufferedCommandStruct *bcs;
+// 	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
+// 	bcs->command=BufferedCommandStruct::BCS_GET_SOCKET;
+// 	bcs->systemIdentifier=target;
+// 	bcs->data=0;
+// 	bufferedCommands.Push(bcs);
+// 
+// 	// Block up to one second to get the socket, although it should actually take virtually no time
+// 	SocketQueryOutput *sqo;
+// 	RakNet::TimeMS stopWaiting = RakNet::GetTimeMS()+1000;
+// 	DataStructures::List<RakNetSocket2* > output;
+// 	while (RakNet::GetTimeMS() < stopWaiting)
+// 	{
+// 		if (isMainLoopThreadActive==false)
+// 			return 0;
+// 
+// 		RakSleep(0);
+// 
+// 		sqo = socketQueryOutput.Pop();
+// 		if (sqo)
+// 		{
+// 			output=sqo->sockets;
+// 			sqo->sockets.Clear(false, _FILE_AND_LINE_);
+// 			socketQueryOutput.Deallocate(sqo, _FILE_AND_LINE_);
+// 			if (output.Size())
+// 				return output[0];
+// 			break;
+// 		}
+// 	}
+// 	return 0;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::GetSockets( DataStructures::List<RakNetSocket2* > &sockets )
-{
-	sockets.Clear(false, _FILE_AND_LINE_);
-
-	// Send a query to the thread to get the socket, and return when we got it
-	BufferedCommandStruct *bcs;
-
-	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
-	bcs->command=BufferedCommandStruct::BCS_GET_SOCKET;
-	bcs->systemIdentifier=UNASSIGNED_SYSTEM_ADDRESS;
-	bcs->data=0;
-	bufferedCommands.Push(bcs);
-
-	// Block up to one second to get the socket, although it should actually take virtually no time
-	SocketQueryOutput *sqo;
-//	RakNetSocket2* output;
-	while (1)
-	{
-		if (isMainLoopThreadActive==false)
-			return;
-
-		RakSleep(0);
-
-		sqo = socketQueryOutput.Pop();
-		if (sqo)
-		{
-			sockets=sqo->sockets;
-			sqo->sockets.Clear(false, _FILE_AND_LINE_);
-			socketQueryOutput.Deallocate(sqo, _FILE_AND_LINE_);
-			return;
-		}
-	}
-	return;
-}
-void RakPeer::ReleaseSockets( DataStructures::List<RakNetSocket2* > &sockets )
-{
-	sockets.Clear(false,_FILE_AND_LINE_);
-}
+// void RakPeer::GetSockets( DataStructures::List<RakNetSocket2* > &sockets )
+// {
+// 	sockets.Clear(false, _FILE_AND_LINE_);
+// 
+// 	// Send a query to the thread to get the socket, and return when we got it
+// 	BufferedCommandStruct *bcs;
+// 
+// 	bcs=bufferedCommands.Allocate( _FILE_AND_LINE_ );
+// 	bcs->command=BufferedCommandStruct::BCS_GET_SOCKET;
+// 	bcs->systemIdentifier=UNASSIGNED_SYSTEM_ADDRESS;
+// 	bcs->data=0;
+// 	bufferedCommands.Push(bcs);
+// 
+// 	// Block up to one second to get the socket, although it should actually take virtually no time
+// 	SocketQueryOutput *sqo;
+// //	RakNetSocket2* output;
+// 	while (1)
+// 	{
+// 		if (isMainLoopThreadActive==false)
+// 			return;
+// 
+// 		RakSleep(0);
+// 
+// 		sqo = socketQueryOutput.Pop();
+// 		if (sqo)
+// 		{
+// 			sockets=sqo->sockets;
+// 			sqo->sockets.Clear(false, _FILE_AND_LINE_);
+// 			socketQueryOutput.Deallocate(sqo, _FILE_AND_LINE_);
+// 			return;
+// 		}
+// 	}
+// 	return;
+// }
+// void RakPeer::ReleaseSockets( DataStructures::List<RakNetSocket2* > &sockets )
+// {
+// 	sockets.Clear(false,_FILE_AND_LINE_);
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Adds simulated ping and packet loss to the outgoing data flow.
 // To simulate bi-directional ping and packet loss, you should call this on both the sender and the recipient, with half the total ping and maxSendBPS value on each.
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::ApplyNetworkSimulator( float packetloss, unsigned short minExtraPing, unsigned short extraPingVariance)
-{
-#ifdef _DEBUG
-	if (remoteSystemList)
-	{
-		unsigned short i;
-		for (i=0; i < maximumNumberOfPeers; i++)
-			//for (i=0; i < remoteSystemListSize; i++)
-			remoteSystemList[i].reliabilityLayer.ApplyNetworkSimulator(packetloss, minExtraPing, extraPingVariance);
-	}
-
-	_packetloss=packetloss;
-	_minExtraPing=minExtraPing;
-	_extraPingVariance=extraPingVariance;
-#endif
-}
+// void RakPeer::ApplyNetworkSimulator( float packetloss, unsigned short minExtraPing, unsigned short extraPingVariance)
+// {
+// #ifdef _DEBUG
+// 	if (remoteSystemList)
+// 	{
+// 		unsigned short i;
+// 		for (i=0; i < maximumNumberOfPeers; i++)
+// 			//for (i=0; i < remoteSystemListSize; i++)
+// 			remoteSystemList[i].reliabilityLayer.ApplyNetworkSimulator(packetloss, minExtraPing, extraPingVariance);
+// 	}
+// 
+// 	_packetloss=packetloss;
+// 	_minExtraPing=minExtraPing;
+// 	_extraPingVariance=extraPingVariance;
+// #endif
+// }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2300,16 +2300,16 @@ void RakPeer::WriteOutOfBandHeader(RakNet::BitStream *bitStream)
 	bitStream->WriteAlignedBytes((const unsigned char*) OFFLINE_MESSAGE_DATA_ID, sizeof(OFFLINE_MESSAGE_DATA_ID));
 }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetUserUpdateThread(void (*_userUpdateThreadPtr)(RakPeerInterface *, void *), void *_userUpdateThreadData)
-{
-	userUpdateThreadPtr=_userUpdateThreadPtr;
-	userUpdateThreadData=_userUpdateThreadData;
-}
+// void RakPeer::SetUserUpdateThread(void (*_userUpdateThreadPtr)(RakPeerInterface *, void *), void *_userUpdateThreadData)
+// {
+// 	userUpdateThreadPtr=_userUpdateThreadPtr;
+// 	userUpdateThreadData=_userUpdateThreadData;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void RakPeer::SetIncomingDatagramEventHandler( bool (*_incomingDatagramEventHandler)(RNS2RecvStruct *) )
-{
-	incomingDatagramEventHandler=_incomingDatagramEventHandler;
-}
+// void RakPeer::SetIncomingDatagramEventHandler( bool (*_incomingDatagramEventHandler)(RNS2RecvStruct *) )
+// {
+// 	incomingDatagramEventHandler=_incomingDatagramEventHandler;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool RakPeer::SendOutOfBand(const char *host, unsigned short remotePort, const char *data, BitSize_t dataLength, unsigned connectionSocketIndex )
 {

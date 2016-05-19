@@ -429,7 +429,7 @@ public:
 	/// \brief Allow or disallow connection responses from any IP. 
 	/// \details Normally this should be false, but may be necessary when connecting to servers with multiple IP addresses.
 	/// \param[in] allow - True to allow this behavior, false to not allow. Defaults to false. Value persists between connections.
-	void AllowConnectionResponseIPMigration( bool allow );
+	//void AllowConnectionResponseIPMigration( bool allow );
 
 	/// \brief Sends a one byte message ID_ADVERTISE_SYSTEM to the remote unconnected system.
 	/// This will send our external IP outside the LAN along with some user data to the remote system.
@@ -440,24 +440,24 @@ public:
 	/// \param[in] dataLength Length of data in bytes.  Use 0 if no data.
 	/// \param[in] connectionSocketIndex Index into the array of socket descriptors passed to socketDescriptors in RakPeer::Startup() to send on.
 	/// \return False if IsActive()==false or the host is unresolvable. True otherwise.
-	bool AdvertiseSystem( const char *host, unsigned short remotePort, const char *data, int dataLength, unsigned connectionSocketIndex=0 );
+	//bool AdvertiseSystem( const char *host, unsigned short remotePort, const char *data, int dataLength, unsigned connectionSocketIndex=0 );
 
 	/// \brief Controls how often to return ID_DOWNLOAD_PROGRESS for large message downloads.
 	/// \details ID_DOWNLOAD_PROGRESS is returned to indicate a new partial message chunk, roughly the MTU size, has arrived.
 	/// As it can be slow or cumbersome to get this notification for every chunk, you can set the interval at which it is returned.
 	/// Defaults to 0 (never return this notification).
 	/// \param[in] interval How many messages to use as an interval before a download progress notification is returned.
-	void SetSplitMessageProgressInterval(int interval);
+	//void SetSplitMessageProgressInterval(int interval);
 
 	/// \brief Returns what was passed to SetSplitMessageProgressInterval().
 	/// \return Number of messages to be recieved before a download progress notification is returned. Default to 0.
-	int GetSplitMessageProgressInterval(void) const;
+	//int GetSplitMessageProgressInterval(void) const;
 
 	/// \brief Set how long to wait before giving up on sending an unreliable message.
 	/// Useful if the network is clogged up.
 	/// Set to 0 or less to never timeout.  Defaults to 0.
 	/// \param[in] timeoutMS How many ms to wait before simply not sending an unreliable message.
-	void SetUnreliableTimeout(RakNet::TimeMS timeoutMS);
+	//void SetUnreliableTimeout(RakNet::TimeMS timeoutMS);
 
 	/// \brief Send a message to a host, with the IP socket option TTL set to 3.
 	/// \details This message will not reach the host, but will open the router.
@@ -466,7 +466,7 @@ public:
 	/// \param[in] ttl Max hops of datagram, set to 3
 	/// \param[in] connectionSocketIndex userConnectionSocketIndex.
 	/// \remarks Used for NAT-Punchthrough
-	void SendTTL( const char* host, unsigned short remotePort, int ttl, unsigned connectionSocketIndex=0 );
+	//void SendTTL( const char* host, unsigned short remotePort, int ttl, unsigned connectionSocketIndex=0 );
 
 	// --------------------------------------------------------------------------------------------Miscellaneous Functions--------------------------------------------------------------------------------------------
 	/// \brief Puts a message back in the receive queue in case you don't want to deal with it immediately.
@@ -479,7 +479,7 @@ public:
 	/// \brief For a given system identified by \a guid, change the SystemAddress to send to.
 	/// \param[in] guid The connection we are referring to
 	/// \param[in] systemAddress The new address to send to
-	void ChangeSystemAddress(RakNetGUID guid, const SystemAddress &systemAddress);
+	//void ChangeSystemAddress(RakNetGUID guid, const SystemAddress &systemAddress);
 
 	/// \brief Returns a packet for you to write to if you want to create a Packet for some reason.
 	/// You can add it to the receive buffer with PushBackPacket
@@ -492,13 +492,13 @@ public:
 	/// \note This sends a query to the thread and blocks on the return value for up to one second. In practice it should only take a millisecond or so.
 	/// \param[in] target Which system.
 	/// \return A smart pointer object containing the socket information about the target. Be sure to check IsNull() which is returned if the update thread is unresponsive, shutting down, or if this system is not connected.
-	virtual RakNetSocket2* GetSocket( const SystemAddress target );
+	//virtual RakNetSocket2* GetSocket( const SystemAddress target );
 
 	/// \brief Gets all sockets in use.
 	/// \note This sends a query to the thread and blocks on the return value for up to one second. In practice it should only take a millisecond or so.
 	/// \param[out] sockets List of RakNetSocket structures in use.
-	virtual void GetSockets( DataStructures::List<RakNetSocket2* > &sockets );
-	virtual void ReleaseSockets( DataStructures::List<RakNetSocket2* > &sockets );
+	//virtual void GetSockets( DataStructures::List<RakNetSocket2* > &sockets );
+	//virtual void ReleaseSockets( DataStructures::List<RakNetSocket2* > &sockets );
 
 	/// \internal
 	virtual void WriteOutOfBandHeader(RakNet::BitStream *bitStream);
@@ -506,13 +506,13 @@ public:
 	/// If you need code to run in the same thread as RakNet's update thread, this function can be used for that
 	/// \param[in] _userUpdateThreadPtr C callback function
 	/// \param[in] _userUpdateThreadData Passed to C callback function
-	virtual void SetUserUpdateThread(void (*_userUpdateThreadPtr)(RakPeerInterface *, void *), void *_userUpdateThreadData);
+	//virtual void SetUserUpdateThread(void (*_userUpdateThreadPtr)(RakPeerInterface *, void *), void *_userUpdateThreadData);
 
 	/// Set a C callback to be called whenever a datagram arrives
 	/// Return true from the callback to have RakPeer handle the datagram. Return false and RakPeer will ignore the datagram.
 	/// This can be used to filter incoming datagrams by system, or to share a recvfrom socket with RakPeer
 	/// RNS2RecvStruct will only remain valid for the duration of the call
-	virtual void SetIncomingDatagramEventHandler( bool (*_incomingDatagramEventHandler)(RNS2RecvStruct *) );
+	//virtual void SetIncomingDatagramEventHandler( bool (*_incomingDatagramEventHandler)(RNS2RecvStruct *) );
 
 	// --------------------------------------------------------------------------------------------Network Simulator Functions--------------------------------------------------------------------------------------------
 	/// Adds simulated ping and packet loss to the outgoing data flow.
@@ -523,7 +523,7 @@ public:
 	/// \param[in] packetloss Chance to lose a packet. Ranges from 0 to 1.
 	/// \param[in] minExtraPing The minimum time to delay sends.
 	/// \param[in] extraPingVariance The additional random time to delay sends.
-	virtual void ApplyNetworkSimulator( float packetloss, unsigned short minExtraPing, unsigned short extraPingVariance);
+	//virtual void ApplyNetworkSimulator( float packetloss, unsigned short minExtraPing, unsigned short extraPingVariance);
 
 	/// Limits how much outgoing bandwidth can be sent per-connection.
 	/// This limit does not apply to the sum of all connections!
