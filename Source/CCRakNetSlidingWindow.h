@@ -55,20 +55,11 @@ else use congestion avoidance
 #define CC_DEBUG_PRINTF_3(x,y,z)
 #define CC_DEBUG_PRINTF_4(x,y,z,a)
 #define CC_DEBUG_PRINTF_5(x,y,z,a,b)
-//#define CC_DEBUG_PRINTF_1(x) printf(x)
-//#define CC_DEBUG_PRINTF_2(x,y) printf(x,y)
-//#define CC_DEBUG_PRINTF_3(x,y,z) printf(x,y,z)
-//#define CC_DEBUG_PRINTF_4(x,y,z,a) printf(x,y,z,a)
-//#define CC_DEBUG_PRINTF_5(x,y,z,a,b) printf(x,y,z,a,b)
 
 /// Set to 4 if you are using the iPod Touch TG. See http://www.jenkinssoftware.com/forum/index.php?topic=2717.0
 #define CC_TIME_TYPE_BYTES 8
 
-#if CC_TIME_TYPE_BYTES==8
 typedef RakNet::TimeUS CCTimeType;
-#else
-typedef RakNet::TimeMS CCTimeType;
-#endif
 
 typedef RakNet::uint24_t DatagramSequenceNumberType;
 typedef double BytesPerMicrosecond;

@@ -39,13 +39,9 @@ double Ceil(double d) {if (((double)((int)d))==d) return d; return (int) (d+1.0)
 
 //#define _DEBUG_LOGGER
 
-#if CC_TIME_TYPE_BYTES==4
-static const CCTimeType MAX_TIME_BETWEEN_PACKETS= 350; // 350 milliseconds
-static const CCTimeType HISTOGRAM_RESTART_CYCLE=10000; // Every 10 seconds reset the histogram
-#else
+
 static const CCTimeType MAX_TIME_BETWEEN_PACKETS= 350000; // 350 milliseconds
-//static const CCTimeType HISTOGRAM_RESTART_CYCLE=10000000; // Every 10 seconds reset the histogram
-#endif
+
 static const int DEFAULT_HAS_RECEIVED_PACKET_QUEUE_SIZE=512;
 static const CCTimeType STARTING_TIME_BETWEEN_PACKETS=MAX_TIME_BETWEEN_PACKETS;
 //static const long double TIME_BETWEEN_PACKETS_INCREASE_MULTIPLIER_DEFAULT=.02;
@@ -84,11 +80,7 @@ uint64_t BPSTracker::GetTotal1(void) const {return total1;}
 void BPSTracker::ClearExpired1(RakNet::TimeUS time)
 {
 	while (dataQueue.IsEmpty()==false &&
-#if CC_TIME_TYPE_BYTES==8
 		dataQueue.Peek().time+1000000 < time
-#else
-		dataQueue.Peek().time+1000 < time
-#endif
 		)
 	{
 		lastSec1-=dataQueue.Peek().value1;
@@ -98,9 +90,7 @@ void BPSTracker::ClearExpired1(RakNet::TimeUS time)
 
 struct DatagramHeaderFormat
 {
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-	CCTimeType sourceSystemTime;
-#endif
+
 	DatagramSequenceNumberType datagramNumber;
 
 	// Use floats to save bandwidth
@@ -123,9 +113,6 @@ struct DatagramHeaderFormat
 	{
 		//return 2 + 3 + sizeof(RakNet::TimeMS) + sizeof(float)*2;
 		return 2 + 3 +
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-			sizeof(RakNetTimeMS) +
-#endif
 			sizeof(float)*1;
 	}
 
@@ -142,9 +129,7 @@ struct DatagramHeaderFormat
 			b->Write(true);
 			b->Write(hasBAndAS);
 			b->AlignWriteToByteBoundary();
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-			RakNet::TimeMS timeMSLow=(RakNet::TimeMS) sourceSystemTime&0xFFFFFFFF; b->Write(timeMSLow);
-#endif
+
 			if (hasBAndAS)
 			{
 				//		b->Write(B);
@@ -164,9 +149,6 @@ struct DatagramHeaderFormat
 			b->Write(isContinuousSend);
 			b->Write(needsBAndAs);
 			b->AlignWriteToByteBoundary();
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-			RakNet::TimeMS timeMSLow=(RakNet::TimeMS) sourceSystemTime&0xFFFFFFFF; b->Write(timeMSLow);
-#endif
 			b->Write(datagramNumber);
 		}
 	}
@@ -206,9 +188,6 @@ struct DatagramHeaderFormat
 				b->Read(isContinuousSend);
 				b->Read(needsBAndAs);
 				b->AlignReadToByteBoundary();
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-				RakNet::TimeMS timeMS; b->Read(timeMS); sourceSystemTime=(CCTimeType) timeMS;
-#endif
 				b->Read(datagramNumber);
 			}
 		}
@@ -537,10 +516,6 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 	BitStream &updateBitStream)
 {
 
-#if CC_TIME_TYPE_BYTES==4
-	timeRead/=1000;
-#endif
-
 	bpsMetrics[(int) ACTUAL_BYTES_RECEIVED].Push1(timeRead,length);
 
 	if ( length <= 2 || buffer == 0 )   // Length of 1 is a connection request resend that we just ignore
@@ -582,23 +557,6 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 	{
 		DatagramSequenceNumberType datagramNumber;
 		// datagramNumber=dhf.datagramNumber;
-
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-		RakNet::TimeMS timeMSLow=(RakNet::TimeMS) timeRead&0xFFFFFFFF;
-		CCTimeType rtt = timeMSLow-dhf.sourceSystemTime;
-#if CC_TIME_TYPE_BYTES==4
-		if (rtt > 10000)
-#else
-		if (rtt > 10000000)
-#endif
-		{
-			// Sanity check. This could happen due to type overflow, especially since I only send the low 4 bytes to reduce bandwidth
-			rtt=(CCTimeType) congestionManager.GetRTT();
-		}
-		//	RakAssert(rtt < 500000);
-		//	printf("%i ", (RakNet::TimeMS)(rtt/1000));
-		ackPing=rtt;
-#endif
 		//		congestionManager.OnAck(timeRead, rtt, dhf.hasBAndAS, dhf.B, dhf.AS, totalUserDataBytesAcked );
 
 
@@ -650,16 +608,14 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 				if (messageNumberNode)
 				{
 				//	printf("%p Got ack for %i\n", this, datagramNumber.val);
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-					congestionManager.OnAck(timeRead, rtt, dhf.hasBAndAS, 0, dhf.AS, totalUserDataBytesAcked, bandwidthExceededStatistic, datagramNumber );
-#else
+
 					CCTimeType ping;
 					if (timeRead>whenSent)
 						ping=timeRead-whenSent;
 					else
 						ping=0;
 					congestionManager.OnAck(timeRead, ping, dhf.hasBAndAS, 0, dhf.AS, totalUserDataBytesAcked, bandwidthExceededStatistic, datagramNumber );
-#endif
+
 					while (messageNumberNode)
 					{
 						// TESTING1
@@ -756,11 +712,8 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 
 		// Ack dhf.datagramNumber
 		// Ack even unreliable messages for congestion control, just don't resend them on no ack
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-		SendAcknowledgementPacket( dhf.datagramNumber, dhf.sourceSystemTime);
-#else
+
 		SendAcknowledgementPacket( dhf.datagramNumber, 0);
-#endif
 
 		InternalPacket* internalPacket = CreateInternalPacketFromBitStream( &socketData, timeRead );
 		if (internalPacket==0)
@@ -1744,9 +1697,6 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 			}
 
 			// More accurate time to reset here
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-			dhf.sourceSystemTime=RakNet::GetTimeUS();
-#endif
 			updateBitStream.Reset();
 			dhf.Serialize(&updateBitStream);
 			CC_DEBUG_PRINTF_2("S%i ",dhf.datagramNumber.val);
@@ -2738,12 +2688,7 @@ CCTimeType ReliabilityLayer::GetTimeBetweenPackets(void) const
 	return timeBetweenPackets;
 }
 //-------------------------------------------------------------------------------------------------------
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-CCTimeType ReliabilityLayer::GetAckPing(void) const
-{
-	return ackPing;
-}
-#endif
+
 //-------------------------------------------------------------------------------------------------------
 void ReliabilityLayer::ResetPacketsAndDatagrams(void)
 {
@@ -2900,9 +2845,6 @@ void ReliabilityLayer::SendACKs(RakNetSocket2 *s, SystemAddress &systemAddress, 
 		dhf.isACK=true;
 		dhf.isNAK=false;
 		dhf.isPacketPair=false;
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-		dhf.sourceSystemTime=time;
-#endif
 		double B;
 		double AS;
 		bool hasBAndAS;
@@ -2914,9 +2856,6 @@ void ReliabilityLayer::SendACKs(RakNetSocket2 *s, SystemAddress &systemAddress, 
 		}
 		else
 			dhf.hasBAndAS=false;
-#if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
-		dhf.sourceSystemTime=nextAckTimeToSend;
-#endif
 		//		dhf.B=(float)B;
 		updateBitStream.Reset();
 		dhf.Serialize(&updateBitStream);
