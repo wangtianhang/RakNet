@@ -1556,14 +1556,6 @@ ConnectionAttemptResult RakPeer::SendConnectionRequest( const char* host, unsign
 	rcs->outgoingPasswordLength=(unsigned char) passwordDataLength;
 	rcs->timeoutTime=timeoutTime;
 
-#if LIBCAT_SECURITY==1
-	CAT_AUDIT_PRINTF("AUDIT: In SendConnectionRequest()\n");
-	if (!GenerateConnectionRequestChallenge(rcs,publicKey))
-		return SECURITY_INITIALIZATION_FAILED;
-#else
-	(void) publicKey;
-#endif
-
 	// Return false if already pending, else push on queue
 	unsigned int i=0;
 	requestedConnectionQueueMutex.Lock();
@@ -1583,60 +1575,60 @@ ConnectionAttemptResult RakPeer::SendConnectionRequest( const char* host, unsign
 
 	return CONNECTION_ATTEMPT_STARTED;
 }
-ConnectionAttemptResult RakPeer::SendConnectionRequest( const char* host, unsigned short remotePort, const char *passwordData, int passwordDataLength, PublicKey *publicKey, unsigned connectionSocketIndex, unsigned int extraData, unsigned sendConnectionAttemptCount, unsigned timeBetweenSendConnectionAttemptsMS, RakNet::TimeMS timeoutTime, RakNetSocket2* socket )
-{
-	RakAssert(passwordDataLength <= 256);
-	SystemAddress systemAddress;
-	systemAddress.FromStringExplicitPort(host,remotePort);
-
-	// Already connected?
-	if (GetRemoteSystemFromSystemAddress(systemAddress, false, true))
-		return ALREADY_CONNECTED_TO_ENDPOINT;
-
-	//RequestedConnectionStruct *rcs = (RequestedConnectionStruct *) rakMalloc_Ex(sizeof(RequestedConnectionStruct), _FILE_AND_LINE_);
-	RequestedConnectionStruct *rcs = RakNet::OP_NEW<RequestedConnectionStruct>(_FILE_AND_LINE_);
-
-	rcs->systemAddress=systemAddress;
-	rcs->nextRequestTime=RakNet::GetTimeMS();
-	rcs->requestsMade=0;
-	rcs->data=0;
-	rcs->socket=0;
-	rcs->extraData=extraData;
-	rcs->socketIndex=connectionSocketIndex;
-	rcs->actionToTake=RequestedConnectionStruct::CONNECT;
-	rcs->sendConnectionAttemptCount=sendConnectionAttemptCount;
-	rcs->timeBetweenSendConnectionAttemptsMS=timeBetweenSendConnectionAttemptsMS;
-	memcpy(rcs->outgoingPassword, passwordData, passwordDataLength);
-	rcs->outgoingPasswordLength=(unsigned char) passwordDataLength;
-	rcs->timeoutTime=timeoutTime;
-	rcs->socket=socket;
-
-#if LIBCAT_SECURITY==1
-	if (!GenerateConnectionRequestChallenge(rcs,publicKey))
-		return SECURITY_INITIALIZATION_FAILED;
-#else
-	(void) publicKey;
-#endif
-
-	// Return false if already pending, else push on queue
-	unsigned int i=0;
-	requestedConnectionQueueMutex.Lock();
-	for (; i < requestedConnectionQueue.Size(); i++)
-	{
-		if (requestedConnectionQueue[i]->systemAddress==systemAddress)
-		{
-			requestedConnectionQueueMutex.Unlock();
-			// Not necessary
-			//RakNet::OP_DELETE(rcs->client_handshake,_FILE_AND_LINE_);
-			RakNet::OP_DELETE(rcs,_FILE_AND_LINE_);
-			return CONNECTION_ATTEMPT_ALREADY_IN_PROGRESS;
-		}
-	}
-	requestedConnectionQueue.Push(rcs, _FILE_AND_LINE_ );
-	requestedConnectionQueueMutex.Unlock();
-
-	return CONNECTION_ATTEMPT_STARTED;
-}
+// ConnectionAttemptResult RakPeer::SendConnectionRequest( const char* host, unsigned short remotePort, const char *passwordData, int passwordDataLength, PublicKey *publicKey, unsigned connectionSocketIndex, unsigned int extraData, unsigned sendConnectionAttemptCount, unsigned timeBetweenSendConnectionAttemptsMS, RakNet::TimeMS timeoutTime, RakNetSocket2* socket )
+// {
+// 	RakAssert(passwordDataLength <= 256);
+// 	SystemAddress systemAddress;
+// 	systemAddress.FromStringExplicitPort(host,remotePort);
+// 
+// 	// Already connected?
+// 	if (GetRemoteSystemFromSystemAddress(systemAddress, false, true))
+// 		return ALREADY_CONNECTED_TO_ENDPOINT;
+// 
+// 	//RequestedConnectionStruct *rcs = (RequestedConnectionStruct *) rakMalloc_Ex(sizeof(RequestedConnectionStruct), _FILE_AND_LINE_);
+// 	RequestedConnectionStruct *rcs = RakNet::OP_NEW<RequestedConnectionStruct>(_FILE_AND_LINE_);
+// 
+// 	rcs->systemAddress=systemAddress;
+// 	rcs->nextRequestTime=RakNet::GetTimeMS();
+// 	rcs->requestsMade=0;
+// 	rcs->data=0;
+// 	rcs->socket=0;
+// 	rcs->extraData=extraData;
+// 	rcs->socketIndex=connectionSocketIndex;
+// 	rcs->actionToTake=RequestedConnectionStruct::CONNECT;
+// 	rcs->sendConnectionAttemptCount=sendConnectionAttemptCount;
+// 	rcs->timeBetweenSendConnectionAttemptsMS=timeBetweenSendConnectionAttemptsMS;
+// 	memcpy(rcs->outgoingPassword, passwordData, passwordDataLength);
+// 	rcs->outgoingPasswordLength=(unsigned char) passwordDataLength;
+// 	rcs->timeoutTime=timeoutTime;
+// 	rcs->socket=socket;
+// 
+// #if LIBCAT_SECURITY==1
+// 	if (!GenerateConnectionRequestChallenge(rcs,publicKey))
+// 		return SECURITY_INITIALIZATION_FAILED;
+// #else
+// 	(void) publicKey;
+// #endif
+// 
+// 	// Return false if already pending, else push on queue
+// 	unsigned int i=0;
+// 	requestedConnectionQueueMutex.Lock();
+// 	for (; i < requestedConnectionQueue.Size(); i++)
+// 	{
+// 		if (requestedConnectionQueue[i]->systemAddress==systemAddress)
+// 		{
+// 			requestedConnectionQueueMutex.Unlock();
+// 			// Not necessary
+// 			//RakNet::OP_DELETE(rcs->client_handshake,_FILE_AND_LINE_);
+// 			RakNet::OP_DELETE(rcs,_FILE_AND_LINE_);
+// 			return CONNECTION_ATTEMPT_ALREADY_IN_PROGRESS;
+// 		}
+// 	}
+// 	requestedConnectionQueue.Push(rcs, _FILE_AND_LINE_ );
+// 	requestedConnectionQueueMutex.Unlock();
+// 
+// 	return CONNECTION_ATTEMPT_STARTED;
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void RakPeer::ValidateRemoteSystemLookup(void) const
 {
