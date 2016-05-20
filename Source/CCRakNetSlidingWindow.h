@@ -80,7 +80,7 @@ class CCRakNetSlidingWindow
 	void Init(CCTimeType curTime, uint32_t maxDatagramPayload);
 
 	/// Update over time
-	void Update(CCTimeType curTime, bool hasDataToSendOrResend);
+	//void Update(CCTimeType curTime, bool hasDataToSendOrResend);
 
 	int GetRetransmissionBandwidth(CCTimeType curTime, CCTimeType timeSinceLastTick, uint32_t unacknowledgedBytes, bool isContinuousSend);
 	int GetTransmissionBandwidth(CCTimeType curTime, CCTimeType timeSinceLastTick, uint32_t unacknowledgedBytes, bool isContinuousSend);
@@ -101,10 +101,10 @@ class CCRakNetSlidingWindow
 	/// When packets marked as a packet pair arrive, pass to OnGotPacketPair()
 	/// When any packets arrive, (additionally) pass to OnGotPacket
 	/// Packets should contain our system time, so we can pass rtt to OnNonDuplicateAck()
-	void OnSendBytes(CCTimeType curTime, uint32_t numBytes);
+	//void OnSendBytes(CCTimeType curTime, uint32_t numBytes);
 
 	/// Call this when you get a packet pair
-	void OnGotPacketPair(DatagramSequenceNumberType datagramSequenceNumber, uint32_t sizeInBytes, CCTimeType curTime);
+	//void OnGotPacketPair(DatagramSequenceNumberType datagramSequenceNumber, uint32_t sizeInBytes, CCTimeType curTime);
 
 	/// Call this when you get a packet (including packet pairs)
 	/// If the DatagramSequenceNumberType is out of order, skippedMessageCount will be non-zero
@@ -121,7 +121,7 @@ class CCRakNetSlidingWindow
 	/// B and AS are used in the calculations in UpdateWindowSizeAndAckOnAckPerSyn
 	/// B and AS are updated at most once per SYN 
 	void OnAck(CCTimeType curTime, CCTimeType rtt, bool hasBAndAS, BytesPerMicrosecond _B, BytesPerMicrosecond _AS, double totalUserDataBytesAcked, bool isContinuousSend, DatagramSequenceNumberType sequenceNumber );
-	void OnDuplicateAck( CCTimeType curTime, DatagramSequenceNumberType sequenceNumber );
+	//void OnDuplicateAck( CCTimeType curTime, DatagramSequenceNumberType sequenceNumber );
 	
 	/// Call when you send an ack, to see if the ack should have the B and AS parameters transmitted
 	/// Call before calling OnSendAck()
@@ -135,7 +135,7 @@ class CCRakNetSlidingWindow
 
 	/// Call when we send a NACK
 	/// Also updates SND, the period between sends, since data is written out
-	void OnSendNACK(CCTimeType curTime, uint32_t numBytes);
+	//void OnSendNACK(CCTimeType curTime, uint32_t numBytes);
 	
 	/// Retransmission time out for the sender
 	/// If the time difference between when a message was last transmitted, and the current time is greater than RTO then packet is eligible for retransmission, pending congestion control

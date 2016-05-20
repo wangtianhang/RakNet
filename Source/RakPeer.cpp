@@ -3422,10 +3422,9 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 						socketToUse = rcs->socket;
 
 					rcs->systemAddress.FixForIPVersion(socketToUse->GetBoundAddress());
-#if !defined(__native_client__) && !defined(WINDOWS_STORE_RT)
+
 					if (socketToUse->IsBerkleySocket())
 						((RNS2_Berkley*)socketToUse)->SetDoNotFragment(1);
-#endif
 
 //					SocketLayer::SetDoNotFragment(socketToUse, 1);
 					RakNet::Time sendToStart=RakNet::GetTime();
@@ -3458,10 +3457,8 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 						}
 					}
 					// SocketLayer::SetDoNotFragment(socketToUse, 0);
-#if !defined(__native_client__) && !defined(WINDOWS_STORE_RT)
 					if (socketToUse->IsBerkleySocket())
 						((RNS2_Berkley*)socketToUse)->SetDoNotFragment(0);
-#endif
 
 					requestedConnectionQueueIndex++;
 				}
@@ -3478,13 +3475,6 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 	for ( activeSystemListIndex = 0; activeSystemListIndex < activeSystemListSize; ++activeSystemListIndex )
 	//for ( remoteSystemIndex = 0; remoteSystemIndex < remoteSystemListSize; ++remoteSystemIndex )
 	{
-		// I'm using systemAddress from remoteSystemList but am not locking it because this loop is called very frequently and it doesn't
-		// matter if we miss or do an extra update.  The reliability layers themselves never care which player they are associated with
-		//systemAddress = remoteSystemList[ remoteSystemIndex ].systemAddress;
-		// Allow the systemAddress for this remote system list to change.  We don't care if it changes now.
-	//	remoteSystemList[ remoteSystemIndex ].allowSystemAddressAssigment=true;
-
-
 			// Found an active remote system
 			remoteSystem = activeSystemList[ activeSystemListIndex ];
 			systemAddress = remoteSystem->systemAddress;
@@ -3605,9 +3595,6 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 					else
 					{
 						CloseConnectionInternal( systemAddress, false, true, 0, LOW_PRIORITY );
-#ifdef _DO_PRINTF
-						RAKNET_DEBUG_PRINTF("Temporarily banning %i:%i for sending nonsense data\n", systemAddress);
-#endif
 
 						char str1[64];
 						systemAddress.ToString(false, str1);
@@ -3944,9 +3931,7 @@ void RakPeer::FillIPList(void)
 		return;
 
 	// Fill out ipList structure
-#if  !defined(WINDOWS_STORE_RT)
 	RakNetSocket2::GetMyIP( ipList );
-#endif
 
 	// Sort the addresses from lowest to highest
 	int startingIdx = 0;
