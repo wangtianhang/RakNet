@@ -3353,43 +3353,43 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 		{
 			CloseConnectionInternal(bcs->systemIdentifier, false, true, bcs->orderingChannel, bcs->priority);
 		}
-		else if (bcs->command==BufferedCommandStruct::BCS_CHANGE_SYSTEM_ADDRESS)
-		{
-			// Reroute
-			RakPeer::RemoteSystemStruct *rssFromGuid = GetRemoteSystem(bcs->systemIdentifier.rakNetGuid,true,true);
-			if (rssFromGuid!=0)
-			{
-				unsigned int existingSystemIndex = GetRemoteSystemIndex(rssFromGuid->systemAddress);
-				ReferenceRemoteSystem(bcs->systemIdentifier.systemAddress, existingSystemIndex);
-			}
-		}
-		else if (bcs->command==BufferedCommandStruct::BCS_GET_SOCKET)
-		{
-			SocketQueryOutput *sqo;
-			if (bcs->systemIdentifier.IsUndefined())
-			{
-				sqo = socketQueryOutput.Allocate( _FILE_AND_LINE_ );
-				sqo->sockets=socketList;
-				socketQueryOutput.Push(sqo);
-			}
-			else
-			{
-				remoteSystem=GetRemoteSystem( bcs->systemIdentifier, true, true );
-				sqo = socketQueryOutput.Allocate( _FILE_AND_LINE_ );
-
-				sqo->sockets.Clear(false, _FILE_AND_LINE_);
-				if (remoteSystem)
-				{
-					sqo->sockets.Push(remoteSystem->rakNetSocket, _FILE_AND_LINE_ );
-				}
-				else
-				{
-					// Leave empty smart pointer
-				}
-				socketQueryOutput.Push(sqo);
-			}
-
-		}
+// 		else if (bcs->command==BufferedCommandStruct::BCS_CHANGE_SYSTEM_ADDRESS)
+// 		{
+// 			// Reroute
+// 			RakPeer::RemoteSystemStruct *rssFromGuid = GetRemoteSystem(bcs->systemIdentifier.rakNetGuid,true,true);
+// 			if (rssFromGuid!=0)
+// 			{
+// 				unsigned int existingSystemIndex = GetRemoteSystemIndex(rssFromGuid->systemAddress);
+// 				ReferenceRemoteSystem(bcs->systemIdentifier.systemAddress, existingSystemIndex);
+// 			}
+// 		}
+// 		else if (bcs->command==BufferedCommandStruct::BCS_GET_SOCKET)
+// 		{
+// 			SocketQueryOutput *sqo;
+// 			if (bcs->systemIdentifier.IsUndefined())
+// 			{
+// 				sqo = socketQueryOutput.Allocate( _FILE_AND_LINE_ );
+// 				sqo->sockets=socketList;
+// 				socketQueryOutput.Push(sqo);
+// 			}
+// 			else
+// 			{
+// 				remoteSystem=GetRemoteSystem( bcs->systemIdentifier, true, true );
+// 				sqo = socketQueryOutput.Allocate( _FILE_AND_LINE_ );
+// 
+// 				sqo->sockets.Clear(false, _FILE_AND_LINE_);
+// 				if (remoteSystem)
+// 				{
+// 					sqo->sockets.Push(remoteSystem->rakNetSocket, _FILE_AND_LINE_ );
+// 				}
+// 				else
+// 				{
+// 					// Leave empty smart pointer
+// 				}
+// 				socketQueryOutput.Push(sqo);
+// 			}
+// 
+// 		}
 
 #ifdef _DEBUG
 		bcs->data=0;
