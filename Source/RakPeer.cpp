@@ -782,51 +782,51 @@ uint32_t RakPeer::IncrementNextSendReceipt(void)
 // Returns:
 // \return 0 on bad input. Otherwise a number that identifies this message. If \a reliability is a type that returns a receipt, on a later call to Receive() you will get ID_SND_RECEIPT_ACKED or ID_SND_RECEIPT_LOSS with bytes 1-4 inclusive containing this number
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-uint32_t RakPeer::Send( const char *data, const int length, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber )
-{
-#ifdef _DEBUG
-	RakAssert( data && length > 0 );
-#endif
-	RakAssert( !( reliability >= NUMBER_OF_RELIABILITIES || reliability < 0 ) );
-	RakAssert( !( priority > NUMBER_OF_PRIORITIES || priority < 0 ) );
-	RakAssert( !( orderingChannel >= NUMBER_OF_ORDERED_STREAMS ) );
-
-	if ( data == 0 || length < 0 )
-		return 0;
-
-	if ( remoteSystemList == 0 || endThreads == true )
-		return 0;
-
-	if ( broadcast == false && systemIdentifier.IsUndefined())
-		return 0;
-
-	uint32_t usedSendReceipt;
-	if (forceReceiptNumber!=0)
-		usedSendReceipt=forceReceiptNumber;
-	else
-		usedSendReceipt=IncrementNextSendReceipt();
-
-	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
-	{
-		SendLoopback(data,length);
-
-		if (reliability>=UNRELIABLE_WITH_ACK_RECEIPT)
-		{
-			char buff[5];
-			buff[0]=ID_SND_RECEIPT_ACKED;
-			sendReceiptSerialMutex.Lock();
-			memcpy(buff+1, &sendReceiptSerial, 4);
-			sendReceiptSerialMutex.Unlock();
-			SendLoopback( buff, 5 );
-		}
-
-		return usedSendReceipt;
-	}
-
-	SendBuffered(data, length*8, priority, reliability, orderingChannel, systemIdentifier, broadcast, RemoteSystemStruct::NO_ACTION, usedSendReceipt);
-
-	return usedSendReceipt;
-}
+// uint32_t RakPeer::Send( const char *data, const int length, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber )
+// {
+// #ifdef _DEBUG
+// 	RakAssert( data && length > 0 );
+// #endif
+// 	RakAssert( !( reliability >= NUMBER_OF_RELIABILITIES || reliability < 0 ) );
+// 	RakAssert( !( priority > NUMBER_OF_PRIORITIES || priority < 0 ) );
+// 	RakAssert( !( orderingChannel >= NUMBER_OF_ORDERED_STREAMS ) );
+// 
+// 	if ( data == 0 || length < 0 )
+// 		return 0;
+// 
+// 	if ( remoteSystemList == 0 || endThreads == true )
+// 		return 0;
+// 
+// 	if ( broadcast == false && systemIdentifier.IsUndefined())
+// 		return 0;
+// 
+// 	uint32_t usedSendReceipt;
+// 	if (forceReceiptNumber!=0)
+// 		usedSendReceipt=forceReceiptNumber;
+// 	else
+// 		usedSendReceipt=IncrementNextSendReceipt();
+// 
+// 	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
+// 	{
+// 		SendLoopback(data,length);
+// 
+// 		if (reliability>=UNRELIABLE_WITH_ACK_RECEIPT)
+// 		{
+// 			char buff[5];
+// 			buff[0]=ID_SND_RECEIPT_ACKED;
+// 			sendReceiptSerialMutex.Lock();
+// 			memcpy(buff+1, &sendReceiptSerial, 4);
+// 			sendReceiptSerialMutex.Unlock();
+// 			SendLoopback( buff, 5 );
+// 		}
+// 
+// 		return usedSendReceipt;
+// 	}
+// 
+// 	SendBuffered(data, length*8, priority, reliability, orderingChannel, systemIdentifier, broadcast, RemoteSystemStruct::NO_ACTION, usedSendReceipt);
+// 
+// 	return usedSendReceipt;
+// }
 
 void RakPeer::SendLoopback( const char *data, const int length )
 {
