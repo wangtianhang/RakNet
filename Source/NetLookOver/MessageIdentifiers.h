@@ -213,87 +213,87 @@ enum DefaultMessageIDTypes
 	ID_AUTOPATCHER_RESTART_APPLICATION,
 
 	/// NATPunchthrough plugin: internal
-	ID_NAT_PUNCHTHROUGH_REQUEST,
+	//ID_NAT_PUNCHTHROUGH_REQUEST,
 	/// NATPunchthrough plugin: internal
 	//ID_NAT_GROUP_PUNCHTHROUGH_REQUEST,
 	/// NATPunchthrough plugin: internal
 	//ID_NAT_GROUP_PUNCHTHROUGH_REPLY,
 	/// NATPunchthrough plugin: internal
-	ID_NAT_CONNECT_AT_TIME,
+	//ID_NAT_CONNECT_AT_TIME,
 	/// NATPunchthrough plugin: internal
-	ID_NAT_GET_MOST_RECENT_PORT,
+	//ID_NAT_GET_MOST_RECENT_PORT,
 	/// NATPunchthrough plugin: internal
-	ID_NAT_CLIENT_READY,
+	//ID_NAT_CLIENT_READY,
 	/// NATPunchthrough plugin: internal
 	//ID_NAT_GROUP_PUNCHTHROUGH_FAILURE_NOTIFICATION,
 
 	/// NATPunchthrough plugin: Destination system is not connected to the server. Bytes starting at offset 1 contains the
 	///  RakNetGUID destination field of NatPunchthroughClient::OpenNAT().
-	ID_NAT_TARGET_NOT_CONNECTED,
+	//ID_NAT_TARGET_NOT_CONNECTED,
 	/// NATPunchthrough plugin: Destination system is not responding to ID_NAT_GET_MOST_RECENT_PORT. Possibly the plugin is not installed.
 	///  Bytes starting at offset 1 contains the RakNetGUID  destination field of NatPunchthroughClient::OpenNAT().
-	ID_NAT_TARGET_UNRESPONSIVE,
+	//ID_NAT_TARGET_UNRESPONSIVE,
 	/// NATPunchthrough plugin: The server lost the connection to the destination system while setting up punchthrough.
 	///  Possibly the plugin is not installed. Bytes starting at offset 1 contains the RakNetGUID  destination
 	///  field of NatPunchthroughClient::OpenNAT().
-	ID_NAT_CONNECTION_TO_TARGET_LOST,
+	//ID_NAT_CONNECTION_TO_TARGET_LOST,
 	/// NATPunchthrough plugin: This punchthrough is already in progress. Possibly the plugin is not installed.
 	///  Bytes starting at offset 1 contains the RakNetGUID destination field of NatPunchthroughClient::OpenNAT().
-	ID_NAT_ALREADY_IN_PROGRESS,
+	//ID_NAT_ALREADY_IN_PROGRESS,
 	/// NATPunchthrough plugin: This message is generated on the local system, and does not come from the network.
 	///  packet::guid contains the destination field of NatPunchthroughClient::OpenNAT(). Byte 1 contains 1 if you are the sender, 0 if not
-	ID_NAT_PUNCHTHROUGH_FAILED,
+	//ID_NAT_PUNCHTHROUGH_FAILED,
 	/// NATPunchthrough plugin: Punchthrough succeeded. See packet::systemAddress and packet::guid. Byte 1 contains 1 if you are the sender,
 	///  0 if not. You can now use RakPeer::Connect() or other calls to communicate with this system.
-	ID_NAT_PUNCHTHROUGH_SUCCEEDED,
+	//ID_NAT_PUNCHTHROUGH_SUCCEEDED,
 
 	/// ReadyEvent plugin - Set the ready state for a particular system
 	/// First 4 bytes after the message contains the id
-	ID_READY_EVENT_SET,
+	//ID_READY_EVENT_SET,
 	/// ReadyEvent plugin - Unset the ready state for a particular system
 	/// First 4 bytes after the message contains the id
-	ID_READY_EVENT_UNSET,
+	//ID_READY_EVENT_UNSET,
 	/// All systems are in state ID_READY_EVENT_SET
 	/// First 4 bytes after the message contains the id
-	ID_READY_EVENT_ALL_SET,
+	//ID_READY_EVENT_ALL_SET,
 	/// \internal, do not process in your game
 	/// ReadyEvent plugin - Request of ready event state - used for pulling data when newly connecting
-	ID_READY_EVENT_QUERY,
+	//ID_READY_EVENT_QUERY,
 
 	/// Lobby packets. Second byte indicates type.
-	ID_LOBBY_GENERAL,
+	//ID_LOBBY_GENERAL,
 
 	// RPC3, RPC4 error
-	ID_RPC_REMOTE_ERROR,
+	//ID_RPC_REMOTE_ERROR,
 	/// Plugin based replacement for RPC system
-	ID_RPC_PLUGIN,
+	//ID_RPC_PLUGIN,
 
 	/// FileListTransfer transferring large files in chunks that are read only when needed, to save memory
-	ID_FILE_LIST_REFERENCE_PUSH,
+	//ID_FILE_LIST_REFERENCE_PUSH,
 	/// Force the ready event to all set
-	ID_READY_EVENT_FORCE_ALL_SET,
+	//ID_READY_EVENT_FORCE_ALL_SET,
 
 	/// Rooms function
-	ID_ROOMS_EXECUTE_FUNC,
-	ID_ROOMS_LOGON_STATUS,
-	ID_ROOMS_HANDLE_CHANGE,
+	//ID_ROOMS_EXECUTE_FUNC,
+	//ID_ROOMS_LOGON_STATUS,
+	//ID_ROOMS_HANDLE_CHANGE,
 
 	/// Lobby2 message
-	ID_LOBBY2_SEND_MESSAGE,
-	ID_LOBBY2_SERVER_ERROR,
+	//ID_LOBBY2_SEND_MESSAGE,
+	//ID_LOBBY2_SERVER_ERROR,
 
 	/// Informs user of a new host GUID. Packet::Guid contains this new host RakNetGuid. The old host can be read out using BitStream->Read(RakNetGuid) starting on byte 1
 	/// This is not returned until connected to a remote system
 	/// If the oldHost is UNASSIGNED_RAKNET_GUID, then this is the first time the host has been determined
-	ID_FCM2_NEW_HOST,
+	//ID_FCM2_NEW_HOST,
 	/// \internal For FullyConnectedMesh2 plugin
-	ID_FCM2_REQUEST_FCMGUID,
+	//ID_FCM2_REQUEST_FCMGUID,
 	/// \internal For FullyConnectedMesh2 plugin
-	ID_FCM2_RESPOND_CONNECTION_COUNT,
+	//ID_FCM2_RESPOND_CONNECTION_COUNT,
 	/// \internal For FullyConnectedMesh2 plugin
-	ID_FCM2_INFORM_FCMGUID,
+	//ID_FCM2_INFORM_FCMGUID,
 	/// \internal For FullyConnectedMesh2 plugin
-	ID_FCM2_UPDATE_MIN_TOTAL_CONNECTION_COUNT,
+	//ID_FCM2_UPDATE_MIN_TOTAL_CONNECTION_COUNT,
 	/// A remote system (not necessarily the host) called FullyConnectedMesh2::StartVerifiedJoin() with our system as the client
 	/// Use FullyConnectedMesh2::GetVerifiedJoinRequiredProcessingList() to read systems
 	/// For each system, attempt NatPunchthroughClient::OpenNAT() and/or RakPeerInterface::Connect()
@@ -302,49 +302,49 @@ enum DefaultMessageIDTypes
 	/// \note You won't get this message if you are already connected to all target systems
 	/// \note If you fail to connect to a system, this does not automatically mean you will get ID_FCM2_VERIFIED_JOIN_FAILED as that system may have been shutting down from the host too
 	/// \sa FullyConnectedMesh2::StartVerifiedJoin()
-	ID_FCM2_VERIFIED_JOIN_START,
+	//ID_FCM2_VERIFIED_JOIN_START,
 	/// \internal The client has completed processing for all systems designated in ID_FCM2_VERIFIED_JOIN_START
-	ID_FCM2_VERIFIED_JOIN_CAPABLE,
+	//ID_FCM2_VERIFIED_JOIN_CAPABLE,
 	/// Client failed to connect to a required systems notified via FullyConnectedMesh2::StartVerifiedJoin()
 	/// RakPeerInterface::CloseConnection() was automatically called for all systems connected due to ID_FCM2_VERIFIED_JOIN_START 
 	/// Programmer should inform the player via the UI that they cannot join this session, and to choose a different session
 	/// \note Server normally sends us this message, however if connection to the server was lost, message will be returned locally
 	/// \note Only the designated client gets this message
-	ID_FCM2_VERIFIED_JOIN_FAILED,
+	//ID_FCM2_VERIFIED_JOIN_FAILED,
 	/// The system that called StartVerifiedJoin() got ID_FCM2_VERIFIED_JOIN_CAPABLE from the client and then called RespondOnVerifiedJoinCapable() with true
 	/// AddParticipant() has automatically been called for this system
 	/// Use GetVerifiedJoinAcceptedAdditionalData() to read any additional data passed to RespondOnVerifiedJoinCapable()
 	/// \note All systems in the mesh get this message
 	/// \sa RespondOnVerifiedJoinCapable()
-	ID_FCM2_VERIFIED_JOIN_ACCEPTED,
+	//ID_FCM2_VERIFIED_JOIN_ACCEPTED,
 	/// The system that called StartVerifiedJoin() got ID_FCM2_VERIFIED_JOIN_CAPABLE from the client and then called RespondOnVerifiedJoinCapable() with false
 	/// CloseConnection() has been automatically called for each system connected to since ID_FCM2_VERIFIED_JOIN_START.
 	/// The connection is NOT automatically closed to the original host that sent StartVerifiedJoin()
 	/// Use GetVerifiedJoinRejectedAdditionalData() to read any additional data passed to RespondOnVerifiedJoinCapable()
 	/// \note Only the designated client gets this message
 	/// \sa RespondOnVerifiedJoinCapable()
-	ID_FCM2_VERIFIED_JOIN_REJECTED,
+	//ID_FCM2_VERIFIED_JOIN_REJECTED,
 
 	/// UDP proxy messages. Second byte indicates type.
-	ID_UDP_PROXY_GENERAL,
+	//ID_UDP_PROXY_GENERAL,
 
 	/// SQLite3Plugin - execute
-	ID_SQLite3_EXEC,
+	//ID_SQLite3_EXEC,
 	/// SQLite3Plugin - Remote database is unknown
-	ID_SQLite3_UNKNOWN_DB,
+	//ID_SQLite3_UNKNOWN_DB,
 	/// Events happening with SQLiteClientLoggerPlugin
-	ID_SQLLITE_LOGGER,
+	//ID_SQLLITE_LOGGER,
 
 	/// Sent to NatTypeDetectionServer
-	ID_NAT_TYPE_DETECTION_REQUEST,
+	//ID_NAT_TYPE_DETECTION_REQUEST,
 	/// Sent to NatTypeDetectionClient. Byte 1 contains the type of NAT detected.
-	ID_NAT_TYPE_DETECTION_RESULT,
+	//ID_NAT_TYPE_DETECTION_RESULT,
 
 	/// Used by the router2 plugin
-	ID_ROUTER_2_INTERNAL,
+	//ID_ROUTER_2_INTERNAL,
 	/// No path is available or can be established to the remote system
 	/// Packet::guid contains the endpoint guid that we were trying to reach
-	ID_ROUTER_2_FORWARDING_NO_PATH,
+	//ID_ROUTER_2_FORWARDING_NO_PATH,
 	/// \brief You can now call connect, ping, or other operations to the destination system.
 	///
 	/// Connect as follows:
@@ -358,73 +358,73 @@ enum DefaultMessageIDTypes
 	/// char ipAddressString[32];
 	/// packet->systemAddress.ToString(false, ipAddressString);
 	/// rakPeerInterface->Connect(ipAddressString, sourceToDestPort, 0,0);
-	ID_ROUTER_2_FORWARDING_ESTABLISHED,
+	//ID_ROUTER_2_FORWARDING_ESTABLISHED,
 	/// The IP address for a forwarded connection has changed
 	/// Read endpointGuid and port as per ID_ROUTER_2_FORWARDING_ESTABLISHED
-	ID_ROUTER_2_REROUTED,
+	//ID_ROUTER_2_REROUTED,
 
 	/// \internal Used by the team balancer plugin
-	ID_TEAM_BALANCER_INTERNAL,
+	//ID_TEAM_BALANCER_INTERNAL,
 	/// Cannot switch to the desired team because it is full. However, if someone on that team leaves, you will
 	///  get ID_TEAM_BALANCER_TEAM_ASSIGNED later.
 	/// For TeamBalancer: Byte 1 contains the team you requested to join. Following bytes contain NetworkID of which member
-	ID_TEAM_BALANCER_REQUESTED_TEAM_FULL,
+	//ID_TEAM_BALANCER_REQUESTED_TEAM_FULL,
 	/// Cannot switch to the desired team because all teams are locked. However, if someone on that team leaves,
 	///  you will get ID_TEAM_BALANCER_SET_TEAM later.
 	/// For TeamBalancer: Byte 1 contains the team you requested to join.
-	ID_TEAM_BALANCER_REQUESTED_TEAM_LOCKED,
-	ID_TEAM_BALANCER_TEAM_REQUESTED_CANCELLED,
+	//ID_TEAM_BALANCER_REQUESTED_TEAM_LOCKED,
+	//ID_TEAM_BALANCER_TEAM_REQUESTED_CANCELLED,
 	/// Team balancer plugin informing you of your team. Byte 1 contains the team you requested to join. Following bytes contain NetworkID of which member.
-	ID_TEAM_BALANCER_TEAM_ASSIGNED,
+	//ID_TEAM_BALANCER_TEAM_ASSIGNED,
 
 	/// Gamebryo Lightspeed integration
-	ID_LIGHTSPEED_INTEGRATION,
+	//ID_LIGHTSPEED_INTEGRATION,
 
 	/// XBOX integration
-	ID_XBOX_LOBBY,
+	//ID_XBOX_LOBBY,
 
 	/// The password we used to challenge the other system passed, meaning the other system has called TwoWayAuthentication::AddPassword() with the same password we passed to TwoWayAuthentication::Challenge()
 	/// You can read the identifier used to challenge as follows:
 	/// RakNet::BitStream bs(packet->data, packet->length, false); bs.IgnoreBytes(sizeof(RakNet::MessageID)); RakNet::RakString password; bs.Read(password);
-	ID_TWO_WAY_AUTHENTICATION_INCOMING_CHALLENGE_SUCCESS,
-	ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_SUCCESS,
+	//ID_TWO_WAY_AUTHENTICATION_INCOMING_CHALLENGE_SUCCESS,
+	//ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_SUCCESS,
 	/// A remote system sent us a challenge using TwoWayAuthentication::Challenge(), and the challenge failed.
 	/// If the other system must pass the challenge to stay connected, you should call RakPeer::CloseConnection() to terminate the connection to the other system. 
-	ID_TWO_WAY_AUTHENTICATION_INCOMING_CHALLENGE_FAILURE,
+	//ID_TWO_WAY_AUTHENTICATION_INCOMING_CHALLENGE_FAILURE,
 	/// The other system did not add the password we used to TwoWayAuthentication::AddPassword()
 	/// You can read the identifier used to challenge as follows:
 	/// RakNet::BitStream bs(packet->data, packet->length, false); bs.IgnoreBytes(sizeof(MessageID)); RakNet::RakString password; bs.Read(password);
-	ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_FAILURE,
+	//ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_FAILURE,
 	/// The other system did not respond within a timeout threshhold. Either the other system is not running the plugin or the other system was blocking on some operation for a long time.
 	/// You can read the identifier used to challenge as follows:
 	/// RakNet::BitStream bs(packet->data, packet->length, false); bs.IgnoreBytes(sizeof(MessageID)); RakNet::RakString password; bs.Read(password);
-	ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_TIMEOUT,
+	//ID_TWO_WAY_AUTHENTICATION_OUTGOING_CHALLENGE_TIMEOUT,
 	/// \internal
-	ID_TWO_WAY_AUTHENTICATION_NEGOTIATION,
+	//ID_TWO_WAY_AUTHENTICATION_NEGOTIATION,
 
 	/// CloudClient / CloudServer
-	ID_CLOUD_POST_REQUEST,
-	ID_CLOUD_RELEASE_REQUEST,
-	ID_CLOUD_GET_REQUEST,
-	ID_CLOUD_GET_RESPONSE,
-	ID_CLOUD_UNSUBSCRIBE_REQUEST,
-	ID_CLOUD_SERVER_TO_SERVER_COMMAND,
-	ID_CLOUD_SUBSCRIPTION_NOTIFICATION,
+// 	ID_CLOUD_POST_REQUEST,
+// 	ID_CLOUD_RELEASE_REQUEST,
+// 	ID_CLOUD_GET_REQUEST,
+// 	ID_CLOUD_GET_RESPONSE,
+// 	ID_CLOUD_UNSUBSCRIBE_REQUEST,
+// 	ID_CLOUD_SERVER_TO_SERVER_COMMAND,
+// 	ID_CLOUD_SUBSCRIPTION_NOTIFICATION,
 
 	// LibVoice
-	ID_LIB_VOICE,
-
-	ID_RELAY_PLUGIN,
-	ID_NAT_REQUEST_BOUND_ADDRESSES,
-	ID_NAT_RESPOND_BOUND_ADDRESSES,
-	ID_FCM2_UPDATE_USER_CONTEXT,
-	ID_RESERVED_3,
-	ID_RESERVED_4,
-	ID_RESERVED_5,
-	ID_RESERVED_6,
-	ID_RESERVED_7,
-	ID_RESERVED_8,
-	ID_RESERVED_9,
+// 	ID_LIB_VOICE,
+// 
+// 	ID_RELAY_PLUGIN,
+// 	ID_NAT_REQUEST_BOUND_ADDRESSES,
+// 	ID_NAT_RESPOND_BOUND_ADDRESSES,
+// 	ID_FCM2_UPDATE_USER_CONTEXT,
+// 	ID_RESERVED_3,
+// 	ID_RESERVED_4,
+// 	ID_RESERVED_5,
+// 	ID_RESERVED_6,
+// 	ID_RESERVED_7,
+// 	ID_RESERVED_8,
+// 	ID_RESERVED_9,
 
 	// For the user to use.  Start your first enumeration at this value.
 	ID_USER_PACKET_ENUM
