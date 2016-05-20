@@ -640,7 +640,7 @@ protected:
 	/// \return 0 if none
 	RemoteSystemStruct *GetRemoteSystemFromSystemAddress( const SystemAddress systemAddress, bool calledFromNetworkThread, bool onlyActive ) const;
 	RakPeer::RemoteSystemStruct *GetRemoteSystem( const AddressOrGUID systemIdentifier, bool calledFromNetworkThread, bool onlyActive ) const;
-	void ValidateRemoteSystemLookup(void) const;
+	//void ValidateRemoteSystemLookup(void) const;
 	RemoteSystemStruct *GetRemoteSystemFromGUID( const RakNetGUID guid, bool onlyActive ) const;
 	///Parse out a connection request packet
 	void ParseConnectionRequestPacket( RakPeer::RemoteSystemStruct *remoteSystem, const SystemAddress &systemAddress, const char *data, int byteSize);
