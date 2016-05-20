@@ -828,17 +828,17 @@ uint32_t RakPeer::IncrementNextSendReceipt(void)
 // 	return usedSendReceipt;
 // }
 
-void RakPeer::SendLoopback( const char *data, const int length )
-{
-	if ( data == 0 || length < 0 )
-		return;
-
-	Packet *packet = AllocPacket(length, _FILE_AND_LINE_);
-	memcpy(packet->data, data, length);
-	packet->systemAddress = GetLoopbackAddress();
-	packet->guid=myGuid;
-	PushBackPacket(packet, false);
-}
+// void RakPeer::SendLoopback( const char *data, const int length )
+// {
+// 	if ( data == 0 || length < 0 )
+// 		return;
+// 
+// 	Packet *packet = AllocPacket(length, _FILE_AND_LINE_);
+// 	memcpy(packet->data, data, length);
+// 	packet->systemAddress = GetLoopbackAddress();
+// 	packet->guid=myGuid;
+// 	PushBackPacket(packet, false);
+// }
 
 uint32_t RakPeer::Send( const RakNet::BitStream * bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber )
 {
@@ -865,20 +865,20 @@ uint32_t RakPeer::Send( const RakNet::BitStream * bitStream, PacketPriority prio
 	else
 		usedSendReceipt=IncrementNextSendReceipt();
 
-	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
-	{
-		SendLoopback((const char*) bitStream->GetData(),bitStream->GetNumberOfBytesUsed());
-		if (reliability>=UNRELIABLE_WITH_ACK_RECEIPT)
-		{
-			char buff[5];
-			buff[0]=ID_SND_RECEIPT_ACKED;
-			sendReceiptSerialMutex.Lock();
-			memcpy(buff+1, &sendReceiptSerial,4);
-			sendReceiptSerialMutex.Unlock();
-			SendLoopback( buff, 5 );
-		}
-		return usedSendReceipt;
-	}
+// 	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
+// 	{
+// 		SendLoopback((const char*) bitStream->GetData(),bitStream->GetNumberOfBytesUsed());
+// 		if (reliability>=UNRELIABLE_WITH_ACK_RECEIPT)
+// 		{
+// 			char buff[5];
+// 			buff[0]=ID_SND_RECEIPT_ACKED;
+// 			sendReceiptSerialMutex.Lock();
+// 			memcpy(buff+1, &sendReceiptSerial,4);
+// 			sendReceiptSerialMutex.Unlock();
+// 			SendLoopback( buff, 5 );
+// 		}
+// 		return usedSendReceipt;
+// 	}
 
 	// Sends need to be buffered and processed in the update thread because the systemAddress associated with the reliability layer can change,
 	// from that thread, resulting in a send to the wrong player!  While I could mutex the systemAddress, that is much slower than doing this
@@ -1810,8 +1810,8 @@ RakPeer::RemoteSystemStruct * RakPeer::AssignSystemAddressToRemoteSystemList( co
 
 	if (limitConnectionFrequencyFromTheSameIP)
 	{
-		if (IsLoopbackAddress(systemAddress,false)==false)
-		{
+// 		if (IsLoopbackAddress(systemAddress,false)==false)
+// 		{
 			for ( i = 0; i < maximumNumberOfPeers; i++ )
 			{
 				if ( remoteSystemList[ i ].isActive==true &&
@@ -1827,7 +1827,7 @@ RakPeer::RemoteSystemStruct * RakPeer::AssignSystemAddressToRemoteSystemList( co
 					return 0;
 				}
 			}
-		}
+/*		}*/
 	}
 
 	// Don't use a different port than what we received on
@@ -2078,33 +2078,33 @@ void RakPeer::RemoveFromActiveSystemList(const SystemAddress &sa)
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool RakPeer::IsLoopbackAddress(const AddressOrGUID &systemIdentifier, bool matchPort) const
-{
-	if (systemIdentifier.rakNetGuid!=UNASSIGNED_RAKNET_GUID)
-		return systemIdentifier.rakNetGuid==myGuid;
-
-	for (int i=0; i < MAXIMUM_NUMBER_OF_INTERNAL_IDS && ipList[i]!=UNASSIGNED_SYSTEM_ADDRESS; i++)
-	{
-		if (matchPort)
-		{
-			if (ipList[i]==systemIdentifier.systemAddress)
-				return true;
-		}
-		else
-		{
-			if (ipList[i].EqualsExcludingPort(systemIdentifier.systemAddress))
-				return true;
-		}
-	}
-
-	return (matchPort==true && systemIdentifier.systemAddress==firstExternalID) ||
-		(matchPort==false && systemIdentifier.systemAddress.EqualsExcludingPort(firstExternalID));
-}
+// bool RakPeer::IsLoopbackAddress(const AddressOrGUID &systemIdentifier, bool matchPort) const
+// {
+// 	if (systemIdentifier.rakNetGuid!=UNASSIGNED_RAKNET_GUID)
+// 		return systemIdentifier.rakNetGuid==myGuid;
+// 
+// 	for (int i=0; i < MAXIMUM_NUMBER_OF_INTERNAL_IDS && ipList[i]!=UNASSIGNED_SYSTEM_ADDRESS; i++)
+// 	{
+// 		if (matchPort)
+// 		{
+// 			if (ipList[i]==systemIdentifier.systemAddress)
+// 				return true;
+// 		}
+// 		else
+// 		{
+// 			if (ipList[i].EqualsExcludingPort(systemIdentifier.systemAddress))
+// 				return true;
+// 		}
+// 	}
+// 
+// 	return (matchPort==true && systemIdentifier.systemAddress==firstExternalID) ||
+// 		(matchPort==false && systemIdentifier.systemAddress.EqualsExcludingPort(firstExternalID));
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SystemAddress RakPeer::GetLoopbackAddress(void) const
-{
-	return ipList[0];
-}
+// SystemAddress RakPeer::GetLoopbackAddress(void) const
+// {
+// 	return ipList[0];
+// }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool RakPeer::AllowIncomingConnections(void) const
 {
@@ -2323,12 +2323,12 @@ void RakPeer::SendBufferedList( const char **data, const int *lengths, const int
 		}
 	}
 
-	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
-	{
-		SendLoopback(dataAggregate,totalLength);
-		rakFree_Ex(dataAggregate,_FILE_AND_LINE_);
-		return;
-	}
+// 	if (broadcast==false && IsLoopbackAddress(systemIdentifier,true))
+// 	{
+// 		SendLoopback(dataAggregate,totalLength);
+// 		rakFree_Ex(dataAggregate,_FILE_AND_LINE_);
+// 		return;
+// 	}
 
 	RakAssert( !( reliability >= NUMBER_OF_RELIABILITIES || reliability < 0 ) );
 	RakAssert( !( priority > NUMBER_OF_PRIORITIES || priority < 0 ) );

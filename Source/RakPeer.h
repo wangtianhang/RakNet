@@ -170,7 +170,7 @@ public:
 	/// \note The first byte should be a message identifier starting at ID_USER_PACKET_ENUM
 	/// \param[in] data Block of data to send.
 	/// \param[in] length Size in bytes of the data to send.
-	void SendLoopback( const char *data, const int length );
+	//void SendLoopback( const char *data, const int length );
 
 	/// \brief Sends a block of data to the specified system that you are connected to.
 	/// 
@@ -667,8 +667,8 @@ protected:
 	/// \returns The clock differential for a certain player.
 	RakNet::Time GetBestClockDifferential( const SystemAddress systemAddress ) const;
 
-	bool IsLoopbackAddress(const AddressOrGUID &systemIdentifier, bool matchPort) const;
-	SystemAddress GetLoopbackAddress(void) const;
+	//bool IsLoopbackAddress(const AddressOrGUID &systemIdentifier, bool matchPort) const;
+	//SystemAddress GetLoopbackAddress(void) const;
 
 	///Set this to true to terminate the Peer thread execution 
 	volatile bool endThreads;

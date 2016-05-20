@@ -143,7 +143,7 @@ public:
 	/// The first byte should be a message identifier starting at ID_USER_PACKET_ENUM
 	/// \param[in] data The block of data to send
 	/// \param[in] length The size in bytes of the data to send
-	virtual void SendLoopback( const char *data, const int length )=0;
+	//virtual void SendLoopback( const char *data, const int length )=0;
 
 	/// Sends a block of data to the specified system that you are connected to.  Same as the above version, but takes a BitStream as input.
 	/// \param[in] bitStream The bitstream to send
