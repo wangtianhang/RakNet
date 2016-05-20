@@ -871,10 +871,6 @@ protected:
 	unsigned maxOutgoingBPS;
 
 	// Nobody would use the internet simulator in a final build.
-#ifdef _DEBUG
-	double _packetloss;
-	unsigned short _minExtraPing, _extraPingVariance;
-#endif
     
 	///How long it has been since things were updated by a call to receiveUpdate thread uses this to determine how long to sleep for
 	//unsigned int lastUserUpdateCycle;

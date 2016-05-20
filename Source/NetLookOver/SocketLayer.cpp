@@ -480,18 +480,18 @@ void SocketLayer::GetSystemAddress_Old ( __UDPSOCKET__ s, SystemAddress *systemA
 	socklen_t len = sizeof(sa);
 	if (getsockname__(s, (sockaddr*)&sa, &len)!=0)
 	{
-#if 1 && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
-		DWORD dwIOError = GetLastError();
-		LPVOID messageBuffer;
-		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
-		// something has gone wrong here...
-		RAKNET_DEBUG_PRINTF( "getsockname failed:Error code - %d\n%s", dwIOError, messageBuffer );
-
-		//Free the buffer.
-		LocalFree( messageBuffer );
-#endif
+// #if 1 && defined(_DEBUG) && !defined(WINDOWS_PHONE_8)
+// 		DWORD dwIOError = GetLastError();
+// 		LPVOID messageBuffer;
+// 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+// 			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+// 			( LPTSTR ) & messageBuffer, 0, NULL );
+// 		// something has gone wrong here...
+// 		RAKNET_DEBUG_PRINTF( "getsockname failed:Error code - %d\n%s", dwIOError, messageBuffer );
+// 
+// 		//Free the buffer.
+// 		LocalFree( messageBuffer );
+// #endif
 		*systemAddressOut = UNASSIGNED_SYSTEM_ADDRESS;
 		return;
 	}
@@ -517,18 +517,18 @@ void SocketLayer::GetSystemAddress ( __UDPSOCKET__ s, SystemAddress *systemAddre
 
 	if (getsockname__(s, (struct sockaddr *)&ss, &slen)!=0)
 	{
-#if 1 && defined(_DEBUG)
-		DWORD dwIOError = GetLastError();
-		LPVOID messageBuffer;
-		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
-			( LPTSTR ) & messageBuffer, 0, NULL );
-		// something has gone wrong here...
-		RAKNET_DEBUG_PRINTF( "getsockname failed:Error code - %d\n%s", dwIOError, messageBuffer );
-
-		//Free the buffer.
-		LocalFree( messageBuffer );
-#endif
+// #if 1 && defined(_DEBUG)
+// 		DWORD dwIOError = GetLastError();
+// 		LPVOID messageBuffer;
+// 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+// 			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
+// 			( LPTSTR ) & messageBuffer, 0, NULL );
+// 		// something has gone wrong here...
+// 		RAKNET_DEBUG_PRINTF( "getsockname failed:Error code - %d\n%s", dwIOError, messageBuffer );
+// 
+// 		//Free the buffer.
+// 		LocalFree( messageBuffer );
+// #endif
 		systemAddressOut->FromString(0);
 		return;
 	}

@@ -264,26 +264,7 @@ return 1;
 // Add 21 to the default MTU so if we encrypt it can hold potentially 21 more bytes of extra data + padding.
 ReliabilityLayer::ReliabilityLayer()
 {
-
-#ifdef _DEBUG
-	// Wait longer to disconnect in debug so I don't get disconnected while tracing
-	timeoutTime=30000;
-#else
 	timeoutTime=10000;
-#endif
-
-#ifdef _DEBUG
-	minExtraPing=extraPingVariance=0;
-	packetloss=(double) minExtraPing;	
-#endif
-
-
-#ifdef PRINT_TO_FILE_RELIABLE_ORDERED_TEST
-	if (fp==0 && 0)
-	{
-		fp = fopen("reliableorderedoutput.txt", "wt");
-	}
-#endif
 
 	InitializeVariables();
 //int i = sizeof(InternalPacket);
@@ -511,12 +492,6 @@ void ReliabilityLayer::FreeThreadSafeMemory( void )
 
 	outgoingPacketBuffer.Clear(true, _FILE_AND_LINE_);
 
-#ifdef _DEBUG
-	for (unsigned i = 0; i < delayList.Size(); i++ )
-		RakNet::OP_DELETE(delayList[ i ], __FILE__, __LINE__);
-	delayList.Clear(__FILE__, __LINE__);
-#endif
-
     unreliableWithAckReceiptHistory.Clear(false, _FILE_AND_LINE_);
 
 	packetsToSendThisUpdate.Clear(false, _FILE_AND_LINE_);
@@ -561,18 +536,12 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 	RakNetSocket2 *s, RakNetRandom *rnr, CCTimeType timeRead,
 	BitStream &updateBitStream)
 {
-#ifdef _DEBUG
-	RakAssert( !( buffer == 0 ) );
-#endif
 
 #if CC_TIME_TYPE_BYTES==4
 	timeRead/=1000;
 #endif
 
-
 	bpsMetrics[(int) ACTUAL_BYTES_RECEIVED].Push1(timeRead,length);
-
-	(void) MTUSize;
 
 	if ( length <= 2 || buffer == 0 )   // Length of 1 is a connection request resend that we just ignore
 	{
@@ -629,14 +598,6 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 		//	RakAssert(rtt < 500000);
 		//	printf("%i ", (RakNet::TimeMS)(rtt/1000));
 		ackPing=rtt;
-#endif
-
-#ifdef _DEBUG
-		if (dhf.hasBAndAS==false)
-		{
-			//			dhf.B=0;
-			dhf.AS=0;
-		}
 #endif
 		//		congestionManager.OnAck(timeRead, rtt, dhf.hasBAndAS, dhf.B, dhf.AS, totalUserDataBytesAcked );
 
@@ -946,10 +907,6 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 						while ((unsigned int)(holeCount) > hasReceivedPacketQueue.Size())
 							hasReceivedPacketQueue.Push(true, _FILE_AND_LINE_ ); // time+(CCTimeType)60 * (CCTimeType)1000 * (CCTimeType)1000); // Didn't get this packet - set the time to give up waiting
 						hasReceivedPacketQueue.Push(false, _FILE_AND_LINE_ ); // Got the packet
-#ifdef _DEBUG
-						// If this assert hits then DatagramSequenceNumberType has overflowed
-						RakAssert(hasReceivedPacketQueue.Size() < (unsigned int)((DatagramSequenceNumberType)(const uint32_t)(-1)));
-#endif
 					}
 
 					while ( hasReceivedPacketQueue.Size()>0 && hasReceivedPacketQueue.Peek()==false )
@@ -1195,13 +1152,6 @@ BitSize_t ReliabilityLayer::Receive( unsigned char **data )
 //-------------------------------------------------------------------------------------------------------
 bool ReliabilityLayer::Send( char *data, BitSize_t numberOfBitsToSend, PacketPriority priority, PacketReliability reliability, unsigned char orderingChannel, bool makeDataCopy, int MTUSize, CCTimeType currentTime, uint32_t receipt )
 {
-#ifdef _DEBUG
-	RakAssert( !( reliability >= NUMBER_OF_RELIABILITIES || reliability < 0 ) );
-	RakAssert( !( priority > NUMBER_OF_PRIORITIES || priority < 0 ) );
-	RakAssert( !( orderingChannel >= NUMBER_OF_ORDERED_STREAMS ) );
-	RakAssert( numberOfBitsToSend > 0 );
-#endif
-
 #if CC_TIME_TYPE_BYTES==4
 	currentTime/=1000;
 #endif
@@ -1355,29 +1305,6 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 	timeMs=time;
 #else
 	timeMs=(RakNet::TimeMS) (time/(CCTimeType)1000);
-#endif
-
-#ifdef _DEBUG
-	while (delayList.Size())
-	{
-		if (delayList.Peek()->sendTime <= timeMs)
-		{
-			DataAndTime *dat = delayList.Pop();
-//			SocketLayer::SendTo( dat->s, dat->data, dat->length, systemAddress, __FILE__, __LINE__  );
-
-			RNS2_SendParameters bsp;
-			bsp.data = (char*) dat->data;
-			bsp.length = dat->length;
-			bsp.systemAddress = systemAddress;
-			dat->s->Send(&bsp, _FILE_AND_LINE_);
-
-			RakNet::OP_DELETE(dat,__FILE__,__LINE__);
-		}
-		else
-		{
-			break;
-		}
-	}
 #endif
 
 	// This line is necessary because the timer isn't accurate
@@ -1909,50 +1836,6 @@ void ReliabilityLayer::SendBitStream( RakNetSocket2 *s, SystemAddress &systemAdd
 
 	length = (unsigned int) bitStream->GetNumberOfBytesUsed();
 
-
-#ifdef _DEBUG
-	if (packetloss > 0.0)
-	{
-		if (frandomMT() < packetloss)
-			return;
-	}
-
-	if (minExtraPing > 0 || extraPingVariance > 0)
-	{
-#ifdef FLIP_SEND_ORDER_TEST
-
-#else
-		RakNet::TimeMS delay = minExtraPing;
-		if (extraPingVariance>0)
-			delay += (randomMT() % extraPingVariance);
-		if (delay > 0)
-		{
-			DataAndTime *dat = RakNet::OP_NEW<DataAndTime>(__FILE__,__LINE__);
-			memcpy(dat->data, ( char* ) bitStream->GetData(), length );
-			dat->s=s;
-			dat->length=length;
-			dat->sendTime = RakNet::GetTimeMS() + delay;
-			for (unsigned int i=0; i < delayList.Size(); i++)
-			{
-				if (dat->sendTime < delayList[i]->sendTime)
-				{
-					delayList.PushAtHead(dat, i, __FILE__, __LINE__);
-					dat=0;
-					break;
-				}
-			}
-			if (dat!=0)
-				delayList.Push(dat,__FILE__,__LINE__);
-			return;
-		}
-#endif
-	}
-#endif
-
-#if LIBCAT_SECURITY==1
-
-#endif
-
 	bpsMetrics[(int) ACTUAL_BYTES_SENT].Push1(currentTime,length);
 
 	RakAssert(length <= congestionManager.GetMTU());
@@ -2027,18 +1910,18 @@ void ReliabilityLayer::SetUnreliableTimeout(RakNet::TimeMS timeoutMS)
 //-------------------------------------------------------------------------------------------------------
 // We lost a packet
 //-------------------------------------------------------------------------------------------------------
-void ReliabilityLayer::UpdateWindowFromPacketloss( CCTimeType time )
-{
-	(void) time;
-}
+// void ReliabilityLayer::UpdateWindowFromPacketloss( CCTimeType time )
+// {
+// 	(void) time;
+// }
 
 //-------------------------------------------------------------------------------------------------------
 // Increase the window size
 //-------------------------------------------------------------------------------------------------------
-void ReliabilityLayer::UpdateWindowFromAck( CCTimeType time )
-{
-	(void) time;
-}
+// void ReliabilityLayer::UpdateWindowFromAck( CCTimeType time )
+// {
+// 	(void) time;
+// }
 
 //-------------------------------------------------------------------------------------------------------
 // Does what the function name says
@@ -2413,32 +2296,32 @@ InternalPacket* ReliabilityLayer::CreateInternalPacketFromBitStream( RakNet::Bit
 //-------------------------------------------------------------------------------------------------------
 // Get the SHA1 code
 //-------------------------------------------------------------------------------------------------------
-void ReliabilityLayer::GetSHA1( unsigned char * const buffer, unsigned int
-							   nbytes, char code[ SHA1_LENGTH ] )
-{
-	CSHA1 sha1;
-
-	sha1.Reset();
-	sha1.Update( ( unsigned char* ) buffer, nbytes );
-	sha1.Final();
-	memcpy( code, sha1.GetHash(), SHA1_LENGTH );
-}
+// void ReliabilityLayer::GetSHA1( unsigned char * const buffer, unsigned int
+// 							   nbytes, char code[ SHA1_LENGTH ] )
+// {
+// 	CSHA1 sha1;
+// 
+// 	sha1.Reset();
+// 	sha1.Update( ( unsigned char* ) buffer, nbytes );
+// 	sha1.Final();
+// 	memcpy( code, sha1.GetHash(), SHA1_LENGTH );
+// }
 
 //-------------------------------------------------------------------------------------------------------
 // Check the SHA1 code
 //-------------------------------------------------------------------------------------------------------
-bool ReliabilityLayer::CheckSHA1( char code[ SHA1_LENGTH ], unsigned char *
-								 const buffer, unsigned int nbytes )
-{
-	char code2[ SHA1_LENGTH ];
-	GetSHA1( buffer, nbytes, code2 );
-
-	for ( int i = 0; i < SHA1_LENGTH; i++ )
-		if ( code[ i ] != code2[ i ] )
-			return false;
-
-	return true;
-}
+// bool ReliabilityLayer::CheckSHA1( char code[ SHA1_LENGTH ], unsigned char *
+// 								 const buffer, unsigned int nbytes )
+// {
+// 	char code2[ SHA1_LENGTH ];
+// 	GetSHA1( buffer, nbytes, code2 );
+// 
+// 	for ( int i = 0; i < SHA1_LENGTH; i++ )
+// 		if ( code[ i ] != code2[ i ] )
+// 			return false;
+// 
+// 	return true;
+// }
 
 //-------------------------------------------------------------------------------------------------------
 // Returns true if newPacketOrderingIndex is older than the waitingForPacketOrderingIndex
@@ -2726,10 +2609,6 @@ InternalPacket * ReliabilityLayer::BuildPacketFromSplitPacketList( SplitPacketId
 InternalPacket * ReliabilityLayer::CreateInternalPacketCopy( InternalPacket *original, int dataByteOffset, int dataByteLength, CCTimeType time )
 {
 	InternalPacket * copy = AllocateFromInternalPacketPool();
-#ifdef _DEBUG
-	// Remove accessing undefined memory error
-	memset( copy, 255, sizeof( InternalPacket ) );
-#endif
 	// Copy over our chunk of data
 
 	if ( dataByteLength > 0 )

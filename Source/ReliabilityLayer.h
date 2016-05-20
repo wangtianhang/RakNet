@@ -239,20 +239,20 @@ private:
 	//bool IsSendThrottled( int MTUSize );
 
 	/// We lost a packet
-	void UpdateWindowFromPacketloss( CCTimeType time );
+	//void UpdateWindowFromPacketloss( CCTimeType time );
 
 	/// Increase the window size
-	void UpdateWindowFromAck( CCTimeType time );
+	//void UpdateWindowFromAck( CCTimeType time );
 
 	/// Parse an internalPacket and figure out how many header bits would be written.  Returns that number
 	BitSize_t GetMaxMessageHeaderLengthBits( void );
 	BitSize_t GetMessageHeaderLengthBits( const InternalPacket *const internalPacket );
 
 	/// Get the SHA1 code
-	void GetSHA1( unsigned char * const buffer, unsigned int nbytes, char code[ SHA1_LENGTH ] );
+	//void GetSHA1( unsigned char * const buffer, unsigned int nbytes, char code[ SHA1_LENGTH ] );
 
 	/// Check the SHA1 code
-	bool CheckSHA1( char code[ SHA1_LENGTH ], unsigned char * const buffer, unsigned int nbytes );
+	//bool CheckSHA1( char code[ SHA1_LENGTH ], unsigned char * const buffer, unsigned int nbytes );
 
 	/// Search the specified list for sequenced packets on the specified ordering channel, optionally skipping those with splitPacketId, and delete them
 //	void DeleteSequencedPacketsInList( unsigned char orderingChannel, DataStructures::List<InternalPacket*>&theList, int splitPacketId = -1 );
@@ -490,24 +490,6 @@ private:
 	long long throughputCapCountdown;
 
 	unsigned receivePacketCount;
-
-#ifdef _DEBUG
-	struct DataAndTime//<InternalPacket>
-	{
-		RakNetSocket2 *s;
-		char data[ MAXIMUM_MTU_SIZE ];
-		unsigned int length;
-		RakNet::TimeMS sendTime;
-		//	SystemAddress systemAddress;
-		unsigned short remotePortRakNetWasStartedOn_PS3;
-		unsigned int extraSocketOptions;
-	};
-	DataStructures::Queue<DataAndTime*> delayList;
-
-	// Internet simulator
-	double packetloss;
-	RakNet::TimeMS minExtraPing, extraPingVariance;
-#endif
 
 	CCTimeType elapsedTimeSinceLastUpdate;
 

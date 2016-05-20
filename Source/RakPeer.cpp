@@ -192,18 +192,7 @@ RakPeer::RakPeer()
 	//userUpdateThreadPtr=0;
 	//userUpdateThreadData=0;
 
-#ifdef _DEBUG
-	// Wait longer to disconnect in debug so I don't get disconnected while tracing
-	defaultTimeoutTime=30000;
-#else
 	defaultTimeoutTime=10000;
-#endif
-
-#ifdef _DEBUG
-	_packetloss=0.0;
-	_minExtraPing=0;
-	_extraPingVariance=0;
-#endif
 
 	bufferedCommands.SetPageSize(sizeof(BufferedCommandStruct)*16);
 	socketQueryOutput.SetPageSize(sizeof(SocketQueryOutput)*8);
@@ -842,9 +831,6 @@ uint32_t RakPeer::IncrementNextSendReceipt(void)
 
 uint32_t RakPeer::Send( const RakNet::BitStream * bitStream, PacketPriority priority, PacketReliability reliability, char orderingChannel, const AddressOrGUID systemIdentifier, bool broadcast, uint32_t forceReceiptNumber )
 {
-#ifdef _DEBUG
-	RakAssert( bitStream->GetNumberOfBytesUsed() > 0 );
-#endif
 
 	RakAssert( !( reliability >= NUMBER_OF_RELIABILITIES || reliability < 0 ) );
 	RakAssert( !( priority > NUMBER_OF_PRIORITIES || priority < 0 ) );
@@ -937,10 +923,6 @@ Packet* RakPeer::Receive( void )
 	//		msgId=packet->data[0];
 	
 	} while(packet==0);
-
-#ifdef _DEBUG
-	RakAssert( packet->data );
-#endif
 
 	return packet;
 }
@@ -1523,9 +1505,7 @@ int RakPeer::GetIndexFromGuid( const RakNetGUID guid )
 	return -1;
 }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#if LIBCAT_SECURITY==1
 
-#endif
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ConnectionAttemptResult RakPeer::SendConnectionRequest( const char* host, unsigned short remotePort, const char *passwordData, int passwordDataLength, PublicKey *publicKey, unsigned connectionSocketIndex, unsigned int extraData, unsigned sendConnectionAttemptCount, unsigned timeBetweenSendConnectionAttemptsMS, RakNet::TimeMS timeoutTime )
 {
@@ -1796,9 +1776,7 @@ RakPeer::RemoteSystemStruct * RakPeer::AssignSystemAddressToRemoteSystemList( co
 	RemoteSystemStruct * remoteSystem;
 	unsigned i,j,assignedIndex;
 	RakNet::TimeMS time = RakNet::GetTimeMS();
-#ifdef _DEBUG
-	RakAssert(systemAddress!=UNASSIGNED_SYSTEM_ADDRESS);
-#endif
+
 
 	if (limitConnectionFrequencyFromTheSameIP)
 	{
@@ -1900,14 +1878,6 @@ RakPeer::RemoteSystemStruct * RakPeer::AssignSystemAddressToRemoteSystemList( co
 			remoteSystem->myExternalSystemAddress = UNASSIGNED_SYSTEM_ADDRESS;
 			remoteSystem->lastReliableSend=time;
 
-#ifdef _DEBUG
-			int indexLoopupCheck=GetIndexFromSystemAddress( systemAddress, true );
-			if ((int) indexLoopupCheck!=(int) assignedIndex)
-			{
-				RakAssert((int) indexLoopupCheck==(int) assignedIndex);
-			}
-#endif
-
 			return remoteSystem;
 		}
 	}
@@ -1920,11 +1890,6 @@ RakPeer::RemoteSystemStruct * RakPeer::AssignSystemAddressToRemoteSystemList( co
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void RakPeer::ShiftIncomingTimestamp( unsigned char *data, const SystemAddress &systemAddress ) const
 {
-#ifdef _DEBUG
-	RakAssert( IsActive() );
-	RakAssert( data );
-#endif
-
 	RakNet::BitStream timeBS( data, sizeof(RakNet::Time), false);
 	RakNet::Time encodedTimestamp;
 	timeBS.Read(encodedTimestamp);
@@ -2179,9 +2144,6 @@ void RakPeer::PingInternal( const SystemAddress target, bool performImmediate, P
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void RakPeer::CloseConnectionInternal( const AddressOrGUID& systemIdentifier, bool sendDisconnectionNotification, bool performImmediate, unsigned char orderingChannel, PacketPriority disconnectionNotificationPriority )
 {
-#ifdef _DEBUG
-	RakAssert(orderingChannel < 32);
-#endif
 
 	if (systemIdentifier.IsUndefined())
 		return;
@@ -2369,9 +2331,6 @@ bool RakPeer::SendImmediate( char *data, BitSize_t numberOfBitsToSend, PacketPri
 	{
 		if (remoteSystemIndex==(unsigned int) -1)
 		{
-#ifdef _DEBUG
-//			int debugIndex = GetRemoteSystemIndex(systemIdentifier.systemAddress);
-#endif
 			return false;
 		}
 
@@ -3120,13 +3079,6 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 			{
 				// Duplicate connection request packet from packetloss
 				// Send back the same answer
-#if LIBCAT_SECURITY==1
-				if (requiresSecurityOfThisClient)
-				{
-					CAT_AUDIT_PRINTF("AUDIT: Resending public key and answer from packetloss.  Sending ID_OPEN_CONNECTION_REPLY_2\n");
-					bsAnswer.WriteAlignedBytes((const unsigned char *) rssFromSA->answer,sizeof(rssFromSA->answer));
-				}
-#endif // LIBCAT_SECURITY
 
 				unsigned int i;
 //				for (i=0; i < rakPeer->pluginListNTS.Size(); i++)
@@ -3297,7 +3249,7 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 	RakNet::Time timeMS=0;
 
 	// This is here so RecvFromBlocking actually gets data from the same thread
-	if (socketList[0]->GetSocketType()==RNS2T_WINDOWS && ((RNS2_Windows*)socketList[0])->GetSocketLayerOverride())
+	if (((RNS2_Windows*)socketList[0])->GetSocketLayerOverride())
 	{
 		int len;
 		SystemAddress sender;
@@ -3382,10 +3334,6 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 // 			}
 // 
 // 		}
-
-#ifdef _DEBUG
-		bcs->data=0;
-#endif
 
 		bufferedCommands.Deallocate(bcs, _FILE_AND_LINE_);
 	}
@@ -3611,9 +3559,6 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 				}
 				// else connection shutting down, don't bother telling the user
 
-#ifdef _DO_PRINTF
-				RAKNET_DEBUG_PRINTF("Connection dropped for player %i:%i\n", systemAddress);
-#endif
 				CloseConnectionInternal( systemAddress, false, true, 0, LOW_PRIORITY );
 				continue;
 			}

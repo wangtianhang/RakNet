@@ -63,7 +63,8 @@ void RakNetSocket2::SetRecvEventHandler(RNS2EventHandler *_eventHandler) {eventH
 RNS2Type RakNetSocket2::GetSocketType(void) const {return socketType;}
 void RakNetSocket2::SetSocketType(RNS2Type t) {socketType=t;}
 bool RakNetSocket2::IsBerkleySocket(void) const {
-	return socketType!=RNS2T_CHROME && socketType!=RNS2T_WINDOWS_STORE_8;
+	//return socketType!=RNS2T_CHROME && socketType!=RNS2T_WINDOWS_STORE_8;
+	return true;
 }
 SystemAddress RakNetSocket2::GetBoundAddress(void) const {return boundAddress;}
 
@@ -240,11 +241,6 @@ RNS2_Berkley::~RNS2_Berkley()
 int RNS2_Berkley::CreateRecvPollingThread(int threadPriority)
 {
 	endThreads=false;
-
-
-
-
-
 
 	int errorCode = RakNet::RakThread::Create(RecvFromLoop, this, threadPriority);
 
